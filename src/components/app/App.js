@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../header-app/header-app"
+import SearchBar from "../search-app/search-app"
 
 import './App.css';
 
@@ -7,10 +8,10 @@ import './App.css';
 
 const App = () => {
 
-  return(
+  return (
     <React.Fragment>
-      <Header/>
-
+      <Header />
+      <SearchBar/>
     </React.Fragment>
   )
 }
