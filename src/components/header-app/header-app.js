@@ -3,14 +3,9 @@ import './header-app.css';
 
 const Header = () => {
     return(
-        <div className="header bg-blue-400 h-10">
-            <ul className="header__menu grid grid-cols-5 gap-1 auto-cols-auto justify-items-center">
-                <li className="header__element">Menu Elements</li>
-                <li className="header__element">Menu Elements</li>
-                <li className="header__element">Menu Elements</li>
-                <li className="header__element">Menu Elements</li>
-                <li className="header__element">Menu Elements</li>
-            </ul>
+        <div className="header py-2 px-2 inline-grid grid-cols-2 col-end-2 gap-2">
+            <button className="header__button w-40 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded">Добавить</button>
+            <button className="header__button w-40 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded">Удалить</button>
         </div>
     )
 }
