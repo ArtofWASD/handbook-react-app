@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CardItem(props) {
+export default function CardItem(props) {
     let classNames = "card grid shadow-md shadow-slate-200  hover:shadow-slate-400 border-2 rounded-md bg-white"
     return (
         <div className={classNames}>
@@ -19,5 +19,4 @@ function CardItem(props) {
         </div>
     )
 }
-export default CardItem;
 

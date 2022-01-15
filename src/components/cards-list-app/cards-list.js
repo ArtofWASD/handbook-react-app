@@ -1,7 +1,7 @@
 import React from 'react';
 import CardItem from '../cards-item-app/cards-item'
 
-const CardsList = ({ posts }) => {
+export default function CardsList ({posts}) {
     const elements = posts.map((item) => {
         const { id, ...itemProps } = item;
         return (
@@ -12,6 +12,7 @@ const CardsList = ({ posts }) => {
             </div>
         )
     })
+    
     return (
         <div className="cards__list grid justify-center">
             <div className="cards__title py-4">
@@ -25,4 +26,3 @@ const CardsList = ({ posts }) => {
         </div>
     )
 }
-export default CardsList;
