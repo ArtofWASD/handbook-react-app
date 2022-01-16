@@ -12,17 +12,17 @@ import './app.css';
 export default function App() {
   return (
     <React.Fragment>
-      <Header />
-      <SearchBar />
-      <Routes>
-        <Route path="/PartsListGroup" element={<PartsListGroup />} />
-        <Route path="/" element={<CardsList
-          posts={Data}
-        />} />
-      </Routes>
-
-      <Footer />
-
+      <wrapper>
+        <Header />
+        <SearchBar />
+        <Routes>
+          <Route path="/PartsListGroup" element={<PartsListGroup />} />
+          <Route path="/" element={<CardsList
+            posts={Data}
+          />} />
+        </Routes>
+        <Footer />
+      </wrapper>
     </React.Fragment>
   )
 }

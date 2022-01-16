@@ -18,7 +18,7 @@ export default function CardItem(props) {
                 <p>{props.description}</p>
             </div>
             <div>
-                <Link to='../PartsListGroup'>Подробней</Link>
+                <Link to='../PartsListGroup'><p className='text-center text-sm text-slate-500 py-2'>Подробней</p></Link>
             </div>
         </div>
     )
