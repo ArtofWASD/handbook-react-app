@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 export default function CardItem(props) {
     let classNames = "card grid shadow-md shadow-slate-200  hover:shadow-slate-400 border-2 rounded-md bg-white"
@@ -15,6 +16,9 @@ export default function CardItem(props) {
             </div>
             <div className="card__description text-center py-4 px-3 text-slate-500">
                 <p>{props.description}</p>
+            </div>
+            <div>
+                <Link to='../PartsListGroup'>Подробней</Link>
             </div>
         </div>
     )
