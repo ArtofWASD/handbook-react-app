@@ -1,12 +1,12 @@
 import React from 'react';
-import CardItem from '../cards-item-app/cards-item'
+import CarsItem from '../cars-item-app/cars-item'
 
-export default function CardsList ({posts}) {
+export default function CarsList ({posts}) {
     const elements = posts.map((item) => {
         const { id, ...itemProps } = item;
         return (
             <div key={id}>
-                <CardItem 
+                <CarsItem 
                 {...itemProps}
                 />
             </div>

@@ -1,15 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 
-export default function CardItem(props) {
-    let classNames = "card grid shadow-md shadow-slate-200  hover:shadow-slate-400 border-2 rounded-md bg-white"
+export default function CarsItem(props) {
+    let classNames = "card grid shadow-md shadow-slate-200 hover:shadow-slate-400 border-2 rounded-md bg-white"
     return (
         <div className={classNames}>
-            <div className="card__img w-full">
+            <div className="card__img w-full p-2">
                 {props.image}
             </div>
             <div className="card__title py-4">
-                <p className="text-center font-semibold text-2xl text-slate-400 ">{props.label}</p>
+                <p className="text-center font-semibold text-2xl text-slate-400">{props.label}</p>
             </div>
             <div className="card__year">
                 <p className="text-center font-semibold text-lg text-slate-400 p-0">{props.year}</p>
