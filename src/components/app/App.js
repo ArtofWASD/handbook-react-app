@@ -1,27 +1,24 @@
 import React from "react";
 import { Routes, Route, } from 'react-router-dom';
-import Header from "../header-app/header-app"
-import SearchBar from "../search-app/search-app"
-import CarsList from "../cars-list-app/cars-list"
-import Footer from "../footer-app/footer-app"
-import Data from "../data/data"
-//import Layout from '../layout-app/layout-app'
 
-import './app.css';
+import { Layout } from '../layout/Layout'
+import { Homepage } from '../homepage/Homepage'
+import { PartsList} from '../partslist/Partslist'
+
+import './App.css';
 
 
 
 export default function App() {
   return (
-    <React.Fragment>
-      <Header />
-      <SearchBar />
+    <>
       <Routes>
-        <Route path="*" element={<CarsList posts={Data} />} />
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Homepage />}/>
+          <Route path='partslist/:id' element={<PartsList />}/>
+        </Route>
       </Routes>
-      <Footer />
-
-    </React.Fragment>
+    </>
   )
 }
 
