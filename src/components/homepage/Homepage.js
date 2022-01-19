@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 const Homepage = () => {
     return (
         <>
-            <div className="cards__list grid justify-center">
+            <div className="cards__list grid justify-center ">
                 <div className="cards__title py-4">
                     <h2 className="text-center text-2xl font-semibold text-slate-500"> Выберите раздел</h2>
                 </div>
             </div>
-            <div className="container grid grid-cols-4 gap-4 px-10">
+            <div className="container grid grid-cols-3 gap-4 px-60 items-baseline">
             {Data.map(post => (
                     <div className='card grid shadow-md shadow-slate-200 hover:shadow-slate-400 border-2 rounded-md bg-white' key={post.id}>
                         <div className="card__img w-full p-2">
