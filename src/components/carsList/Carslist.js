@@ -22,10 +22,10 @@ const Carslist = () => {
                     </div>
                 </div>
             )}
-            <div className="child_cars container grid grid-cols-4 gap-4 px-20 ">
+            <div className="child_cars container grid grid-cols-4 gap-4 px-40 ">
                 {childCars.map(childCarCard => (
                     <div className="border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white" key={childCarCard.id}>
-                        <div className="p-5 w-fill">
+                        <div className="w-52">
                             {childCarCard.image}
                         </div>
                         <div className="py-2 text-center font-semibold text-2xl text-slate-400">
