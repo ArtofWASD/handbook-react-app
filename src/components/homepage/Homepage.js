@@ -26,7 +26,7 @@ const Homepage = () => {
                             <p>{post.description}</p>
                         </div>
                         <div>
-                            <Link key={post.id} to={`partslist/${post.id}`}><p className='text-center text-sm text-slate-500 py-2'>Подробней</p></Link>
+                            <Link key={post.id} to={`carslist/${post.id}`}><p className='text-center text-sm text-slate-500 py-2'>Подробней</p></Link>
                         </div>
                     </div>
             ))
