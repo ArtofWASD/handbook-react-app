@@ -15,6 +15,7 @@ import cardNewBoxer from '../img/newBoxer.png';
 // Jumper's
 import cardOldJumper from '../img/oldBoxer.png';
 import cardNewJumper from '../img/newJumper.png';
+
 const Data = [
   {
     image: <img src={cardTTS} alt="" />,
@@ -25,13 +26,13 @@ const Data = [
     childCars: [
       {
         id: 11,
-        image: <img img src={cardTransit} alt='' />,
+        image: <img src={cardTransit} alt='' />,
         label: "Ford Transit",
         year: "1965-1886"
       },
       {
         id: 12,
-        image: <img img src={cardCY} alt='' />,
+        image: <img src={cardCY} alt='' />,
         label: "Ford Transit CY",
         year: "1985-1992"
       },
@@ -61,7 +62,7 @@ const Data = [
       },
       {
         id: 17,
-        image: <img src={cardTTS}  alt='' />,
+        image: <img src={cardTTS} alt='' />,
         label: "Ford Transit TTG",
         year: "2014-2019"
       },

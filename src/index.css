@@ -31,3 +31,28 @@ code {
 .main{
   flex: 1 1 auto;
 }
+.card {
+  position: relative;
+}
+
+.card__link a{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/* Custom media */
+@media (max-width: 640px) {
+  .header__button{
+      justify-self: center;
+  }
+  .cars__title{
+    grid-template-columns: 1fr;
+  }
+  .child-cars{
+    grid-template-columns: 1fr;
+  }
+}
