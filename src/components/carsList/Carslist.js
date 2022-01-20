@@ -22,7 +22,7 @@ const Carslist = () => {
                     </div>
                 </div>
             )}
-            <div className="child_cars container grid grid-cols-4 gap-4 px-40 ">
+            <div className="child_cars container grid grid-cols-4 gap-4">
                 {childCars.map(childCarCard => (
                     <div className="border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white" key={childCarCard.id}>
                         <div className="w-52">
@@ -41,7 +41,7 @@ const Carslist = () => {
                 )
                 )}
             </div>
-            <div className="nav container grid px-20 py-4 justify-end">
+            <div className="nav container grid py-4 justify-end">
                 <button className="w-40 bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 py-1 px-1 border hover:border-blue-500 rounded" onClick={goBack}> Назад </button>
             </div>
         </>
