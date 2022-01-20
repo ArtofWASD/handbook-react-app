@@ -29,7 +29,7 @@ const PartsList = () => {
                     </div>
                 </div>
             )}
-            <div className="childern__posts container grid grid-cols-4 gap-4 px-20 ">
+            <div className="childern__posts container grid grid-cols-4 gap-4 p-20 ">
                 {children.map(childrenPost => (
                     <div className="border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white" key={childrenPost.id}>
                         <div className="p-2 w-fill">

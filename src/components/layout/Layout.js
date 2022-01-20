@@ -8,16 +8,14 @@ import { Footer } from '../footer/Footer';
 const Layout = () => {
     return (
         <>
-            <div className="wrapper">
-                <Header />
-                <main className="content grid justify-center">
-                    <Outlet />
-                </main>
-                <Footer />
-            </div>
+            <Header />
+            <main className="main grid justify-center">
+                <Outlet />
+            </main>
+            <Footer />
         </>
 
     )
 }
 
-export {Layout};
+export { Layout };
