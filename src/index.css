@@ -46,9 +46,6 @@ code {
 
 /* Custom media */
 @media (max-width: 640px) {
-  .header__button{
-      justify-self: center;
-  }
   .cars__title{
     grid-template-columns: 1fr;
   }
@@ -59,4 +56,5 @@ code {
     grid-template-columns: 1fr 1fr;
     justify-items: center;
   }
+
 }

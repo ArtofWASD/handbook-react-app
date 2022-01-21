@@ -1,18 +1,20 @@
 import React from "react";
 import { Routes, Route, } from 'react-router-dom';
-import { Layout } from '../layout/Layout';
-import { Homepage } from '../homepage/Homepage';
-import { Carslist } from '../carsList/Carslist';
-import { CarsPartsList } from '../carsPartsList/CarsPartsList';
-import './App.css';
+import Layout from '../layout/Layout';
+import Homepage from '../homepage/Homepage';
+import CarsList from '../carsList/CarsList';
+import CarsPartsList from '../carsPartsList/CarsPartsList';
+import PartPostList from '../partPostList/PartPostList';
+
 export default function App() {
   return (
     <>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<Homepage />}/>
-          <Route path='carslist/:id' element={<Carslist />}/>
-          <Route path='carslist/:id/carspartslist/:childId' element={<CarsPartsList />}/>
+          <Route index element={<Homepage />} />
+          <Route path='carslist/:id' element={<CarsList />} />
+          <Route path='carslist/:id/carspartslist/:childId' element={<CarsPartsList />} />
+          <Route path='carslist/:id/carspartslist/:childId/postlist/:postId' element={<PartPostList />} />
         </Route>
       </Routes>
     </>

@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Data } from '../data/Data';
 
-const Carslist = () => {
+const CarsList = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const goBack = () => navigate(-1);
@@ -11,13 +11,13 @@ const Carslist = () => {
         <>
             {carsArr && (
                 <div className="cars__header border-2 rounded grid lg:grid-cols-2 sm:grid-cols-1 justify-self-center my-2 bg-white">
-                        <div className="cars__image grid justify-items-center lg:w-80 px-2 ">
-                            {carsArr.image}
-                        </div>
-                        <div className="cars__description grid content-center px-4">
-                            <div className="text-4xl text-center font-semibold py-2 text-slate-500">{carsArr.label}</div>
-                            <div className="text-4xl text-center font-semibold py-2 text-slate-500">{carsArr.year}</div>
-                        </div>
+                    <div className="cars__image grid justify-items-center lg:w-80 px-2 ">
+                        {carsArr.image}
+                    </div>
+                    <div className="cars__description grid content-center px-4">
+                        <div className="text-4xl text-center font-semibold py-2 text-slate-500">{carsArr.label}</div>
+                        <div className="text-4xl text-center font-semibold py-2 text-slate-500">{carsArr.year}</div>
+                    </div>
                 </div>
             )}
             <div className="child-cars grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-4 justify-self-center gap-4 px-2">
@@ -46,4 +46,4 @@ const Carslist = () => {
     );
 }
 
-export { Carslist };
+export default CarsList;
