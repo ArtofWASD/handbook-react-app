@@ -10,7 +10,7 @@ const Carslist = () => {
     return (
         <>
             {carsArr && (
-                <div className="cars__header grid lg:grid-cols-2 sm:grid-cols-1 justify-self-center ">
+                <div className="cars__header border-2 rounded grid lg:grid-cols-2 sm:grid-cols-1 justify-self-center my-2 bg-white">
                         <div className="cars__image grid justify-items-center lg:w-80 px-2 ">
                             {carsArr.image}
                         </div>
@@ -20,16 +20,16 @@ const Carslist = () => {
                         </div>
                 </div>
             )}
-            <div className="child-cars grid lg:grid-cols-4 justify-self-center gap-4 px-2">
+            <div className="child-cars grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-4 justify-self-center gap-4 px-2">
                 {childCars.map(childCarCard => (
                     <div className="card border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white" key={childCarCard.id}>
                         <div className="card__image lg:w-56 p-2">
                             {childCarCard.image}
                         </div>
-                        <div className="card__model py-2 text-center font-semibold text-2xl text-slate-400">
+                        <div className="card__model py-2 text-center font-semibold lg:text-2xl sm:text-base md:text-xl text-slate-400">
                             {childCarCard.label}
                         </div>
-                        <div className="card__year py-2 text-center font-semibold text-2xl text-slate-400">
+                        <div className="card__year py-2 text-center font-semibold lg:text-2xl sm:text-base md:text-xl text-slate-400">
                             {childCarCard.year}
                         </div>
                         <div className="card__link py-2">

@@ -20,8 +20,7 @@ const CarsPartsList = () => {
     return (
         <>  {result && (
             <>
-                <div className="list__group grid lg:grid-cols-2 sm:grid-cols-1 justify-self-center">
-
+                <div className="list__group border-2 rounded bg-white grid lg:grid-cols-2 sm:grid-cols-1 justify-center justify-self-center mt-2">
                         <div className="list__img grid justify-items-center w-60">
                             {result.image}
                         </div>
@@ -29,36 +28,34 @@ const CarsPartsList = () => {
                             <div className="text-4xl text-center font-semibold py-2 text-slate-500">{result.label}</div>
                             <div className="text-4xl text-center font-semibold py-2 text-slate-500">{result.year}</div>
                         </div>
-
                 </div>
             </>
         )
         }
 
-            <div className="parts__group-list grid container lg:grid-cols-4 sm:grid-cols-2 justify-center gap-4 py-4">
-                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white w-48">
+            <div className="parts__group-list grid container lg:grid-cols-4 sm:grid-cols-2 justify-center items-center gap-4 py-4">
+                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white lg:w-48 mx-1 p-2">
                     <img src={ piston } alt="Battery"></img>
-                    <div className="text-center opacity-0">Двигатель</div>
                 </div>
-                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white w-48">
+                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white lg:w-48 mx-1 p-2">
                     <img src={ carDoor } alt="Battery"></img>
                 </div>
-                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white w-48">
+                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white lg:w-48 mx-1 p-2">
                     <img src={ suspension } alt="Battery"></img>
                 </div>
-                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white w-48">
+                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white lg:w-48 mx-1 p-2">
                     <img src={ cooler } alt="Battery"></img>
                 </div>
-                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white w-48">
+                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white lg:w-48 mx-1 p-2">
                     <img src={ chasis } alt="Battery"></img>
                 </div>
-                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white w-48">
+                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white lg:w-48 mx-1 p-2">
                     <img src={ stearing } alt="Battery"></img>
                 </div>
-                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white w-48">
+                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white lg:w-48 mx-1 p-2">
                     <img src={ battery } alt="Battery"></img>
                 </div>
-                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white w-48">
+                <div className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white lg:w-48 mx-1 p-2">
                     <img src={ breakPads } alt="Battery"></img>
                 </div>
             </div>

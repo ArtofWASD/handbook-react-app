@@ -53,6 +53,10 @@ code {
     grid-template-columns: 1fr;
   }
   .child-cars{
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  .parts__group-list {
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
   }
 }
