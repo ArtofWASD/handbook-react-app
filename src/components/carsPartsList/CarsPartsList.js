@@ -29,8 +29,8 @@ const CarsPartsList = () => {
                 <div className="parts__item-image">
                     {partsItem.image}
                 </div>
-                <div className="parts__item-title text-center opacity-0 hover:opacity-100">
-                <Link key={partsItem.id} to={`/carslist/${id}/carspartslist/${getChildCarsArray.id}/postlist/${partsItem.id}`}>{partsItem.title}</Link> 
+                <div className="parts__link text-center">
+                <Link key={partsItem.id} to={`/carslist/${id}/carspartslist/${getChildCarsArray.id}/postlist/${partsItem.id}`}></Link> 
                 </div>
             </div>
         ))}

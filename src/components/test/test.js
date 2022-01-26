@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 const Test = () => {
 
     const [cars, setCars] = useState([])
@@ -10,12 +9,16 @@ const Test = () => {
         .then(data => setCars(data))
     }, [])
 
-    const res = cars.find((item) => item.id === 1);
-   
-    console.log(res.id);
-    return (
-        <div>
+    const res = (cars != null && cars.length > 1) ? cars.find((item) => item.id === 1) : null;
+    console.log(res);
 
+    return (
+        <div className=" py-5">
+            {res &&(
+                <div>
+                    id this page is {res.id}
+                </div>
+            )}
         </div>
     );
 }

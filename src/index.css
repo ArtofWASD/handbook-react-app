@@ -5,7 +5,6 @@
 html {
   height: 100%;
 }
-
 body {
   background-image: url(../public/bg-image.png);
   margin: 0;
@@ -16,26 +15,33 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 .wrapper {
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
-
-.main{
+.main {
   flex: 1 1 auto;
 }
 .card {
   position: relative;
 }
-
-.card__link a{
+.card__link a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.parts__item {
+  position: relative;
+}
+.parts__link a {
   position: absolute;
   top: 0;
   left: 0;
@@ -46,15 +52,14 @@ code {
 
 /* Custom media */
 @media (max-width: 640px) {
-  .cars__title{
+  .cars__title {
     grid-template-columns: 1fr;
   }
-  .child-cars{
+  .child-cars {
     grid-template-columns: 1fr 1fr;
   }
   .parts__group-list {
     grid-template-columns: 1fr 1fr;
     justify-items: center;
   }
-
 }
