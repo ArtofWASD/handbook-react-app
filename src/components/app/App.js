@@ -5,6 +5,7 @@ import Homepage from '../homepage/Homepage';
 import CarsList from '../carsList/CarsList';
 import CarsPartsList from '../carsPartsList/CarsPartsList';
 import PartPostList from '../partPostList/PartPostList';
+import PartPostPage from '../partPost/PartPostPage';
 import Test from '../test/test';
 
 
@@ -16,9 +17,10 @@ export default function App() {
           <Route index element={<Homepage />} />
           <Route path='carslist/:id' element={<CarsList />} />
           <Route path='carslist/:id/carspartslist/:childId' element={<CarsPartsList />} />
-          <Route path='carslist/:id/carspartslist/:childId/postlist/:postId' element={<PartPostList />} />
-          <Route path='test' element={<Test />} />
+          <Route path='carslist/:id/carspartslist/:childId/partlist/:partId' element={<PartPostList />} />
+          <Route path='carslist/:id/carspartslist/:childId/partlist/:partId/post/:postId' element={<PartPostPage />} />
 
+          <Route path='test' element={<Test />} />
         </Route>
       </Routes>
     </>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Homepage = () => {
     return (
-        <>
+        <div className="grid justify-center">
             <div className="cards__list grid justify-center my-auto ">
                 <div className="cards__title self-center">
                     <h2 className="text-center text-4xl font-semibold text-slate-500 py-2"> Каталог моделей микроавтобусов </h2>
@@ -31,7 +31,7 @@ const Homepage = () => {
             ))
             }
             </div>
-        </>
+        </div>
     );
 }
 

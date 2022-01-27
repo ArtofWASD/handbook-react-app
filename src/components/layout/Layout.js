@@ -9,7 +9,7 @@ const Layout = () => {
     return (
         <>
             <Header />
-            <main className="main grid justify-center">
+            <main className="main">
                 <Outlet />
             </main>
             <Footer />

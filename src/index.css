@@ -19,14 +19,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.wrapper {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.main {
-  flex: 1 1 auto;
-}
+
 .card {
   position: relative;
 }
@@ -49,7 +42,30 @@ code {
   bottom: 0;
   z-index: 1;
 }
+.post__item{
+  position: relative;
+}
 
+.post__link a{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+
+.wrapper{
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+}
+.main{
+  min-height: calc(100vh - 250px);
+}
+.footer{
+  grid-row-start: 3;
+}
 /* Custom media */
 @media (max-width: 640px) {
   .cars__title {
