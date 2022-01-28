@@ -13,6 +13,7 @@ const PartPostList = () => {
     // помещаем в переменную объет содержашие посты
     const postList = getPostList.posts
     // Рендерим посты по условию, если в массиве что то есть то используем данный элемент
+    
     function RenderPost() {
         return (
             postList.map(postListItem => (

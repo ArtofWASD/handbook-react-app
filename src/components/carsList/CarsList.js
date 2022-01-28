@@ -8,7 +8,7 @@ const CarsList = () => {
     const carsArr = Data.find(item => item.id == id);
     const childCars = carsArr.childCars;
     return (
-        <div className="grid">
+        <div className="grid xl:px-96 px-4">
             {carsArr && (
                 <div className="cars__header border-2 rounded grid lg:grid-cols-2 sm:grid-cols-1 justify-self-center my-2 bg-white">
                     <div className="cars__image grid justify-items-center lg:w-80 px-2 ">
@@ -23,7 +23,7 @@ const CarsList = () => {
             <div className="child-cars grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-4 justify-self-center gap-4 px-2">
                 {childCars.map(childCarCard => (
                     <div className="card border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white" key={childCarCard.id}>
-                        <div className="card__image lg:w-64 p-2">
+                        <div className="card__image p-2">
                             {childCarCard.image}
                         </div>
                         <div className="card__model py-2 text-center font-semibold lg:text-2xl sm:text-base md:text-xl text-slate-400">
@@ -39,8 +39,8 @@ const CarsList = () => {
                 )
                 )}
             </div>
-            <div className="nav container grid py-4 justify-end px-5">
-                <button className="w-40 bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 py-1 px-1 border hover:border-blue-500 rounded" onClick={goBack}> Назад </button>
+            <div className="nav grid py-4 px-2 justify-end">
+                <button className="w-40 bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 p-2 border hover:border-blue-500 rounded" onClick={goBack}> Назад </button>
             </div>
         </div>
     );
