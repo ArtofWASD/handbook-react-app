@@ -1,5 +1,5 @@
 
-import { Data } from '../data/Data';
+import { Data } from '../../utils/Data';
 import { Link } from 'react-router-dom';
 
 const Homepage = () => {

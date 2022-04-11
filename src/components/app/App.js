@@ -6,7 +6,6 @@ import CarsList from '../carsList/CarsList';
 import CarsPartsList from '../carsPartsList/CarsPartsList';
 import PartPostList from '../partPostList/PartPostList';
 import PartPostPage from '../partPost/PartPostPage';
-import Test from '../test/test';
 
 
 export default function App() {
@@ -19,8 +18,6 @@ export default function App() {
           <Route path='carslist/:id/carspartslist/:childId' element={<CarsPartsList />} />
           <Route path='carslist/:id/carspartslist/:childId/partlist/:partId' element={<PartPostList />} />
           <Route path='carslist/:id/carspartslist/:childId/partlist/:partId/post/:postId' element={<PartPostPage />} />
-
-          <Route path='test' element={<Test />} />
         </Route>
       </Routes>
     </>

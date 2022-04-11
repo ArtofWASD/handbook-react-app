@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Data } from '../data/Data';
+import { Data } from '../../utils/Data';
 
 const PartPostPage = () => {
     const { childId, id, partId, postId } = useParams();
