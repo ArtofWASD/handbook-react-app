@@ -1,7 +1,10 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Data } from '../../utils/Data';
+import { useSelector } from "react-redux";
 
 const CarsList = () => {
+    const fetchetData = useSelector(state=>state.data)
+    console.log(fetchetData);
     const { id } = useParams();
     const navigate = useNavigate();
     const goBack = () => navigate(-1);

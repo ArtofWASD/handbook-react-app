@@ -1,45 +1,20 @@
-
-// parts
-import battery from '../img/battery.png';
-import breakPads from '../img/break.png';
-import carDoor from '../img/car_door.png';
-import chasis from '../img/chassis.png';
-import cooler from '../img/cooler.png';
-import piston from '../img/piston.png';
-import suspension from '../img/shockbreaker.png';
-import stearing from '../img/wheels.png';
-// Ford's
-import cardTTS from '../img/TTS.png';
-import cardTT9 from '../img/TT9.png';
-import cardFY from '../img/FY.png';
-import cardEY from '../img/EY.png';
-import cardDY from '../img/DY.png';
-import cardCY from '../img/CY.png';
-import cardTransit from '../img/Necro.png';
-// Boxer'src
-import cardOldBoxer from '../img/oldBoxer.png';
-import cardNewBoxer from '../img/newBoxer.png';
-// Jumper's
-import cardOldJumper from '../img/oldBoxer.png';
-import cardNewJumper from '../img/newJumper.png';
-
 const Data = [
   {
-    image: <img src={cardTTS} alt="" />,
+    image: '',
     label: 'Ford Transit',
     year: '1965-2022',
     id: 1,
     childCars: [
       {
         id: 11,
-        image: <img src={cardTransit} alt='' />,
+        image: "",
         label: "Ford Transit",
         year: "1965-1886",
         parts: [
           {
             id: 111,
             status: true,
-            image: <img src={piston} alt='' />,
+            image: "",
             title: "Двигатель",
             posts: [
               {id:1111, title: "Замена двигателя", text:"Цилиндро-поршневую группу можно назвать сердцем любого двигателя внутреннего сгорания. В ЦПГ входят поршни с кольцами и гильзы блока цилиндров. Трущаяся пара, которая постоянно подвержена ударным нагрузкам и высоким температурам. Износ ЦПГ критичен и очень дорог в ремонте. Обслуживать там, как правило, нечего. Долгую правильную службу обеспечат частая смена моторного масла, дорогое топливо и оригинальные фильтры. О том, что цилиндро-поршневая группа на автомобилях Форд Транзит износилась, подскажет стук из-под капота либо высокий расход масла (уже при расходе масла около 500 и больше грамм на тысячу километров пробега, пора задуматься о ремонте). Высокий 'жор' масла может быть также из-за течей из-под сальников и прокладок, а также из-за износа маслосъемных колпачков. Их еще называют сальниками клапанов. Турбина также может гнать масло во впуск. Но если эти варианты проверены или устранены, то нужно готовиться к худшему варианту."},
@@ -52,7 +27,7 @@ const Data = [
           {
             id: 112,
             status: true,
-            image: <img src={carDoor} alt='' />,
+            image: "",
             title: "Кузов",
             posts: [
 
@@ -61,7 +36,7 @@ const Data = [
           {
             id: 113,
             status: true,
-            image: <img src={stearing} alt='' />,
+            image: "",
             title: "Мост",
             posts: [
 
@@ -70,7 +45,7 @@ const Data = [
           {
             id: 114,
             status: true,
-            image: <img src={chasis} alt='' />,
+            image: "",
             title: "Рулевое",
             posts: [
 
@@ -79,7 +54,7 @@ const Data = [
           {
             id: 115,
             status: true,
-            image: <img src={suspension} alt='' />,
+            image: "",
             title: "Подвеска",
             posts: [
 
@@ -88,7 +63,7 @@ const Data = [
           {
             id: 116,
             status: true,
-            image: <img src={cooler} alt='' />,
+            image: "",
             title: "Охлаждение",
             posts: [
 
@@ -97,7 +72,7 @@ const Data = [
           {
             id: 117,
             status: true,
-            image: <img src={breakPads} alt='' />,
+            image: "",
             title: "Тормоза",
             posts: [
 
@@ -106,7 +81,7 @@ const Data = [
           {
             id: 118,
             status: true,
-            image: <img src={battery} alt='' />,
+            image: "",
             title: "Электрика",
             posts: [
 
@@ -117,14 +92,14 @@ const Data = [
       },
       {
         id: 12,
-        image: <img src={cardCY} alt='' />,
+        image: "",
         label: "Ford Transit CY",
         year: "1985-1992",
         parts: [
           {
             id: 121,
             status: true,
-            image: <img src={piston} alt='' />,
+            image: "",
             title: "Двигатель",
             posts: [
             ]
@@ -132,7 +107,7 @@ const Data = [
           {
             id: 122,
             status: true,
-            image: <img src={carDoor} alt='' />,
+            image: "",
             title: "Кузов",
             posts: [
 
@@ -141,7 +116,7 @@ const Data = [
           {
             id: 123,
             status: true,
-            image: <img src={stearing} alt='' />,
+            image: "",
             title: "Мост",
             posts: [
 
@@ -150,7 +125,7 @@ const Data = [
           {
             id: 124,
             status: true,
-            image: <img src={chasis} alt='' />,
+            image: "",
             title: "Рулевое",
             posts: [
 
@@ -159,7 +134,7 @@ const Data = [
           {
             id: 125,
             status: true,
-            image: <img src={suspension} alt='' />,
+            image: "",
             title: "Подвеска",
             posts: [
 
@@ -168,7 +143,7 @@ const Data = [
           {
             id: 126,
             status: true,
-            image: <img src={cooler} alt='' />,
+            image: "",
             title: "Охлаждение",
             posts: [
 
@@ -177,7 +152,7 @@ const Data = [
           {
             id: 127,
             status: true,
-            image: <img src={breakPads} alt='' />,
+            image: "",
             title: "Тормоза",
             posts: [
 
@@ -186,7 +161,7 @@ const Data = [
           {
             id: 128,
             status: true,
-            image: <img src={battery} alt='' />,
+            image: "",
             title: "Электрика",
             posts: [
 
@@ -197,14 +172,14 @@ const Data = [
       },
       {
         id: 13,
-        image: <img src={cardDY} alt='' />,
+        image: "",
         label: "Ford Transit DY",
         year: "1992-1994",
         parts: [
           {
             id: 131,
             status: true,
-            image: <img src={piston} alt='' />,
+            image: "",
             title: "Двигатель",
             posts: [
             ]
@@ -212,7 +187,7 @@ const Data = [
           {
             id: 132,
             status: true,
-            image: <img src={carDoor} alt='' />,
+            image: "",
             title: "Кузов",
             posts: [
 
@@ -221,7 +196,7 @@ const Data = [
           {
             id: 133,
             status: true,
-            image: <img src={stearing} alt='' />,
+            image: "",
             title: "Мост",
             posts: [
 
@@ -230,7 +205,7 @@ const Data = [
           {
             id: 134,
             status: true,
-            image: <img src={chasis} alt='' />,
+            image: "",
             title: "Рулевое",
             posts: [
 
@@ -239,7 +214,7 @@ const Data = [
           {
             id: 135,
             status: true,
-            image: <img src={suspension} alt='' />,
+            image: "",
             title: "Подвеска",
             posts: [
 
@@ -248,7 +223,7 @@ const Data = [
           {
             id: 136,
             status: true,
-            image: <img src={cooler} alt='' />,
+            image: "",
             title: "Охлаждение",
             posts: [
 
@@ -257,7 +232,7 @@ const Data = [
           {
             id: 137,
             status: true,
-            image: <img src={breakPads} alt='' />,
+            image: "",
             title: "Тормоза",
             posts: [
 
@@ -266,7 +241,7 @@ const Data = [
           {
             id: 138,
             status: true,
-            image: <img src={battery} alt='' />,
+            image: "",
             title: "Электрика",
             posts: [
 
@@ -277,14 +252,14 @@ const Data = [
       },
       {
         id: 14,
-        image: <img src={cardEY} alt='' />,
+        image: "",
         label: "Ford Transit EY",
         year: "1994-2000",
         parts: [
           {
             id: 141,
             status: true,
-            image: <img src={piston} alt='' />,
+            image: "",
             title: "Двигатель",
             posts: [
             ]
@@ -292,7 +267,7 @@ const Data = [
           {
             id: 142,
             status: true,
-            image: <img src={carDoor} alt='' />,
+            image: "",
             title: "Кузов",
             posts: [
 
@@ -301,7 +276,7 @@ const Data = [
           {
             id: 143,
             status: true,
-            image: <img src={stearing} alt='' />,
+            image: "",
             title: "Мост",
             posts: [
 
@@ -310,7 +285,7 @@ const Data = [
           {
             id: 144,
             status: true,
-            image: <img src={chasis} alt='' />,
+            image: "",
             title: "Рулевое",
             posts: [
 
@@ -319,7 +294,7 @@ const Data = [
           {
             id: 145,
             status: true,
-            image: <img src={suspension} alt='' />,
+            image: "",
             title: "Подвеска",
             posts: [
 
@@ -328,7 +303,7 @@ const Data = [
           {
             id: 146,
             status: true,
-            image: <img src={cooler} alt='' />,
+            image: "",
             title: "Охлаждение",
             posts: [
 
@@ -337,7 +312,7 @@ const Data = [
           {
             id: 147,
             status: true,
-            image: <img src={breakPads} alt='' />,
+            image: "",
             title: "Тормоза",
             posts: [
 
@@ -346,7 +321,7 @@ const Data = [
           {
             id: 148,
             status: true,
-            image: <img src={battery} alt='' />,
+            image: "",
             title: "Электрика",
             posts: [
 
@@ -357,14 +332,14 @@ const Data = [
       },
       {
         id: 15,
-        image: <img src={cardFY} alt='' />,
+        image: "",
         label: "Ford Transit FY",
         year: "2000-2006",
         parts: [
           {
             id: 151,
             status: true,
-            image: <img src={piston} alt='' />,
+            image: "",
             title: "Двигатель",
             posts: [
             ]
@@ -372,7 +347,7 @@ const Data = [
           {
             id: 152,
             status: true,
-            image: <img src={carDoor} alt='' />,
+            image: "",
             title: "Кузов",
             posts: [
 
@@ -381,7 +356,7 @@ const Data = [
           {
             id: 153,
             status: true,
-            image: <img src={stearing} alt='' />,
+            image:  "",
             title: "Мост",
             posts: [
 
@@ -390,7 +365,7 @@ const Data = [
           {
             id: 154,
             status: true,
-            image: <img src={chasis} alt='' />,
+            image: "",
             title: "Рулевое",
             posts: [
 
@@ -399,7 +374,7 @@ const Data = [
           {
             id: 155,
             status: true,
-            image: <img src={suspension} alt='' />,
+            image: "",
             title: "Подвеска",
             posts: [
 
@@ -408,7 +383,7 @@ const Data = [
           {
             id: 156,
             status: true,
-            image: <img src={cooler} alt='' />,
+            image: "",
             title: "Охлаждение",
             posts: [
 
@@ -417,7 +392,7 @@ const Data = [
           {
             id: 157,
             status: true,
-            image: <img src={breakPads} alt='' />,
+            image: "",
             title: "Тормоза",
             posts: [
 
@@ -426,7 +401,7 @@ const Data = [
           {
             id: 158,
             status: true,
-            image: <img src={battery} alt='' />,
+            image: "",
             title: "Электрика",
             posts: [
 
@@ -437,14 +412,14 @@ const Data = [
       },
       {
         id: 16,
-        image: <img src={cardTT9} alt='' />,
+        image: "",
         label: "Ford Transit TT9",
         year: "2006-2014",
         parts: [
           {
             id: 161,
             status: true,
-            image: <img src={piston} alt='' />,
+            image: "",
             title: "Двигатель",
             posts: [
             ]
@@ -452,7 +427,7 @@ const Data = [
           {
             id: 162,
             status: true,
-            image: <img src={carDoor} alt='' />,
+            image: "",
             title: "Кузов",
             posts: [
 
@@ -461,7 +436,7 @@ const Data = [
           {
             id: 163,
             status: true,
-            image: <img src={stearing} alt='' />,
+            image: "",
             title: "Мост",
             posts: [
 
@@ -470,7 +445,7 @@ const Data = [
           {
             id: 164,
             status: true,
-            image: <img src={chasis} alt='' />,
+            image: "",
             title: "Рулевое",
             posts: [
 
@@ -479,7 +454,7 @@ const Data = [
           {
             id: 165,
             status: true,
-            image: <img src={suspension} alt='' />,
+            image: "",
             title: "Подвеска",
             posts: [
 
@@ -488,7 +463,7 @@ const Data = [
           {
             id: 166,
             status: true,
-            image: <img src={cooler} alt='' />,
+            image: "",
             title: "Охлаждение",
             posts: [
 
@@ -497,7 +472,7 @@ const Data = [
           {
             id: 167,
             status: true,
-            image: <img src={breakPads} alt='' />,
+            image: "",
             title: "Тормоза",
             posts: [
 
@@ -506,7 +481,7 @@ const Data = [
           {
             id: 168,
             status: true,
-            image: <img src={battery} alt='' />,
+            image: "",
             title: "Электрика",
             posts: [
 
@@ -517,14 +492,14 @@ const Data = [
       },
       {
         id: 17,
-        image: <img src={cardTTS} alt='' />,
+        image: "",
         label: "Ford Transit TTG",
         year: "2014-2019",
         parts: [
           {
             id: 171,
             status: true,
-            image: <img src={piston} alt='' />,
+            image: "",
             title: "Двигатель",
             posts: [
             ]
@@ -532,7 +507,7 @@ const Data = [
           {
             id: 172,
             status: true,
-            image: <img src={carDoor} alt='' />,
+            image: "",
             title: "Кузов",
             posts: [
 
@@ -541,7 +516,7 @@ const Data = [
           {
             id: 173,
             status: true,
-            image: <img src={stearing} alt='' />,
+            image: "",
             title: "Мост",
             posts: [
 
@@ -550,7 +525,7 @@ const Data = [
           {
             id: 174,
             status: true,
-            image: <img src={chasis} alt='' />,
+            image: "",
             title: "Рулевое",
             posts: [
 
@@ -559,7 +534,7 @@ const Data = [
           {
             id: 175,
             status: true,
-            image: <img src={suspension} alt='' />,
+            image: "",
             title: "Подвеска",
             posts: [
 
@@ -568,7 +543,7 @@ const Data = [
           {
             id: 176,
             status: true,
-            image: <img src={cooler} alt='' />,
+            image: "",
             title: "Охлаждение",
             posts: [
 
@@ -577,7 +552,7 @@ const Data = [
           {
             id: 177,
             status: true,
-            image: <img src={breakPads} alt='' />,
+            image: "",
             title: "Тормоза",
             posts: [
 
@@ -586,7 +561,7 @@ const Data = [
           {
             id: 178,
             status: true,
-            image: <img src={battery} alt='' />,
+            image: "",
             title: "Электрика",
             posts: [
 
@@ -597,14 +572,14 @@ const Data = [
       },
       {
         id: 18,
-        image: <img src={cardTTS} alt='' />,
+        image: "",
         label: "Ford Transit TTS",
         year: "2019-2022",
         parts: [
           {
             id: 181,
             status: true,
-            image: <img src={piston} alt='' />,
+            image: "",
             title: "Двигатель",
             posts: [
             ]
@@ -612,7 +587,7 @@ const Data = [
           {
             id: 182,
             status: true,
-            image: <img src={carDoor} alt='' />,
+            image: "",
             title: "Кузов",
             posts: [
 
@@ -621,7 +596,7 @@ const Data = [
           {
             id: 183,
             status: true,
-            image: <img src={stearing} alt='' />,
+            image: "",
             title: "Мост",
             posts: [
 
@@ -630,7 +605,7 @@ const Data = [
           {
             id: 184,
             status: true,
-            image: <img src={chasis} alt='' />,
+            image: "",
             title: "Рулевое",
             posts: [
 
@@ -639,7 +614,7 @@ const Data = [
           {
             id: 185,
             status: true,
-            image: <img src={suspension} alt='' />,
+            image: "",
             title: "Подвеска",
             posts: [
 
@@ -648,7 +623,7 @@ const Data = [
           {
             id: 186,
             status: true,
-            image: <img src={cooler} alt='' />,
+            image: "",
             title: "Охлаждение",
             posts: [
 
@@ -657,7 +632,7 @@ const Data = [
           {
             id: 187,
             status: true,
-            image: <img src={breakPads} alt='' />,
+            image: "",
             title: "Тормоза",
             posts: [
 
@@ -666,7 +641,7 @@ const Data = [
           {
             id: 188,
             status: true,
-            image: <img src={battery} alt='' />,
+            image: "",
             title: "Электрика",
             posts: [
 
@@ -678,21 +653,21 @@ const Data = [
     ]
   },
   {
-    image: <img src={cardNewBoxer} alt="" />,
+    image: "",
     label: 'Peugeot Boxer',
     year: '1990-2022',
     id: 2,
     childCars: [
       {
         id: 21,
-        image: <img src={cardOldBoxer} alt='' />,
+        image: "",
         label: "Peugeot Boxer",
         year: "до 2006",
         parts: [
           {
             id: 211,
             status: true,
-            image: <img src={piston} alt='' />,
+            image: "",
             title: "Двигатель",
             posts: [
             ]
@@ -700,7 +675,7 @@ const Data = [
           {
             id: 212,
             status: true,
-            image: <img src={carDoor} alt='' />,
+            image: "",
             title: "Кузов",
             posts: [
 
@@ -709,7 +684,7 @@ const Data = [
           {
             id: 213,
             status: true,
-            image: <img src={stearing} alt='' />,
+            image: "",
             title: "Мост",
             posts: [
 
@@ -718,7 +693,7 @@ const Data = [
           {
             id: 214,
             status: true,
-            image: <img src={chasis} alt='' />,
+            image: "",
             title: "Рулевое",
             posts: [
 
@@ -727,7 +702,7 @@ const Data = [
           {
             id: 215,
             status: true,
-            image: <img src={suspension} alt='' />,
+            image: "",
             title: "Подвеска",
             posts: [
 
@@ -736,7 +711,7 @@ const Data = [
           {
             id: 216,
             status: true,
-            image: <img src={cooler} alt='' />,
+            image: "",
             title: "Охлаждение",
             posts: [
 
@@ -745,7 +720,7 @@ const Data = [
           {
             id: 217,
             status: true,
-            image: <img src={breakPads} alt='' />,
+            image: "",
             title: "Тормоза",
             posts: [
 
@@ -754,7 +729,7 @@ const Data = [
           {
             id: 218,
             status: true,
-            image: <img src={battery} alt='' />,
+            image: "",
             title: "Электрика",
             posts: [
 
@@ -765,14 +740,14 @@ const Data = [
       },
       {
         id: 22,
-        image: <img src={cardNewBoxer} alt='' />,
+        image: "",
         label: "Peugeot Boxer",
         year: "2006-2022",
         parts: [
           {
             id: 221,
             status: true,
-            image: <img src={piston} alt='' />,
+            image: "",
             title: "Двигатель",
             posts: [
             ]
@@ -780,7 +755,7 @@ const Data = [
           {
             id: 222,
             status: true,
-            image: <img src={carDoor} alt='' />,
+            image: "",
             title: "Кузов",
             posts: [
 
@@ -789,7 +764,7 @@ const Data = [
           {
             id: 223,
             status: true,
-            image: <img src={stearing} alt='' />,
+            image: "",
             title: "Мост",
             posts: [
 
@@ -798,7 +773,7 @@ const Data = [
           {
             id: 224,
             status: true,
-            image: <img src={chasis} alt='' />,
+            image: "",
             title: "Рулевое",
             posts: [
 
@@ -807,7 +782,7 @@ const Data = [
           {
             id: 225,
             status: true,
-            image: <img src={suspension} alt='' />,
+            image: "",
             title: "Подвеска",
             posts: [
 
@@ -816,7 +791,7 @@ const Data = [
           {
             id: 226,
             status: true,
-            image: <img src={cooler} alt='' />,
+            image: "",
             title: "Охлаждение",
             posts: [
 
@@ -825,7 +800,7 @@ const Data = [
           {
             id: 227,
             status: true,
-            image: <img src={breakPads} alt='' />,
+            image: "",
             title: "Тормоза",
             posts: [
 
@@ -834,7 +809,7 @@ const Data = [
           {
             id: 228,
             status: true,
-            image: <img src={battery} alt='' />,
+            image: "",
             title: "Электрика",
             posts: [
 
@@ -846,21 +821,21 @@ const Data = [
     ]
   },
   {
-    image: <img src={cardNewJumper} alt="" />,
+    image: "",
     label: 'Citroen Jumper',
     year: '1990-2022',
     id: 3,
     childCars: [
       {
         id: 31,
-        image: <img src={cardOldJumper} alt='' />,
+        image: "",
         label: "Citroen Jumper",
         year: "до 2006",
         parts: [
           {
             id: 311,
             status: true,
-            image: <img src={piston} alt='' />,
+            image: "",
             title: "Двигатель",
             posts: [
             ]
@@ -868,7 +843,7 @@ const Data = [
           {
             id: 312,
             status: true,
-            image: <img src={carDoor} alt='' />,
+            image: "",
             title: "Кузов",
             posts: [
 
@@ -877,7 +852,7 @@ const Data = [
           {
             id: 313,
             status: true,
-            image: <img src={stearing} alt='' />,
+            image: "",
             title: "Мост",
             posts: [
 
@@ -886,7 +861,7 @@ const Data = [
           {
             id: 314,
             status: true,
-            image: <img src={chasis} alt='' />,
+            image: "",
             title: "Рулевое",
             posts: [
 
@@ -895,7 +870,7 @@ const Data = [
           {
             id: 315,
             status: true,
-            image: <img src={suspension} alt='' />,
+            image: "",
             title: "Подвеска",
             posts: [
 
@@ -904,7 +879,7 @@ const Data = [
           {
             id: 316,
             status: true,
-            image: <img src={cooler} alt='' />,
+            image: "",
             title: "Охлаждение",
             posts: [
 
@@ -913,7 +888,7 @@ const Data = [
           {
             id: 317,
             status: true,
-            image: <img src={breakPads} alt='' />,
+            image: "",
             title: "Тормоза",
             posts: [
 
@@ -922,7 +897,7 @@ const Data = [
           {
             id: 318,
             status: true,
-            image: <img src={battery} alt='' />,
+            image: "",
             title: "Электрика",
             posts: [
 
@@ -933,14 +908,14 @@ const Data = [
       },
       {
         id: 32,
-        image: <img src={cardNewJumper} alt='' />,
+        image: "",
         label: "Citroen Jumper",
         year: "2006-2022",
         parts: [
           {
             id: 321,
             status: true,
-            image: <img src={piston} alt='' />,
+            image: "",
             title: "Двигатель",
             posts: [
             ]
@@ -948,7 +923,7 @@ const Data = [
           {
             id: 322,
             status: true,
-            image: <img src={carDoor} alt='' />,
+            image: "",
             title: "Кузов",
             posts: [
 
@@ -957,7 +932,7 @@ const Data = [
           {
             id: 323,
             status: true,
-            image: <img src={stearing} alt='' />,
+            image: "",
             title: "Мост",
             posts: [
 
@@ -966,7 +941,7 @@ const Data = [
           {
             id: 324,
             status: true,
-            image: <img src={chasis} alt='' />,
+            image: "",
             title: "Рулевое",
             posts: [
 
@@ -975,7 +950,7 @@ const Data = [
           {
             id: 325,
             status: true,
-            image: <img src={suspension} alt='' />,
+            image: "",
             title: "Подвеска",
             posts: [
 
@@ -984,7 +959,7 @@ const Data = [
           {
             id: 326,
             status: true,
-            image: <img src={cooler} alt='' />,
+            image: "",
             title: "Охлаждение",
             posts: [
 
@@ -993,7 +968,7 @@ const Data = [
           {
             id: 327,
             status: true,
-            image: <img src={breakPads} alt='' />,
+            image: "",
             title: "Тормоза",
             posts: [
 
@@ -1002,7 +977,7 @@ const Data = [
           {
             id: 328,
             status: true,
-            image: <img src={battery} alt='' />,
+            image: "",
             title: "Электрика",
             posts: [
 

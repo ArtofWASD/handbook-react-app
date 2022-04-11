@@ -1,5 +1,7 @@
-import React from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Routes, Route, } from 'react-router-dom';
+import { fetchData } from '../../services/reducers/data-slice';
 import Layout from '../layout/Layout';
 import Homepage from '../homepage/Homepage';
 import CarsList from '../carsList/CarsList';
@@ -9,6 +11,10 @@ import PartPostPage from '../partPost/PartPostPage';
 
 
 export default function App() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchData())
+  })
   return (
     <>
       <Routes>
