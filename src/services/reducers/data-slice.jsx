@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Data } from "../../utils/Data";
+
 export const fetchData = createAsyncThunk("data/fetchData", async (_, { rejectWithValue }) => {
   return fetch(Data)
     .then((response) => {

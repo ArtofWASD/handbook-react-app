@@ -1,10 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Data } from '../../utils/Data';
-import { useSelector } from "react-redux";
 
 const CarsList = () => {
-    const fetchetData = useSelector(state=>state.data)
-    console.log(fetchetData);
     const { id } = useParams();
     const navigate = useNavigate();
     const goBack = () => navigate(-1);
@@ -15,7 +12,7 @@ const CarsList = () => {
             {carsArr && (
                 <div className="cars__header border-2 rounded grid lg:grid-cols-2 sm:grid-cols-1 justify-self-center my-2 bg-white">
                     <div className="cars__image grid justify-items-center lg:w-80 px-2 ">
-                        {carsArr.image}
+                        <img src={carsArr.image} alt={carsArr.name} />
                     </div>
                     <div className="cars__description grid content-center px-4">
                         <div className="text-4xl text-center font-semibold py-2 text-slate-500">{carsArr.label}</div>
@@ -27,7 +24,7 @@ const CarsList = () => {
                 {childCars.map(childCarCard => (
                     <div className="card border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white" key={childCarCard.id}>
                         <div className="card__image p-2">
-                            {childCarCard.image}
+                            <img src={childCarCard.image} alt={childCarCard.name} />
                         </div>
                         <div className="card__model py-2 text-center font-semibold lg:text-2xl sm:text-base md:text-xl text-slate-400">
                             {childCarCard.label}

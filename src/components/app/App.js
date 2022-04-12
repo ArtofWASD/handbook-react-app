@@ -9,12 +9,12 @@ import CarsPartsList from '../carsPartsList/CarsPartsList';
 import PartPostList from '../partPostList/PartPostList';
 import PartPostPage from '../partPost/PartPostPage';
 
-
 export default function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchData())
   })
+
   return (
     <>
       <Routes>

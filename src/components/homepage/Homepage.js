@@ -16,7 +16,8 @@ const Homepage = () => {
             {Data.map(post => (
                     <div className='card grid shadow-md shadow-slate-200 hover:border-blue-500 border-2 rounded-md bg-white ' key={post.id}>
                         <div className="card__img p-2 lg:w-64 w-full ">
-                            {post.image}
+                            <img src={post.image} alt="" />
+                            
                         </div>
                         <div className="card__title py-4">
                             <p className="text-center font-semibold text-2xl text-slate-400">{post.label}</p>
