@@ -1,12 +1,13 @@
 import Modal from '../modal/Modal';
 import { useState } from 'react';
+import Button from '../button/button'
 
 const Header = () => {
     const [modalActive, setModalActive] = useState(false)
     return (
             <header className="header grid grid-cols-auto ">
                 <div className="header__button grid justify-self-end  py-4 px-4">
-                    <button className="header__button-button w-40 bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 py-1 px-1 border hover:border-blue-500 rounded" onClick={()=> setModalActive(true)}>Авторизация</button>
+                    <Button title="Авторизация" onClickHandler={()=> setModalActive(true)} />
                 </div>
                 <div className="header__title grid justify-self-center py-4">
                     <p className='text-center text-2xl font-semibold text-slate-500'> Справочник по самостоятельному ремонту и замене запчастей</p>
