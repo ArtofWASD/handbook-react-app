@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-export default function CarModelItem({data}) {
+export default function CarModelItem({data, route}) {
   return (
     <div className="card grid shadow-md shadow-slate-200 hover:border-blue-500 border-2 rounded-md bg-white " key={data.id}>
       <div className="card__img p-2 lg:w-64 w-full ">
@@ -14,7 +14,7 @@ export default function CarModelItem({data}) {
         <p className="text-center font-semibold text-lg text-slate-400 p-0">{data.year}</p>
       </div>
       <div className="card__link">
-        <Link key={data.id} to={`carslist/${data.id}`}></Link>
+        <Link key={data.id} to={route}></Link>
       </div>
     </div>
   );
