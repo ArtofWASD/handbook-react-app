@@ -6,16 +6,11 @@ import Layout from '../layout/layout';
 import Homepage from '../homepage/homepage';
 import CarsList from '../cars-list/cars-list';
 import CarsPartsList from '../cars-parts-list/cars-parts-list';
-import PartPostList from '../partPostList/PartPostList';
+import PartPostList from '../partPostList/part-post-list';
 import PartPostPage from '../partPost/PartPostPage';
 
 export default function App() {
   
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(fetchData())
-  })
-
   return (
     <Routes>
       <Route path='/' element={<Layout />}>

@@ -1,19 +1,14 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Data } from '../../utils/Data';
+import Button from "../button/button";
 const PartPostList = () => {
     const { childId, id, partId } = useParams();
     const navigate = useNavigate();
     const goBack = () => navigate(-1);
-    // Получаем объект с модельным рядом машин 
     const getCarsArr = Data.find(item => item.id == id);
-    // получаем обект содержаший конкретную машину
     const getChildCarsArray = getCarsArr.childCars.find(item => item.id == childId);
-    //получаем объект группы запчастей содержаший в себе посты 
     const getPostList = getChildCarsArray.parts.find((item => item.id == partId));
-    // помещаем в переменную объет содержашие посты
     const postList = getPostList.posts
-    // Рендерим посты по условию, если в массиве что то есть то используем данный элемент
-    
     function RenderPost() {
         return (
             postList.map(postListItem => (
@@ -50,9 +45,9 @@ const PartPostList = () => {
             </div>
             <div className="nav grid justify-end justify-items-center row-start-3 lg:grid-cols-[auto_auto] md:grid-cols-[40%_40%] grid-cols-2 py-4 gap-2">
                 <Link to='../'>
-                    <button className="w-40 bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 py-1 px-1 border hover:border-blue-500 rounded">На главную</button>
+                <Button title="На главную" />
                 </Link>
-                <button className="w-40 bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 py-1 px-1 border hover:border-blue-500 rounded" onClick={goBack}> Назад </button>
+                <Button title="Назад" onClickHandler={goBack}/>
             </div>
         </div>
     );
