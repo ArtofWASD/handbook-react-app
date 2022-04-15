@@ -6,8 +6,8 @@ import Layout from '../layout/layout';
 import Homepage from '../homepage/homepage';
 import CarsList from '../cars-list/cars-list';
 import CarsPartsList from '../cars-parts-list/cars-parts-list';
-import PartPostList from '../partPostList/part-post-list';
-import PartPostPage from '../partPost/PartPostPage';
+import PartPostList from '../part-post-list/part-post-list';
+import PartPostPage from '../part-post-page/part-post-page';
 
 export default function App() {
   
@@ -18,7 +18,7 @@ export default function App() {
         <Route path='/:id' element={<CarsList />} />
         <Route path='/:id/:childId' element={<CarsPartsList />} />
         <Route path='/:id/:childId/:partId' element={<PartPostList />} />
-        <Route path='carslist/:id/carspartslist/:childId/partlist/:partId/post/:postId' element={<PartPostPage />} />
+        <Route path='/:id/:childId/:partId/:postId' element={<PartPostPage />} />
       </Route>
     </Routes>
   )
