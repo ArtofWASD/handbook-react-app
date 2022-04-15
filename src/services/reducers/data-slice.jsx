@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Data } from "../../utils/Data";
+import data from "../../utils/data.json";
 
 export const fetchData = createAsyncThunk("data/fetchData", async (_, { rejectWithValue }) => {
-  return fetch(Data)
+  return fetch(data)
     .then((response) => {
       if (response.ok) {
         return response.json();
