@@ -1,6 +1,6 @@
 import Modal from '../modal/Modal';
 import { useState } from 'react';
-import Button from '../button/button'
+import Button from '../button/button.tsx'
 
 const Header = () => {
     const [modalActive, setModalActive] = useState(false)

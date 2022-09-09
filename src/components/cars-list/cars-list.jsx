@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Data } from "../../utils/Data";
 import СarsListTitle from "../cars-list-title/cars-list-title";
-import Button from "../button/button";
+import Button from "../button/button.tsx";
 import CarModelItem from "../car-model-item/car-model-item";
 
 const CarsList = () => {

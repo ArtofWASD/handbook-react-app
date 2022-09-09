@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Data } from "../../utils/Data";
-import Button from "../button/button";
+import Button from "../button/button.tsx";
 import PartsPostsPreview from "../parts-posts-preview/parts-posts-preview";
 import PartPostsNotFound from "../part-post-not-found/part-post-not-found";
 const PartPostList = () => {
