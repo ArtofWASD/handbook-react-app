@@ -7,7 +7,6 @@ import PartPostList from '../part-post-list/part-post-list';
 import PartPostPage from '../part-post-page/part-post-page';
 
 export default function App() {
-  
   return (
     <Routes>
       <Route path='/' element={<Layout />}>
