@@ -1,6 +1,7 @@
 import Modal from '../modal/Modal';
 import { useState } from 'react';
-import Button from '../button/button.tsx'
+import Button from '../button/button'
+import Breadcrumb from '../breadcrumbs/breadcrumbs'
 
 const Header = () => {
     const [modalActive, setModalActive] = useState(false)
@@ -17,7 +18,8 @@ const Header = () => {
                     <button className="bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 py-1 px-1 border hover:border-blue-500 rounded" 
                     >Поиск</button>
                 </div>
-                <Modal active={modalActive} setActive={setModalActive}/>
+            <Modal active={modalActive} setActive={setModalActive} />
+            <Breadcrumb/>
             </header>
     );
 }

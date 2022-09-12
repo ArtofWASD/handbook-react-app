@@ -1,6 +1,11 @@
+import { FC } from "react";
 import './modal.css'
 import closeIcon from '../../img/cross.svg'
-const Modal = ({ active, setActive }) => {
+type TModal = {
+    active: boolean,
+    setActive:()=>void,
+}
+const Modal:<FC>Tmodal = ({ active, setActive }) => {
     return (
         <div className={active ? 'modal active' : 'modal'} onClick={() => setActive(false)}>
             <div className={active ? 'modal__content active' : 'modal__content'} onClick={(e) => e.stopPropagation()}>
