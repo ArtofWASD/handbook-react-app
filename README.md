@@ -6,7 +6,7 @@
 - HTML
 - Tailwind CSS
 
-Его можно найти в живую по адресу : https://handbook-react-app.herokuapp.com/
+Его можно найти в живую по адресу : https://handbook-react-caimeshr2-artofwasd.vercel.app/
 
 ## Внимание
 
