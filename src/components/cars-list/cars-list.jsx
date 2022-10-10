@@ -8,7 +8,7 @@ const CarsList = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
-  const carsArr = Data.find((item) => item.id === Number(id));
+  const carsArr = Data.find((item) => item.id === String(id));
 
   return (
     <div className="grid xl:px-48 px-4">

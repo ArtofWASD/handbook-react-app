@@ -8,7 +8,7 @@ const CarsPartsList = () => {
   const { childId, id } = useParams();
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
-  const childCarArray = Data.find((item) => item.id === Number(id)).childCars.find((item)=>item.id === Number(childId))
+  const childCarArray = Data.find((item) => item.id === String(id)).childCars.find((item)=>item.id === String(childId))
  
   return (
     <div className="grid justify-center">

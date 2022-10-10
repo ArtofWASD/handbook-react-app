@@ -9,7 +9,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Homepage />} />
+        <Route index element={<Homepage />}  />
         <Route path="/:id" element={<CarsList />} />
         <Route path="/:id/:childId" element={<CarsPartsList />} />
         <Route path="/:id/:childId/:partId" element={<PartPostList />} />

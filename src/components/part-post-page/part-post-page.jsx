@@ -6,10 +6,10 @@ const PartPostPage = () => {
   const { childId, id, partId, postId } = useParams();
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
-  const post = Data.find((item) => item.id === Number(id))
-    .childCars.find((item) => item.id === Number(childId))
-    .parts.find((item) => item.id === Number(partId))
-    .posts.find((item) => item.id === Number(postId));
+  const post = Data.find((item) => item.id === String(id))
+    .childCars.find((item) => item.id === String(childId))
+    .parts.find((item) => item.id === String(partId))
+    .posts.find((item) => item.id === String(postId));
   return (
     <div className="grid xl:px-72 lg:px-20 py-4 px-4">
       {post && (

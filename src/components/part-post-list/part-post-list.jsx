@@ -7,9 +7,9 @@ const PartPostList = () => {
   const { childId, id, partId } = useParams();
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
-  const postsList = Data.find((item) => item.id === Number(id))
-    .childCars.find((item) => item.id === Number(childId))
-    .parts.find((item) => item.id === Number(partId));
+  const postsList = Data.find((item) => item.id === String(id))
+    ?.childCars.find((item) => item.id === String(childId))
+    ?.parts.find((item) => item.id === String(partId));
   return (
     <div className="grid grid-rows-[auto_auto_auto] xl:px-72 lg:px-20">
       <div className="part-posts__title">
