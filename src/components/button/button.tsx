@@ -1,5 +1,5 @@
 import { FC } from "react";
-type TButton = { title: string; onClickHandler: () => void };
+type TButton = { title: string; onClickHandler?: () => void };
 const Button: FC<TButton> = ({ title, onClickHandler }) => {
   return (
     <>

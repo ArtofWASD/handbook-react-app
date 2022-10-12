@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Data } from "../../utils/Data";
-import Button from "../button/button.tsx";
+import Button from "../button/button";
 import PartsPostsPreview from "../parts-posts-preview/parts-posts-preview";
 import PartPostsNotFound from "../part-post-not-found/part-post-not-found";
 const PartPostList = () => {
@@ -17,7 +17,7 @@ const PartPostList = () => {
       </div>
       <div className="part-posts grid">
         <div className="part-posts__list border-2 rounded col-start-1 col-end-4 row-start-2">
-          {postsList.posts.length > 1 ? (
+          {postsList !== undefined && postsList.posts.length > 1 ? (
             postsList.posts.map((item) => <PartsPostsPreview data={item} route={`/${id}/${childId}/${partId}/${item.id}`} key={item.id} />)
           ) : (
             <PartPostsNotFound />
