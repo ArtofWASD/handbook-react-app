@@ -1,12 +1,13 @@
 # Справочник по ремонту микроавтобусов
 Создавался как веб приложение для сотрудников, по которому можно легко найти информацию по ремонту автомобилей.
 ## Стек:
+- TypeScript
 - React
 - React-Router
-- HTML
+- Redux-Toolkit
 - Tailwind CSS
 
-Его можно найти в живую по адресу : https://handbook-react-caimeshr2-artofwasd.vercel.app/
+Его можно найти в живую по адресу : https://handbook-react-app.vercel.app/
 
 ## Внимание
 

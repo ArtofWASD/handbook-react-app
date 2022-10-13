@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Data } from "../../utils/Data";
 import СarsListTitle from "../cars-list-title/cars-list-title";
-import Button from "../button/button.tsx";
+import Button from "../button/button";
 import CarModelItem from "../car-model-item/car-model-item";
 
 const CarsList = () => {
@@ -9,10 +9,15 @@ const CarsList = () => {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
   const carsArr = Data.find((item) => item.id === String(id));
-
+  const carTitle = { image: "", label: "", year: "" };
+  Object.assign(carTitle, {
+    image: carsArr?.image,
+    label: carsArr?.label,
+    year: carsArr?.year,
+  });
   return (
     <div className="grid xl:px-48 px-4">
-      <СarsListTitle data={carsArr} />
+      <СarsListTitle data={carTitle} />
       {carsArr && (
         <div
           className={
@@ -22,7 +27,11 @@ const CarsList = () => {
           }
         >
           {carsArr.childCars.map((item) => (
-            <CarModelItem data={item} route={`/${id}/${item.id}`} key={item.id}/>
+            <CarModelItem
+              data={item}
+              route={`/${id}/${item.id}`}
+              key={item.id}
+            />
           ))}
         </div>
       )}
