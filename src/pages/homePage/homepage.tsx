@@ -1,6 +1,6 @@
 
 import { Data } from '../../utils/Data';
-import CarModelItem from '../car-model-item/car-model-item'
+import CarModelItem from '../../components/car-model-item/car-model-item'
 const Homepage = () => {
     return (
         <div className="grid justify-center">

@@ -1,6 +1,6 @@
+import Login from "components/login/Login";
 import { FC } from "react";
 import "./modal.css";
-import Form from "../form/Form";
 
 type TModal = {
   active: boolean;
@@ -20,7 +20,6 @@ const Modal: FC<TModal> = ({ active, setActive }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modal__title flex items-center">
-          <div className="text-center text-xl font-semibold px-48">Войти</div>
           <img
             className="h-5"
             src={closeIcon}
@@ -28,7 +27,7 @@ const Modal: FC<TModal> = ({ active, setActive }) => {
             onClick={() => setActive(false)}
           />
         </div>
-        <Form title="Вход"/>
+          <Login/>
       </div>
     </div>
   );

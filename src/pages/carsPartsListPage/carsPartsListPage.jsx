@@ -1,8 +1,8 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Data } from "../../utils/Data";
-import СarsListTitle from "../cars-list-title/cars-list-title";
-import Button from "../button/button.tsx";
-import PartsListItem from "../parts-list-item/parts-list-item"
+import СarsListTitle from "../../components/cars-list-title/cars-list-title";
+import Button from "../../ui/button/button.tsx";
+import PartsListItem from "../../components/parts-list-item/parts-list-item"
 
 const CarsPartsList = () => {
   const { childId, id } = useParams();

@@ -1,16 +1,18 @@
 import { useState, FC } from "react";
 
 type TForm = {
+  buttonTitle: string;
   title: string;
-  onClickHandler?: () => void;
+  onClickHandler: (email: string, password: string) => void;
 };
 
-const Form: FC<TForm> = ({ title, onClickHandler }) => {
+const Form: FC<TForm> = ({ title, onClickHandler, buttonTitle }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
     <div>
+      <span>{title}</span>
       <form
         action=""
         method="get"
@@ -32,10 +34,10 @@ const Form: FC<TForm> = ({ title, onClickHandler }) => {
         />
         <button
           type="submit"
-                  className=" w-52 justify-self-center p-2 bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 border hover:border-blue-500 rounded"
-                  onClick={onClickHandler}
+          className=" w-52 justify-self-center p-2 bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 border hover:border-blue-500 rounded"
+          onClick={() => onClickHandler(email, password)}
         >
-          {title}
+          {buttonTitle}
         </button>
       </form>
     </div>

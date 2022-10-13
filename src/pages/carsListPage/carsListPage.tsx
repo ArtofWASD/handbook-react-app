@@ -1,8 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Data } from "../../utils/Data";
-import СarsListTitle from "../cars-list-title/cars-list-title";
-import Button from "../button/button";
-import CarModelItem from "../car-model-item/car-model-item";
+import СarsListTitle from "../../components/cars-list-title/cars-list-title";
+import Button from "../../ui/button/button";
+import CarModelItem from "../../components/car-model-item/car-model-item";
 
 const CarsList = () => {
   const { id } = useParams();

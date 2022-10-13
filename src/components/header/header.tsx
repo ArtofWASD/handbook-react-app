@@ -1,6 +1,6 @@
-import Modal from "../modal/Modal";
+import Modal from "../../ui/modal/Modal";
 import { useState } from "react";
-import Button from "../button/button";
+import Button from "../../ui/button/button";
 import Breadcrumb from "../breadcrumbs/breadcrumbs";
 import { useLocation } from "react-router-dom";
 

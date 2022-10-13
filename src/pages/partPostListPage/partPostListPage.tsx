@@ -1,8 +1,8 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Data } from "../../utils/Data";
-import Button from "../button/button";
-import PartsPostsPreview from "../parts-posts-preview/parts-posts-preview";
-import PartPostsNotFound from "../part-post-not-found/part-post-not-found";
+import Button from "../../ui/button/button";
+import PartsPostsPreview from "../../components/parts-posts-preview/parts-posts-preview";
+import PartPostsNotFound from "../../components/part-post-not-found/part-post-not-found";
 const PartPostList = () => {
   const { childId, id, partId } = useParams();
   const navigate = useNavigate();
