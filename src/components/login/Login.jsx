@@ -18,6 +18,7 @@ const Login = () => {
         buttonTitle="Войти"
         onClickHandler={loginHandler}
       />
+      Зарегистрироваться 
     </>
   );
 };
