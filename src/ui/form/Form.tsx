@@ -11,35 +11,29 @@ const Form: FC<TForm> = ({ title, onClickHandler, buttonTitle }) => {
   const [password, setPassword] = useState("");
 
   return (
-    <div>
+    <div className="flex flex-col items-center py-3">
       <span className="flex justify-center text-xl font-semibold">{title}</span>
-      <form
-        action=""
-        method="get"
-        className="modal__form grid grid-cols-1 gap-4 py-4"
+      <input
+        type="email"
+        placeholder="E-mail"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="border-2 rounded h-10 w-72 p-2 justify-self-center text-center my-1"
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        className="border-2 rounded h-10 w-72 p-2 justify-self-center text-center my-1"
+      />
+      <button
+        type="submit"
+        className=" w-52 justify-self-center p-2 bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 border hover:border-blue-500 rounded"
+        onClick={() => onClickHandler(email, password)}
       >
-        <input
-          type="email"
-          placeholder="E-mail"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="border-2 rounded h-10 w-52 p-2 justify-self-center"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="border-2 rounded h-10 w-52 p-2 justify-self-center"
-        />
-        <button
-          type="submit"
-          className=" w-52 justify-self-center p-2 bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 border hover:border-blue-500 rounded"
-          onClick={() => onClickHandler(email, password)}
-        >
-          {buttonTitle}
-        </button>
-      </form>
+        {buttonTitle}
+      </button>
     </div>
   );
 };

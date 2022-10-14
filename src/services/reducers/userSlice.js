@@ -7,7 +7,7 @@ export const userSlice = createSlice({
         token: null,
         id: null,
     },
-    reducer: {
+    reducers: {
         setUser(state, action) {
             state.email = action.payload.email;
             state.token = action.payload.token;
