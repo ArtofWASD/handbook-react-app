@@ -20,9 +20,9 @@ const PartPostPage = () => {
       )}
       <div className="nav grid justify-end justify-items-center row-start-3 lg:grid-cols-[auto_auto] md:grid-cols-[40%_40%] grid-cols-2 py-4 gap-2">
         <Link to="../">
-          <Button title="На главную" />
+          <Button title="На главную" className="w-48 justify-self-center p-2 bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 border hover:border-blue-500 rounded-xl" />
         </Link>
-        <Button title="Назад" onClickHandler={goBack} />
+        <Button title="Назад" onClickHandler={goBack} className="w-48 justify-self-center p-2 bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 border hover:border-blue-500 rounded-xl" />
       </div>
     </div>
   );

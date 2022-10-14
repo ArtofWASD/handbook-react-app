@@ -7,7 +7,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const loginHandler = (email, password) => {
+  const loginHandler = (email:string, password:string) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
     .then(({ user }) => {
@@ -15,7 +15,7 @@ const Login = () => {
         setUser({
           email: user.email,
           id: user.uid,
-          token: user.accessToken,
+          token: user.refreshToken,
         }),
       );
       navigate("/");

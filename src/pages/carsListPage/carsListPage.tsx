@@ -36,7 +36,7 @@ const CarsList = () => {
         </div>
       )}
       <div className="nav grid py-4 px-2 justify-end">
-        <Button onClickHandler={goBack} title="Назад" />
+        <Button onClickHandler={goBack} title="Назад"  className="w-48 justify-self-center p-2 bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 border hover:border-blue-500 rounded-xl"/>
       </div>
     </div>
   );

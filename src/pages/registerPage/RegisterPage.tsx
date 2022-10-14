@@ -9,7 +9,7 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const registerHandler = (email, password) => {
+  const registerHandler = (email:string, password:string) => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
@@ -17,7 +17,7 @@ const Register = () => {
           setUser({
             email: user.email,
             id: user.uid,
-            token: user.accessToken,
+            token: user.refreshToken,
           }),
         );
         navigate("/");
@@ -26,9 +26,9 @@ const Register = () => {
   };
   return (
     <Form
-      title="Register"
+      title="Регистрация нового пользователя"
       onClickHandler={registerHandler}
-      buttonTitle="Зарегистрироваться"
+      buttonTitle="Регистрация"
     />
   );
 };
