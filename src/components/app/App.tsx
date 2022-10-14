@@ -7,9 +7,17 @@ import PartPostList from "../../pages/partPostListPage/partPostListPage";
 import PartPostPage from "../part-post-page/part-post-page";
 import RegisterPage from "pages/registerPage/RegisterPage";
 import LoginPage from "pages/loginPage/LoginPage";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchData } from "services/reducers/dataSlice";
 
 
 export default function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchData())
+  }, [dispatch])
+  
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

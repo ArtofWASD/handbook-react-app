@@ -1,15 +1,25 @@
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { setUser } from "services/reducers/userSlice";
 import Form from "ui/form/Form";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const loginHandler = (email, password) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
-      .then(console.log)
+    .then(({ user }) => {
+      dispatch(
+        setUser({
+          email: user.email,
+          id: user.uid,
+          token: user.accessToken,
+        }),
+      );
+      navigate("/");
+    })
       .catch(console.error);
   };
   return (
