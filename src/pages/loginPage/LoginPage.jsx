@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { setUser } from "services/reducers/userSlice";
 import Form from "ui/form/Form";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -18,7 +19,9 @@ const Login = () => {
         buttonTitle="Войти"
         onClickHandler={loginHandler}
       />
-      Зарегистрироваться 
+      <span className='flex justify-center text-xl font-semibold'>
+        Нет учётной записи ? <Link to="/register" className="text-blue-700 px-2">Регистрация</Link>
+      </span>
     </>
   );
 };

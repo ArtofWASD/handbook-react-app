@@ -2,7 +2,7 @@ import Modal from "../../ui/modal/Modal";
 import { useState } from "react";
 import Button from "../../ui/button/button";
 import Breadcrumb from "../breadcrumbs/breadcrumbs";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [modalActive, setModalActive] = useState(false);
@@ -11,10 +11,9 @@ const Header = () => {
   return (
     <header className="header grid grid-cols-auto ">
       <div className="header__button grid justify-self-end  py-4 px-4">
-        <Button
-          title="Авторизация"
-          onClickHandler={() => setModalActive(true)}
-        />
+        <Link to="login">
+          <Button title="Авторизация" />
+        </Link>
       </div>
       <div className="header__title grid justify-self-center py-4">
         <p className="text-center text-2xl font-semibold text-slate-500">

@@ -1,4 +1,3 @@
-import Login from "components/login/Login";
 import { FC } from "react";
 import "./modal.css";
 
@@ -27,7 +26,6 @@ const Modal: FC<TModal> = ({ active, setActive }) => {
             onClick={() => setActive(false)}
           />
         </div>
-          <Login/>
       </div>
     </div>
   );

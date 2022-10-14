@@ -12,7 +12,7 @@ const Form: FC<TForm> = ({ title, onClickHandler, buttonTitle }) => {
 
   return (
     <div>
-      <span>{title}</span>
+      <span className="flex justify-center text-xl font-semibold">{title}</span>
       <form
         action=""
         method="get"
