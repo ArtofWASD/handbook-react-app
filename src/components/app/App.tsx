@@ -7,6 +7,7 @@ import PartPostList from "../../pages/partPostListPage/partPostListPage";
 import PartPostPage from "../part-post-page/part-post-page";
 import RegisterPage from "pages/registerPage/RegisterPage";
 import LoginPage from "pages/loginPage/LoginPage";
+import AccountPage from "pages/accountPage/AccountPage"
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchData } from "services/reducers/dataSlice";
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/:id" element={<CarsList />} />
         <Route path="register" element={<RegisterPage />} />
         <Route path="login" element={<LoginPage />} />
+        <Route path="account" element={<AccountPage />} />
         <Route path="/:id/:childId" element={<CarsPartsList />} />
         <Route path="/:id/:childId/:partId" element={<PartPostList />} />
         <Route

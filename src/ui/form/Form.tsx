@@ -1,6 +1,7 @@
 import { useState, FC } from "react";
 import { Link } from "react-router-dom";
 import Button from "ui/button/button";
+import Input from "ui/input/input";
 
 type TForm = {
   buttonTitle: string;
@@ -11,27 +12,26 @@ type TForm = {
 const Form: FC<TForm> = ({ title, onClickHandler, buttonTitle }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   return (
     <div className="flex flex-col items-center py-3">
       <span className="flex justify-center text-xl font-semibold pb-4">
         {title}
       </span>
-      <input
+      <Input
         type="email"
-        placeholder="E-mail"
+        placeholder="Почта"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className="border-2 rounded-2xl h-10 w-80 p-2 justify-self-center text-center my-1"
+        onChangeHandler={(e) => setEmail(e.target.value)}
+        className=" w-80 my-2"
       />
-      <input
+      <Input
         type="password"
-        placeholder="Password"
+        placeholder="Пароль"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        className="border-2 rounded-2xl h-10 w-80 p-2 justify-self-center text-center my-1"
+        onChangeHandler={(e) => setPassword(e.target.value)}
+        className=" w-80 my-2"
       />
-      <div className="py-4 flex gap-2">
+      <div className="py-4 flex gap-7">
         <Link to="../">
           <Button
             title="На главную"
