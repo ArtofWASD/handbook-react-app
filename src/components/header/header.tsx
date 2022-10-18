@@ -6,7 +6,6 @@ import { useAppSelector } from "utils/hooks";
 const Header = () => {
   const location = useLocation();
   const isUserLogin = useAppSelector((state) => state.user.isLogin);
-  console.log(isUserLogin);
 
   return (
     <header className="header grid grid-cols-auto ">

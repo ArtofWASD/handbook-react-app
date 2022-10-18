@@ -28,13 +28,13 @@ const CarsPartsList = () => {
         <Link to="../">
           <Button
             title="На главную"
-            className="w-36 justify-self-center p-2 bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 border hover:border-blue-500 rounded-xl"
+            className="w-36"
           />
         </Link>
         <Button
           title="Назад"
           onClickHandler={goBack}
-          className="w-36 justify-self-center p-2 bg-blue-500 hover:bg-white text-white font-semibold hover:text-blue-700 border hover:border-blue-500 rounded-xl"
+          className="w-36"
         />
       </div>
     </div>
