@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getDatabase, ref, child, get } from "firebase/database";
 
-export const fetchData = createAsyncThunk("data/fetchData", async (_, { rejectWithValue }) => {
+export const fetchData = createAsyncThunk("data/fetchData", async () => {
   const dbRef = ref(getDatabase());
   return get(child(dbRef, `/`)).then((snapshot) => {
     if (snapshot.exists()) {
