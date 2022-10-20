@@ -1,42 +1,52 @@
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { setUser } from "services/reducers/userSlice";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import Input from "ui/input/input";
 import Button from "ui/button/button";
 import { useState } from "react";
+import { log } from "console";
 
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [name, setName] = useState("");
-  const [email, setEmail ] = useState("");
-  const [password, setPassword ] = useState("");
-  
-
-  const registerHandler = (email: string, password: string, name:string) => {
-    const auth = getAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const auth = getAuth();
+  const registerHandler = (email: string, password: string) => {
+    
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         dispatch(
           setUser({
-            name:user.displayName,
             email: user.email,
             id: user.uid,
             token: user.refreshToken,
           }),
         );
-        navigate("/");
       })
       .catch(console.error);
   };
+
+  auth.currentUser ? updateProfile(auth.currentUser, {
+    displayName: name
+    // Profile updated!
+    // ...
+  }).catch((error) => {
+    // An error occurred
+    // ...
+  }):console.log();
+  
+  
+
   return (
     <>
       <form
         action="submit"
         onSubmit={(e) => {
           e.preventDefault();
-          registerHandler(email, password, name);
+          registerHandler(email, password);
           navigate("/");
         }}
         className=" flex flex-col items-center"
@@ -44,7 +54,7 @@ const Register = () => {
         <Input
           type="name"
           placeholder="Ваше имя"
-          value={email}
+          value={name}
           onChangeHandler={(e) => setName(e.target.value)}
           className=" w-80 my-2"
         />
@@ -64,7 +74,7 @@ const Register = () => {
         />
         <Button
           title="Зарегестрироваться"
-          onClickHandler={() => registerHandler(email, password, name)}
+          onClickHandler={() => registerHandler(email, password)}
           className="w-48 my-2"
         ></Button>
       </form>
