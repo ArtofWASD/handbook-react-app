@@ -8,14 +8,27 @@ import { useState } from "react";
 const Header = () => {
   const [searchValue, setSearchValue] = useState("");
   const location = useLocation();
-  const isUserLogin = useAppSelector((state) => state.user.isLogin);
-
+  const userInfo = useAppSelector((state) => state.user);
+  
   return (
     <header className="header grid grid-cols-auto ">
       <div className="header__button grid justify-self-end  py-4 px-4">
-        {isUserLogin ? (
+        {userInfo?.isLogin ? (
           <Link to="account">
-            <Button title="Личный кабинет" className="w-48" />
+            <div className="flex items-center gap-3">
+              <img
+                src={require("../../img/login.png")}
+                alt="Logo"
+                className="w-10"
+              />
+              <span className="label text-xl font-semibold text-slate-500">
+                {userInfo.name !== undefined ? (
+                  userInfo.name
+                ) : (
+                  <span> User </span>
+                )}
+              </span>
+            </div>
           </Link>
         ) : (
           <Link to="login">

@@ -1,21 +1,19 @@
-import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { setUser } from "services/reducers/userSlice";
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Input from "ui/input/input";
 import Button from "ui/button/button";
 import { useState } from "react";
-import { log } from "console";
+import { useAppDispatch } from "utils/hooks";
 
 const Register = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const auth = getAuth();
   const registerHandler = (email: string, password: string) => {
-    
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         dispatch(
@@ -28,18 +26,6 @@ const Register = () => {
       })
       .catch(console.error);
   };
-
-  auth.currentUser ? updateProfile(auth.currentUser, {
-    displayName: name
-    // Profile updated!
-    // ...
-  }).catch((error) => {
-    // An error occurred
-    // ...
-  }):console.log();
-  
-  
-
   return (
     <>
       <form
