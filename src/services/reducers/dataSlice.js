@@ -27,7 +27,7 @@ export const dataSlice = createSlice({
       state.status = "Loading";
     },
     [fetchData.fulfilled]: (state, action) => {
-      state.status = "resolved";
+      state.status = "Resolved";
       state.data = action.payload;
     },
     [fetchData.rejected]: (state, action) => {

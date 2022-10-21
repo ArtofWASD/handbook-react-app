@@ -14,9 +14,9 @@ const Login = () => {
 
   const loginHandler = (email: string, password: string) => {
     const auth = getAuth();
+    
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        console.log(user);
         dispatch(
           setUser({
             email: user.email,
