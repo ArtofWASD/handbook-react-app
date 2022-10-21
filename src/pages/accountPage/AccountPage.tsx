@@ -3,6 +3,7 @@ import { useAppDispatch } from "utils/hooks";
 import { removeUser } from "services/reducers/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
+import UpdateUserInfo from "components/updateUserInfo/UpdateUserInfo";
 
 const Account = () => {
   const dispatch = useAppDispatch();
@@ -23,7 +24,9 @@ const Account = () => {
   return (
     <>
       <div className="text-2xl text-center py-4">accountPage</div>
+      <UpdateUserInfo/>
       <div className="flex justify-center gap-3 pt-48">
+        
         <Button title="Выход" onClickHandler={logOut} className="w-48" />
         <Link to="/">
           <Button title="На Главную" className="w-48" />

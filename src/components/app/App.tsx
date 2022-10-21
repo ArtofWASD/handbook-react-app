@@ -22,8 +22,11 @@ export default function App() {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user) {
+        console.log(user);
+        
         dispatch(
           setUser({
+            name: user.displayName,
             email: user.email,
             id: user.uid,
             token: user.refreshToken,
