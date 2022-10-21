@@ -8,7 +8,6 @@ import PartPostPage from "../part-post-page/part-post-page";
 import RegisterPage from "pages/registerPage/RegisterPage";
 import LoginPage from "pages/loginPage/LoginPage";
 import AccountPage from "pages/accountPage/AccountPage";
-import PreloadPage from "pages/preLoadPage/PreloadPage";
 import { useEffect } from "react";
 import { fetchData } from "services/reducers/dataSlice";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -18,7 +17,6 @@ import { setUser } from "services/reducers/userSlice";
 export default function App() {
   const dispatch = useAppDispatch();
   const isAppLoad = useAppSelector((state) => state.data.status);
-  console.log(isAppLoad);
 
   const isUserLogin = () => {
     const auth = getAuth();
@@ -59,7 +57,7 @@ export default function App() {
           />
         </Route>
       ) : (
-        <Route path="/" element={<PreloadPage />}></Route>
+        <></>
       )}
     </Routes>
   );
