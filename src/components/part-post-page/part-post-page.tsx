@@ -1,5 +1,4 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { Data } from "../../utils/Data";
 import Button from "../../ui/button/button";
 import { useAppSelector } from "utils/hooks";
 // Страница с статьей
@@ -9,14 +8,14 @@ const PartPostPage = () => {
   const goBack = () => navigate(-1);
   const isUserLogin = useAppSelector((state) => state.user.isLogin);
 
-  const post = Data.find((item) => item.id === String(id))
-    ?.childCars.find((item) => item.id === String(childId))
-    ?.parts.find((item) => item.id === String(partId))
-    ?.posts.find((item) => item.id === String(postId));
+  // const post = Data.find((item) => item.id === String(id))
+  //   ?.childCars.find((item) => item.id === String(childId))
+  //   ?.parts.find((item) => item.id === String(partId))
+  //   ?.posts.find((item) => item.id === String(postId));
 
   return (
-    <div className="grid xl:px-72 lg:px-20 py-4 px-4">
-      {isUserLogin ? (<div className="flex justify-self-end py-4"><Button title="Редактировать" className="w-40" /></div>):(<></>)}
+    <div className="grid parts_post_page xl:px-72 lg:px-20 py-4 px-4">
+      {/* {isUserLogin ? (<div className="flex justify-self-end py-4"><Button title="Редактировать" className="w-40" /></div>):(<></>)}
       {post && (
         <div className="post__item border-2 rounded py bg-slate-100">
           <div className="post__title text-xl font-semibold text-slate-500 p-2">{post.title}</div>
@@ -28,7 +27,7 @@ const PartPostPage = () => {
           <Button title="На главную" className="w-48" />
         </Link>
         <Button title="Назад" onClickHandler={goBack} className="w-48" />
-      </div>
+      </div> */}
     </div>
   );
 };

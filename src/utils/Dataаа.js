@@ -782,7 +782,7 @@ const Data = [
         id: "Peugeot Boxer_06-23",
         image: "https://firebasestorage.googleapis.com/v0/b/spare-part-handbook.appspot.com/o/newBoxer.png?alt=media&token=2747afcb-33c9-44ea-9755-2bc678f8edf8",
         label: "Peugeot Boxer",
-        year: "2006-2022",
+        year: "2006",
         parts: [
           {
             id: 'Engine',
@@ -960,7 +960,7 @@ const Data = [
         id: "Citroen Jumper",
         image: "https://firebasestorage.googleapis.com/v0/b/spare-part-handbook.appspot.com/o/newJumper.png?alt=media&token=99f55ece-090b-4056-b227-b934c588c8d5",
         label: "Citroen Jumper",
-        year: "2006-2022",
+        year: "2006",
         parts: [
           {
             id: 'Engine',
