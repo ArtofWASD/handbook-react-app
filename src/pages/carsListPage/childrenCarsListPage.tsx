@@ -4,13 +4,13 @@ import Button from "../../ui/button/button";
 import CarModelItem from "../../components/car-model-item/car-model-item";
 import { useAppSelector } from "utils/hooks";
 
+
 const ChildrenCarsList = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
   const carsData = useAppSelector((state) => state.data.data.Cars);
   const carsArr = carsData.find((item: any) => item.id === String(id));
-
   const carTitle = { image: "", label: "", year: "" };
 
   Object.assign(carTitle, {
@@ -29,7 +29,7 @@ const ChildrenCarsList = () => {
               : `child-cars grid lg:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 justify-self-center gap-4 px-2`
           }
         >
-          {carsArr.childCars.map((item:any) => (
+          {carsArr.childCars.map((item: any) => (
             <CarModelItem
               data={item}
               route={`/${id}/${item.id}`}

@@ -3,6 +3,7 @@ import Button from "../../ui/button/button";
 import PartsPostsPreview from "../../components/parts-posts-preview/parts-posts-preview";
 import PartPostsNotFound from "../../components/part-post-not-found/part-post-not-found";
 import { useAppSelector } from "utils/hooks";
+
 // Список статей внутри группы запчастей
 const PartPostList = () => {
   const { childId, id, partId } = useParams();
@@ -16,7 +17,6 @@ const PartPostList = () => {
     ?.childCars.find((item: { id: string }) => item.id === String(childId))
     ?.parts.find((item: { id: string }) => item.id === String(partId));
   console.log(postsList);
-  
 
   return (
     <div className="parts_posts_list_page grid grid-rows-[auto_auto_auto_auto] xl:px-72 lg:px-20">

@@ -7,18 +7,28 @@ const PartPostPage = () => {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
   const isUserLogin = useAppSelector((state) => state.user.isLogin);
+  const carsData = useAppSelector((state) => state.data.data.Cars);
 
-  // const post = Data.find((item) => item.id === String(id))
-  //   ?.childCars.find((item) => item.id === String(childId))
-  //   ?.parts.find((item) => item.id === String(partId))
-  //   ?.posts.find((item) => item.id === String(postId));
+  const post = carsData
+    .find((item: { id: string }) => item.id === String(id))
+    ?.childCars.find((item: { id: string }) => item.id === String(childId))
+    ?.parts.find((item: { id: string }) => item.id === String(partId))
+    ?.posts.find((item: { id: string }) => item.id === String(postId));
 
   return (
     <div className="grid parts_post_page xl:px-72 lg:px-20 py-4 px-4">
-      {/* {isUserLogin ? (<div className="flex justify-self-end py-4"><Button title="Редактировать" className="w-40" /></div>):(<></>)}
+      {isUserLogin ? (
+        <div className="flex justify-self-end py-4">
+          <Button title="Редактировать" className="w-40" />
+        </div>
+      ) : (
+        <></>
+      )}
       {post && (
         <div className="post__item border-2 rounded py bg-slate-100">
-          <div className="post__title text-xl font-semibold text-slate-500 p-2">{post.title}</div>
+          <div className="post__title text-xl font-semibold text-slate-500 p-2">
+            {post.title}
+          </div>
           <div className="post__text p-2">{post.text}</div>
         </div>
       )}
@@ -27,7 +37,7 @@ const PartPostPage = () => {
           <Button title="На главную" className="w-48" />
         </Link>
         <Button title="Назад" onClickHandler={goBack} className="w-48" />
-      </div> */}
+      </div>
     </div>
   );
 };
