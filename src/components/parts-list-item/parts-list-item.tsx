@@ -11,7 +11,7 @@ type TPartsListItem = {
 const PartsListItem: FC<TPartsListItem> = ({ data, route }) => {
   return (
     <div
-      className="parts__item border-2 rounded shadow-md shadow-slate-200 hover:border-blue-500 bg-white lg:w-48 mx-1 p-2"
+      className="parts__item border-2 rounded-xl shadow-md shadow-slate-200 hover:border-blue-500 bg-white lg:w-48 mx-1 p-2"
       key={data.id}
     >
       <div className="parts__item-image">

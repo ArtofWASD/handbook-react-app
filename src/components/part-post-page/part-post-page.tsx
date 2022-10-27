@@ -29,6 +29,10 @@ const PartPostPage = () => {
           <div className="post__title text-xl font-semibold text-slate-500 p-2">
             {post.title}
           </div>
+          <div className="post__img flex justify-center">
+            <img src={post.imgUrl} alt={post.imgUrl} />
+          </div>
+
           <div className="post__text p-2">{post.text}</div>
         </div>
       )}
