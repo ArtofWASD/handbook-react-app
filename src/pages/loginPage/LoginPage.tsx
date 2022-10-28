@@ -60,12 +60,12 @@ const Login = () => {
         ></Button>
       </form>
       <div className="flex flex-col items-center text-xl font-semibold py-4">
-        <span>
+        {/* <span>
           Нет учётной записи ?
           <Link to="/register" className="text-blue-700 px-2">
             Зарегестрируйтесь
           </Link>
-        </span>
+        </span> */}
         <span>
           Вернуться на
           <Link to="/" className="text-blue-700 px-2">

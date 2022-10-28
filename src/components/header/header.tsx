@@ -45,11 +45,11 @@ const Header = () => {
         <Input
           type="text"
           className="lg:col-start-2 lg:col-span-3 border border-blue-500 px-4 py-2 font-semibold"
-          placeholder="Номер запчасти или название"
+          placeholder="В разработке, не тыкать!"
           value={searchValue}
           onChangeHandler={(e) => setSearchValue(e.target.value)}
         />
-        <Button title="Поиск" className="w-48"></Button>
+        <Button title="Поиск" className="w-48" onClickHandler={()=>{alert('Сказано же не тыкать !')}}></Button>
       </div>
       {location.pathname !== "/" && <Breadcrumb />}
     </header>

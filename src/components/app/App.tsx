@@ -22,8 +22,6 @@ export default function App() {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user);
-        
         dispatch(
           setUser({
             name: user.displayName,
@@ -32,8 +30,6 @@ export default function App() {
             token: user.refreshToken,
           }),
         );
-      } else {
-        console.log("пользовател вышел");
       }
     });
   };
