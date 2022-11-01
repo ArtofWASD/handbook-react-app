@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Button from "../../ui/button/button";
 import { useAppSelector } from "utils/hooks";
+
 // Страница с статьей
 const PartPostPage = () => {
   const { childId, id, partId, postId } = useParams();
@@ -33,7 +34,10 @@ const PartPostPage = () => {
             <img src={post.imgUrl} alt={post.imgUrl} />
           </div>
 
-          <div className="post__text p-2">{post.text}</div>
+          <div
+            className="post__text p-2"
+            dangerouslySetInnerHTML={{ __html: `${post.text}` }}
+          ></div>
         </div>
       )}
       <div className="nav grid justify-end justify-items-center row-start-3 lg:grid-cols-[auto_auto] md:grid-cols-[40%_40%] grid-cols-2 py-4 gap-2">
