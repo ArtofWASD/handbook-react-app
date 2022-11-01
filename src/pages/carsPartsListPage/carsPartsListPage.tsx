@@ -17,7 +17,7 @@ const CarsPartsList = () => {
   return (
     <div className="cars_parts_list_page grid justify-center">
       {childCarArray && <СarsListTitle data={childCarArray} />}
-      <div className="parts__group-list grid lg:grid-cols-4 sm:grid-cols-2 gap-4 py-4">
+      <div className="parts__group-list grid lg:grid-cols-4 sm:grid-cols-2 gap-4 py-4 px-1">
         {childCarArray?.parts.map((item: any) => (
           <PartsListItem
             data={item}
@@ -26,7 +26,7 @@ const CarsPartsList = () => {
           />
         ))}
       </div>
-      <div className="nav grid lg:grid-cols-[20%_20%] md:grid-cols-[40%_40%] grid-cols-2 py-4 justify-end gap-2">
+      <div className="nav grid lg:grid-cols-[20%_20%] md:grid-cols-[40%_40%] grid-cols-2 py-4 justify-end gap-2 px-2">
         <Link to="../">
           <Button title="На главную" className="w-36" />
         </Link>

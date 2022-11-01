@@ -37,7 +37,7 @@ const Header = () => {
         )}
       </div>
       <div className="header__title grid justify-self-center py-4">
-        <p className="text-center text-2xl font-semibold text-slate-500">
+        <p className="text-center text-xl md:text-2xl font-semibold text-slate-500 px-1 leading-tight">
           Справочник по самостоятельному ремонту и замене запчастей
         </p>
       </div>
@@ -51,7 +51,10 @@ const Header = () => {
         />
         <Button title="Поиск" className="w-48" onClickHandler={()=>{alert('Сказано же не тыкать !')}}></Button>
       </div>
+      <div className="hidden md:flex md:justify-center">
       {location.pathname !== "/" && <Breadcrumb />}
+      </div>
+      
     </header>
   );
 };

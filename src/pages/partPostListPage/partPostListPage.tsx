@@ -32,7 +32,7 @@ const PartPostList = () => {
       ) : (
         <></>
       )}
-      <div className="part-posts">
+      <div className="part-posts px-2">
         <div className="part-posts__list border-2 rounded-xl col-start-1 col-end-4 row-start-3 overflow-auto overscroll-auto h-128">
           {postsList !== undefined && postsList.posts.length >= 1 ? (
             postsList.posts.map((item: any) => (
@@ -49,9 +49,9 @@ const PartPostList = () => {
       </div>
       <div className="nav grid justify-end justify-items-center row-start-4 lg:grid-cols-[auto_auto] md:grid-cols-[40%_40%] grid-cols-2 py-4 gap-2">
         <Link to="../">
-          <Button title="На главную" className="w-48" />
+          <Button title="На главную" className="w-32 md:w-48" />
         </Link>
-        <Button title="Назад" onClickHandler={goBack} className="w-48" />
+        <Button title="Назад" onClickHandler={goBack} className="w-32 md:w-48" />
       </div>
     </div>
   );
