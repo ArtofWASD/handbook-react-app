@@ -51,7 +51,7 @@ const Header = () => {
         />
         <Button title="Поиск" className="w-48" onClickHandler={()=>{alert('Сказано же не тыкать !')}}></Button>
       </div>
-      <div className="hidden md:flex md:justify-center">
+      <div className="hidden md:flex md:pl-120">
       {location.pathname !== "/" && <Breadcrumb />}
       </div>
       

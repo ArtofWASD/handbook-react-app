@@ -33,15 +33,7 @@ const PartPostPage = () => {
           <div className="post__img flex justify-center">
             <img src={post.imgUrl} alt={post.imgUrl} />
           </div>
-<<<<<<< HEAD
           <div className="post__text p-2" dangerouslySetInnerHTML={{ __html: `${post.text}` }}></div>
-=======
-
-          <div
-            className="post__text p-2"
-            dangerouslySetInnerHTML={{ __html: `${post.text}` }}
-          ></div>
->>>>>>> f334246746c1b2f7d93fec64755a9c67b9a5ada7
         </div>
       )}
       <div className="nav grid justify-end justify-items-center row-start-3 lg:grid-cols-[auto_auto] md:grid-cols-[40%_40%] grid-cols-2 py-4 gap-2">
