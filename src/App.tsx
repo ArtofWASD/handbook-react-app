@@ -8,19 +8,14 @@ import RegisterPage from "../src/pages/register-page/register_page";
 import LoginPage from "../src/pages/login-page/login_page";
 import AccountPage from "../src/pages/account-page/account-page";
 import PartPostPage from "../src/components/part-post-page/part-post-page";
-import { useAppDispatch, useAppSelector } from "../src/utils/hooks";
+import { useAppDispatch } from "../src/utils/hooks";
 import { useEffect } from "react";
-import { supabase } from "./utils/supabase";
+import { fetchData } from "./services/reducers/dataSlice";
 
 export default function App() {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    const getCars = async () => {
-      const { data: cars, error } = await supabase.from("cars").select("*");
-      console.log(cars);
-      
-    };
-    getCars();
+    dispatch(fetchData())
   }, []);
 
   return (

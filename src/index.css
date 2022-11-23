@@ -6,5 +6,15 @@ html {
     height: 100%;
 }
 body {
-    background-image: url(../public/bg-image.png);
+    background-image: url(../bg-image.png);
 }
+.wrapper{
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+  }
+  .main{
+    min-height: calc(100vh - 276px);
+  }
+  .footer{
+    grid-row-start: 3;
+  }

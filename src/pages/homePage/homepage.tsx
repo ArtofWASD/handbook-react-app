@@ -2,7 +2,7 @@ import CarModelItem from "../../components/car-model-item/car-model-item";
 import { useAppSelector } from "../../utils/hooks";
 
 const Homepage = () => {
-  const cars = useAppSelector((state) => state.data.data.Cars);
+  const cars = useAppSelector((state) => state.data.data);
   return (
     <div className="grid justify-center">
       <div className="cards__list grid justify-center my-auto ">
