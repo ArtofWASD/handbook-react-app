@@ -54,7 +54,6 @@ const Header = () => {
       <div className="hidden md:flex md:pl-120">
       {location.pathname !== "/" && <Breadcrumb />}
       </div>
-      
     </header>
   );
 };

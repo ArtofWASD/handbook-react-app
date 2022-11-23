@@ -13,9 +13,9 @@ const Homepage = () => {
         </div>
       </div>
       <div className="container grid lg:grid-cols-3 gap-4 items-baseline sm:grid-cols-1 px-8 my-auto">
-        {cars &&
+        {cars !== undefined &&
           cars.map((item: any) => (
-            <CarModelItem data={item} key={item.id} route={`/${item.id}`} />
+            <CarModelItem data={item} key={item.id} route={`/${item.name}`} />
           ))}
       </div>
     </div>

@@ -16,13 +16,13 @@ export default function App() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchData())
-  }, []);
+  }, [dispatch]);
 
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Homepage />} />
-        <Route path="/:id" element={<ChildrenCarsList />} />
+        <Route path="/:name" element={<ChildrenCarsList />}/>
         <Route path="register" element={<RegisterPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="account" element={<AccountPage />} />

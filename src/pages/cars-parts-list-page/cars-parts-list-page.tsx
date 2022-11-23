@@ -8,7 +8,7 @@ const CarsPartsList = () => {
   const { childId, id } = useParams();
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
-  const carsData = useAppSelector((state) => state.data.data.Cars);
+  const carsData = useAppSelector((state) => state.data.data);
   
   const childCarArray = carsData
     .find((item: { id: string }) => item.id === String(id))
