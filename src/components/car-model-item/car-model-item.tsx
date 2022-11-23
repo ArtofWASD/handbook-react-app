@@ -4,10 +4,9 @@ import { year } from "../../utils/handlerFunctions";
 
 type TCarModelItem = {
   data: {
-    image: string;
+    imgUrl: string;
     name?: string;
     id: string;
-    label: string;
     year: any;
   };
   route: string;
@@ -17,11 +16,11 @@ const CarModelItem: FC<TCarModelItem> = ({ data, route }) => {
   return (
     <section className="card grid shadow-md shadow-slate-200 hover:border-blue-500 border-2 rounded-xl bg-white max-w-xs">
       <div className="card__img p-2">
-        <img src={data.image} alt={data.name} />
+        <img src={data.imgUrl} alt={data.name} />
       </div>
       <div className="card__title py-4">
         <p className="text-center font-semibold text-2xl text-slate-400">
-          {data.label}
+          {data.name}
         </p>
       </div>
       <div className="card__year py-4">

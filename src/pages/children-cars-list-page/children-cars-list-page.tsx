@@ -8,7 +8,7 @@ const ChildrenCarsList = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
-  const carsData = useAppSelector((state) => state.data.data.Cars);
+  const carsData = useAppSelector((state) => state.data.data);
   const carsArr = carsData.find((item: any) => item.id === String(id));
   const carTitle = { image: "", label: "", year: "" };
 
