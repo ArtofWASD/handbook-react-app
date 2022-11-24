@@ -11,16 +11,17 @@ import PartPostPage from "../src/components/part-post-page/part-post-page";
 import { useAppDispatch } from "../src/utils/hooks";
 import { useEffect, useRef } from "react";
 import { fetchData } from "./services/reducers/dataSlice";
-import { supabase } from "./utils/supabase";
 
 export default function App() {
   const dispatch = useAppDispatch();
   const getData = useRef(true)
-  
+
   useEffect(() => {
     if (getData.current) {
-      getData.current = false;
       dispatch(fetchData())
+    }
+    return () => {
+      getData.current = false;
     }
   }, []);
 
