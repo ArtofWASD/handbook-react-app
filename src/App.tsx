@@ -9,14 +9,20 @@ import LoginPage from "../src/pages/login-page/login_page";
 import AccountPage from "../src/pages/account-page/account-page";
 import PartPostPage from "../src/components/part-post-page/part-post-page";
 import { useAppDispatch } from "../src/utils/hooks";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { fetchData } from "./services/reducers/dataSlice";
+import { supabase } from "./utils/supabase";
 
 export default function App() {
   const dispatch = useAppDispatch();
+  const getData = useRef(true)
+  
   useEffect(() => {
-    dispatch(fetchData())
-  }, [dispatch]);
+    if (getData.current) {
+      getData.current = false;
+      dispatch(fetchData())
+    }
+  }, []);
 
   return (
     <Routes>
