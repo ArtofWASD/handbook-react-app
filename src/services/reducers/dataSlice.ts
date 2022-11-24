@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { supabase } from "../../utils/supabase";
-export const fetchData:any = createAsyncThunk("data/fetchData", async () => {
-  let { data: cars, error } = await supabase.from("cars").select('*, childСars:childCars(*)')  
+export const fetchData = createAsyncThunk("data/fetchData", async () => {
+  const { data: cars, error } = await supabase.from("cars").select('*, childСars:childCars(*)')  
   return cars
 });
 
