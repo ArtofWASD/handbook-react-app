@@ -23,7 +23,7 @@ export default function App() {
     return () => {
       getData.current = false;
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <Routes>
@@ -33,8 +33,8 @@ export default function App() {
         <Route path="register" element={<RegisterPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="account" element={<AccountPage />} />
-        <Route path="/:id/:childId" element={<CarsPartsList />} />
-        <Route path="/:id/:childId/:partId" element={<PartPostList />} />
+        <Route path="/:name/:childName" element={<CarsPartsList />} />
+        <Route path="/:name/:childName/:partName" element={<PartPostList />} />
         <Route
           path="/:id/:childId/:partId/:postId"
           element={<PartPostPage />}

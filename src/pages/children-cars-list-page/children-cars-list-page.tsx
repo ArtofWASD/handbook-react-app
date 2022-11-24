@@ -27,10 +27,9 @@ const ChildrenCarsList = () => {
   const carsData: Array<TCarsArray> = useAppSelector(
     (state) => state.data.data,
   );
-  const carTitle = { imgUrl: "", name: "", year: "" };
+
   const carsArr = carsData.find((item) => item.name === String(name));
-  
-  console.log(carsArr);
+  const carTitle = { imgUrl: "", name: "", year: "" };
 
   Object.assign(carTitle, {
     imgUrl: carsArr?.imgUrl,
@@ -40,7 +39,7 @@ const ChildrenCarsList = () => {
 
   return (
     <>
-      {carsData.length !== 0 ? (
+      {carsArr !== undefined ? (
         <div className="grid children_cars_list xl:px-48 px-4">
           <СarsListTitle data={carTitle} />
           <div
@@ -49,10 +48,11 @@ const ChildrenCarsList = () => {
                 ? `child-cars grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-4 justify-self-center gap-4 px-2`
                 : `child-cars grid lg:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 justify-self-center gap-4 px-2`
             }
-          ></div>
-          {carsArr?.childCars?.map((car: any) => (
-            <div>{car.id}</div>
-          ))}
+          >
+            {carsArr.childCars.map((item: any) =>
+              <CarModelItem key={item.id} data={item} route={`/${name}/${item.name}`}/>  
+            )}
+          </div>
           <div className="nav grid lg:grid-cols-[10%_24%] md:grid-cols-[40%_40%] grid-cols-2 py-4 justify-end gap-2 px-2">
             <Link to="../">
               <Button title="На главную" className="w-48" />
