@@ -30,7 +30,7 @@ const ChildrenCarsList = () => {
   const carTitle = { imgUrl: "", name: "", year: "" };
   const carsArr = carsData.find((item) => item.name === String(name));
   
-  console.log(carsData);
+  console.log(carsArr);
 
   Object.assign(carTitle, {
     imgUrl: carsArr?.imgUrl,
