@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { supabase } from "../../utils/supabase";
+
 export const fetchData = createAsyncThunk("data/fetchData", async () => {
   const { data: cars } = await supabase
     .from("cars")
@@ -8,10 +9,21 @@ export const fetchData = createAsyncThunk("data/fetchData", async () => {
   return cars;
 });
 
+export const fetchSearchPostQuery = createAsyncThunk(
+  "data/fetchSearchPostQuery",
+  async (query) => {
+    const { data: posts } = await supabase
+      .from("posts")
+      .select()
+      .eq("title", `${query}`);
+    return posts;
+  },
+);
 export const dataSlice = createSlice({
   name: "data",
   initialState: {
     data: [],
+    posts: [],
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -24,7 +36,15 @@ export const dataSlice = createSlice({
         state.data = action.payload;
       })
       .addCase(fetchData.rejected, (state: any, action) => {
-        state.status = "False";
+        state.status = "Error";
+        state.error = action.payload;
+      })
+      .addCase(fetchSearchPostQuery.fulfilled, (state: any, action) => {
+        state.postsFetchStatus = "Resolved";
+        state.post = action.payload;
+      })
+      .addCase(fetchSearchPostQuery.rejected, (state: any, action) => {
+        state.postsFetchStatus = "Error";
         state.error = action.payload;
       });
   },
