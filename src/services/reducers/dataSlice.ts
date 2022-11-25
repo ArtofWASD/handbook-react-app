@@ -11,9 +11,7 @@ export const fetchData = createAsyncThunk("data/fetchData", async () => {
 
 export const fetchSearchPostQuery = createAsyncThunk(
   "data/fetchSearchPostQuery",
-  async (query: string) => {
-    console.log(query);
-    
+  async (query: string) => {    
     const { data: posts } = await supabase
       .from("posts")
       .select("*")
