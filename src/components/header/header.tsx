@@ -41,7 +41,7 @@ const Header = () => {
           Справочник по самостоятельному ремонту и замене запчастей
         </p>
       </div>
-      <div className="header__search grid container lg:grid-cols-6 sm:grid-cols-1  justify-self-center px-10 gap-2">
+      <div className="header__search grid container lg:grid-cols-6 sm:grid-cols-1  justify-self-center pl-10 gap-2">
         <Input
           type="text"
           className="lg:col-start-2 lg:col-span-3 border border-blue-500 px-4 py-2 font-semibold"
