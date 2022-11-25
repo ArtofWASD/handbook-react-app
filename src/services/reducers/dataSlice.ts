@@ -11,11 +11,13 @@ export const fetchData = createAsyncThunk("data/fetchData", async () => {
 
 export const fetchSearchPostQuery = createAsyncThunk(
   "data/fetchSearchPostQuery",
-  async (query) => {
+  async (query: string) => {
+    console.log(query);
+    
     const { data: posts } = await supabase
       .from("posts")
-      .select()
-      .eq("title", `${query}`);
+      .select("*")
+      .textSearch("title", `${query}`, {type: "websearch"});
     return posts;
   },
 );
@@ -41,7 +43,7 @@ export const dataSlice = createSlice({
       })
       .addCase(fetchSearchPostQuery.fulfilled, (state: any, action) => {
         state.postsFetchStatus = "Resolved";
-        state.post = action.payload;
+        state.posts = action.payload;
       })
       .addCase(fetchSearchPostQuery.rejected, (state: any, action) => {
         state.postsFetchStatus = "Error";
