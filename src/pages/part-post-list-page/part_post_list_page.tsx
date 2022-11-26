@@ -10,7 +10,7 @@ const PartPostList = () => {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
   const isUserLogin = useAppSelector((state) => state.user.isLogin);
-  const carsData = useAppSelector((state) => state.data.data.Cars);
+  const carsData:any = useAppSelector((state) => state.data.data);
 
 
   const postsList = carsData
@@ -22,7 +22,7 @@ const PartPostList = () => {
     <div className="parts_posts_list_page grid grid-rows-[auto_auto_auto_auto] xl:px-72 lg:px-20">
       <div className="part-posts__title">
         <p className="text-center text-4xl font-semibold text-slate-500 py-2">
-          {postsList.title}
+          {/* {postsList.title} */}
         </p>
       </div>
       {isUserLogin ? (
