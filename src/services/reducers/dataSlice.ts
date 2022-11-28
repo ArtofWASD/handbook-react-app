@@ -11,23 +11,36 @@ export const fetchData = createAsyncThunk("data/fetchData", async () => {
 
 export const fetchSearchPostQuery = createAsyncThunk(
   "data/fetchSearchPostQuery",
-  async (query: string) => {    
+  async (query: string) => {
     const { data: posts } = await supabase
       .from("posts")
       .select("*")
-      .textSearch("title", `${query}`, {type: "websearch"});
+      .textSearch("title", `${query}`, { type: "websearch" });
     return posts;
   },
 );
+
+export const getCurrentPost = createAsyncThunk(
+  "data/getCurrentPost",
+  async (postId) => {
+    let { data: posts } = await supabase.from("posts").select(`${postId}`);
+    return posts;
+  },
+);
+
 export const dataSlice = createSlice({
   name: "data",
   initialState: {
     data: [],
     posts: [],
+    currentPost: null,
   },
   reducers: {
     clearPostsArray(state) {
-      state.posts = []
+      state.posts = [];
+    },
+    clearCurrentPost(state) {
+      state.currentPost = null;
     }
   },
   extraReducers: (builder) => {
@@ -50,8 +63,12 @@ export const dataSlice = createSlice({
       .addCase(fetchSearchPostQuery.rejected, (state: any, action) => {
         state.postsFetchStatus = "Error";
         state.error = action.payload;
-      });
+      })
+      .addCase(getCurrentPost.fulfilled, (state: any, action) => {
+        
+      state.currentPost = action.payload;
+    })
   },
 });
-export const {clearPostsArray} = dataSlice.actions
+export const { clearPostsArray, clearCurrentPost } = dataSlice.actions;
 export default dataSlice.reducer;
