@@ -25,7 +25,11 @@ export const dataSlice = createSlice({
     data: [],
     posts: [],
   },
-  reducers: {},
+  reducers: {
+    clearPostsArray(state) {
+      state.posts = []
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchData.pending, (state: any) => {
@@ -49,4 +53,5 @@ export const dataSlice = createSlice({
       });
   },
 });
+export const {clearPostsArray} = dataSlice.actions
 export default dataSlice.reducer;
