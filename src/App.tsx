@@ -39,6 +39,7 @@ export default function App() {
           path="/:id/:childId/:partId/:postId"
           element={<PartPostPage />}
         />
+        <Route path="/:postName" element={<PartPostPage/>}/>
       </Route>
     </Routes>
   );

@@ -3,7 +3,7 @@ type TInput = {
   type: string;
   value: string;
   placeholder: string;
-  onChangeHandler?: (e: any) => void;
+  onChangeHandler: (e: any) => void;
   className: string;
 };
 const Input: FC<TInput> = ({

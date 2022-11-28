@@ -4,29 +4,26 @@ import { Link, useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import Input from "../../ui/input/input";
 import { useState } from "react";
-import { fetchSearchPostQuery } from "../../services/reducers/dataSlice";
-import Modal from "react-modal";
+import { clearPostsArray, fetchSearchPostQuery } from "../../services/reducers/dataSlice";
+import { Dialog } from "@headlessui/react";
 
 const Header = () => {
   const dispatch = useAppDispatch();
   const [searchValue, setSearchValue] = useState("");
-  const [modalIsOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const postsSearchData = useAppSelector((state) => state.data.posts);
+  const [isOpen, setIsOpen] = useState(false);
+  const postsSearchData: any = useAppSelector((state) => state.data.posts);
 
-  const submitFormHandler = (e: React.SyntheticEvent) => {
+  const submitFormHandler = (e: any) => {
     e.preventDefault();
     dispatch(fetchSearchPostQuery(searchValue));
-    openModalhandler();
+    setIsOpen(true)
   };
 
-  const openModalhandler = () => {
-    setIsOpen(true);
-  };
-
-  const closeModalhandler = () => {
-    setIsOpen(false);
-  };
+  const closeModalHandler = () => {
+    setIsOpen(false)
+    clearPostsArray()
+  }
 
   return (
     <header className="header grid grid-cols-auto ">
@@ -77,31 +74,47 @@ const Header = () => {
       <div className="hidden md:flex md:pl-120">
         {location.pathname !== "/" && <Breadcrumb />}
       </div>
-      <div className="overflow-auto overscroll-auto">
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModalhandler}
-        className="rounded m-auto border border-slate-500 w-150 "
-      >
-        {postsSearchData && postsSearchData.length >= 1 ? (
-          <>
-            {postsSearchData.map((item: any) => (
-              <Link to='/'>
-              <section className="border-2 border-slate-500 hover:border-blue-500 rounded m-1 p-2" key={item.id}>
-                <div className="text-center font-semibold text-md  hover:text-blue-500">{item.title}</div>
-                <div className="text-slate-500" dangerouslySetInnerHTML={{ __html: `${item.text.substring(0, 100) + "..."}` }}></div>
-              </section>
-              </Link>
-            ))}
-          </>
-        ) : (
-          <div className="text-center py-5">
-            К сожалению по вашему запросу посты не найдены
+      <div>
+        <Dialog
+          open={isOpen}
+          onClose={() => closeModalHandler()}
+          className="relative z-50"
+        >
+          <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4">
+              <Dialog.Panel className="mx-auto w-150 rounded bg-white">
+                <Dialog.Title className="text-center py-2 font-semibold text-md">
+                  Результаты поиска
+                </Dialog.Title>
+                {postsSearchData && postsSearchData.length >= 1 ? (
+                  <>
+                    {postsSearchData.map((item: any) => (
+                      <Link to={`${item.title}`} key={item.id}>
+                        <section className="border-2 border-slate-500 hover:border-blue-500 rounded m-1 p-2">
+                          <div className="text-center font-semibold text-md">
+                            {item.title}
+                          </div>
+                          <div
+                            className="text-slate-500"
+                            dangerouslySetInnerHTML={{
+                              __html: `${item.text.substring(0, 200) + "..."}`,
+                            }}
+                          ></div>
+                        </section>
+                      </Link>
+                    ))}
+                  </>
+                ) : (
+                  <Dialog.Title className="text-center py-2 font-semibold text-md">
+                    Увы по вашему запросу, посты не найдены !
+                  </Dialog.Title>
+                )}
+              </Dialog.Panel>
+            </div>
           </div>
-        )}
-      </Modal>
+        </Dialog>
       </div>
-
     </header>
   );
 };
