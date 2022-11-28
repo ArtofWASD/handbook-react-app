@@ -90,7 +90,7 @@ const Header = () => {
                 {postsSearchData && postsSearchData.length >= 1 ? (
                   <>
                     {postsSearchData.map((item: any) => (
-                      <Link to={`${item.title}`} key={item.id}>
+                      <Link to={`${item.title}`} key={item.id} onClick={()=>{closeModalHandler()}}>
                         <section className="border-2 border-slate-500 hover:border-blue-500 rounded m-1 p-2">
                           <div className="text-center font-semibold text-md">
                             {item.title}
