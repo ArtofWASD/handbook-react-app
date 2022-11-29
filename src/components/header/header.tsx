@@ -29,6 +29,7 @@ const Header = () => {
   const closeModalHandler = () => {
     setIsOpen(false);
     dispatch(clearPostsArray());
+    setSearchValue('')
   };
 
   return (
