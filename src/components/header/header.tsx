@@ -4,7 +4,10 @@ import { Link, useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import Input from "../../ui/input/input";
 import { useState } from "react";
-import { clearPostsArray, fetchSearchPostQuery } from "../../services/reducers/dataSlice";
+import {
+  clearPostsArray,
+  fetchSearchPostQuery,
+} from "../../services/reducers/dataSlice";
 import { Dialog } from "@headlessui/react";
 
 const Header = () => {
@@ -13,17 +16,20 @@ const Header = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const postsSearchData: any = useAppSelector((state) => state.data.posts);
+  const postSearchStatus: string = useAppSelector(
+    (state) => state.data.postsFetchStatus
+  );
 
   const submitFormHandler = (e: any) => {
     e.preventDefault();
     dispatch(fetchSearchPostQuery(searchValue));
-    setIsOpen(true)
+    setIsOpen(true);
   };
 
   const closeModalHandler = () => {
-    setIsOpen(false)
-    clearPostsArray()
-  }
+    setIsOpen(false);
+    dispatch(clearPostsArray());
+  };
 
   return (
     <header className="header grid grid-cols-auto ">
@@ -85,12 +91,18 @@ const Header = () => {
             <div className="flex min-h-full items-center justify-center p-4">
               <Dialog.Panel className="mx-auto w-150 rounded bg-white">
                 <Dialog.Title className="text-center py-2 font-semibold text-md">
-                  Результаты поиска
+                  Результаты поиска по запросу : {searchValue}
                 </Dialog.Title>
                 {postsSearchData && postsSearchData.length >= 1 ? (
                   <>
                     {postsSearchData.map((item: any) => (
-                      <Link to={`${item.title}`} key={item.id} onClick={()=>{closeModalHandler()}}>
+                      <Link
+                        to={`${item.title}`}
+                        key={item.id}
+                        onClick={() => {
+                          closeModalHandler();
+                        }}
+                      >
                         <section className="border-2 border-slate-500 hover:border-blue-500 rounded m-1 p-2">
                           <div className="text-center font-semibold text-md">
                             {item.title}
@@ -106,9 +118,17 @@ const Header = () => {
                     ))}
                   </>
                 ) : (
-                  <Dialog.Title className="text-center py-2 font-semibold text-md">
-                    Увы по вашему запросу, посты не найдены !
-                  </Dialog.Title>
+                  <>
+                    {postSearchStatus == "Loading" ? (
+                      <Dialog.Title className="text-center py-2 font-semibold text-md">
+                        Загружаем посты по вашему запросу.
+                      </Dialog.Title>
+                    ) : (
+                      <Dialog.Title className="text-center py-2 font-semibold text-md">
+                        Увы по вашему запросу, посты не найдены !
+                      </Dialog.Title>
+                    )}
+                  </>
                 )}
               </Dialog.Panel>
             </div>

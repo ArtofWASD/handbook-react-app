@@ -34,6 +34,7 @@ export const dataSlice = createSlice({
     data: [],
     posts: [],
     currentPost: null,
+    postsFetchStatus: '',
   },
   reducers: {
     clearPostsArray(state) {
@@ -55,6 +56,9 @@ export const dataSlice = createSlice({
       .addCase(fetchData.rejected, (state: any, action) => {
         state.status = "Error";
         state.error = action.payload;
+      })
+      .addCase(fetchSearchPostQuery.pending, (state: any) => {
+        state.postsFetchStatus = "Loading";
       })
       .addCase(fetchSearchPostQuery.fulfilled, (state: any, action) => {
         state.postsFetchStatus = "Resolved";
