@@ -8,7 +8,7 @@ type TCarsListTitle = {
     year: string;
   };
 };
-
+// Заголовок в старницах с машинами
 const CarsListTitle: FC<TCarsListTitle> = ({ data }) => {
   return (
     <div className="cars_list_title border-2 rounded-xl grid lg:grid-cols-2 sm:grid-cols-1 justify-self-center my-2 bg-white">

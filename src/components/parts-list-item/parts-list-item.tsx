@@ -8,6 +8,7 @@ type TPartsListItem = {
     id: string;
   };
 };
+// группа запчастей плашка 
 const PartsListItem: FC<TPartsListItem> = ({ data, route }) => {
   return (
     <>

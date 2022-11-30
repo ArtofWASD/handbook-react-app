@@ -22,19 +22,22 @@ export const fetchSearchPostQuery = createAsyncThunk(
 
 export const getCurrentPost = createAsyncThunk(
   "data/getCurrentPost",
-  async (postId) => {
-    let { data: posts } = await supabase.from("posts").select(`${postId}`);
+  async (postId: any) => {
+    let { data: posts } = await supabase
+      .from("posts")
+      .select("*")
+      .eq("title", `${postId}`);
     return posts;
   },
 );
 
-export const dataSlice = createSlice({
+export const dataSlice: any = createSlice({
   name: "data",
   initialState: {
     data: [],
     posts: [],
     currentPost: null,
-    postsFetchStatus: '',
+    postsFetchStatus: "",
   },
   reducers: {
     clearPostsArray(state) {
@@ -42,7 +45,7 @@ export const dataSlice = createSlice({
     },
     clearCurrentPost(state) {
       state.currentPost = null;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -69,9 +72,8 @@ export const dataSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(getCurrentPost.fulfilled, (state: any, action) => {
-        
-      state.currentPost = action.payload;
-    })
+        state.currentPost = action.payload;
+      });
   },
 });
 export const { clearPostsArray, clearCurrentPost } = dataSlice.actions;
