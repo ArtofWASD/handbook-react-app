@@ -12,7 +12,7 @@ const PartPostPage = () => {
   const dispatch = useAppDispatch();
   const isUserLogin = useAppSelector((state) => state.user.isLogin);
   const post = useAppSelector((state: any) => state.data.currentPost);
-  
+
   useEffect(() => {
     dispatch(getCurrentPost(postName));
   }, [postName]);
@@ -30,7 +30,7 @@ const PartPostPage = () => {
               <></>
             )}
             {post.map((item: any) => (
-              <div className="post__item border-2 rounded-xl py bg-slate-100">
+              <div className="post__item border-2 rounded-xl py bg-slate-100" key={item.id}>
                 <div className="post__title text-xl font-semibold text-slate-500 p-2">
                   {item.title}
                 </div>
