@@ -7,39 +7,39 @@ import PartPostList from "../src/pages/part-post-list-page/part_post_list_page";
 import RegisterPage from "../src/pages/register-page/register_page";
 import LoginPage from "../src/pages/login-page/login_page";
 import AccountPage from "../src/pages/account-page/account-page";
-import PartPostPage from "../src/components/part-post-page/part-post-page";
+import PartPostPage from "./pages/part-post-page/part-post-page";
 import { useAppDispatch } from "../src/utils/hooks";
 import { useEffect, useRef } from "react";
 import { fetchData } from "./services/reducers/dataSlice";
 
 export default function App() {
   const dispatch = useAppDispatch();
-  const getData = useRef(true)
+  const getData = useRef(true);
 
   useEffect(() => {
     if (getData.current) {
-      dispatch(fetchData())
+      dispatch(fetchData());
     }
     return () => {
       getData.current = false;
-    }
+    };
   }, [dispatch]);
 
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Homepage />} />
-        <Route path="/:name" element={<ChildrenCarsList />}/>
         <Route path="register" element={<RegisterPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="account" element={<AccountPage />} />
-        <Route path="/:name/:childName" element={<CarsPartsList />} />
-        <Route path="/:name/:childName/:partName" element={<PartPostList />} />
-        <Route
-          path="/:id/:childId/:partId/:postId"
-          element={<PartPostPage />}
-        />
-        <Route path="/:postName" element={<PartPostPage/>}/>
+        <Route path=":name" element={<ChildrenCarsList />}>
+          <Route path=":childName" element={<CarsPartsList />}>
+            <Route path=":partName" element={<PartPostList />}>
+              <Route path=":postId" element={<PartPostPage />}/>
+            </Route>
+          </Route>
+        </Route>
+        <Route path="post/:postName" element={<PartPostPage />} />
       </Route>
     </Routes>
   );

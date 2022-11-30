@@ -5,55 +5,40 @@ import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import Input from "../../ui/input/input";
 import { useState } from "react";
 import {
+  clearCurrentPost,
   clearPostsArray,
   fetchSearchPostQuery,
 } from "../../services/reducers/dataSlice";
 import { Dialog } from "@headlessui/react";
+import PartsPostsPreview from "../parts-posts-preview/parts-posts-preview";
 
 const Header = () => {
   const dispatch = useAppDispatch();
   const [searchValue, setSearchValue] = useState("");
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  const postsSearchData: any = useAppSelector((state) => state.data.posts);
+  const postsSearchData: any = useAppSelector((state: any) => state.data.posts);
   const postSearchStatus: string = useAppSelector(
-    (state) => state.data.postsFetchStatus
+    (state: any) => state.data.postsFetchStatus,
   );
+  
 
   const submitFormHandler = (e: any) => {
     e.preventDefault();
     dispatch(fetchSearchPostQuery(searchValue));
     setIsOpen(true);
+    dispatch(clearCurrentPost())
   };
 
   const closeModalHandler = () => {
     setIsOpen(false);
     dispatch(clearPostsArray());
-    setSearchValue('')
+    setSearchValue("");
   };
 
   return (
     <header className="header grid grid-cols-auto ">
       <div className="header__button grid justify-self-end  py-4 px-4">
-        {/* {userInfo?.isLogin ? (
-          <Link to="account">
-            <div className="flex items-center gap-3">
-              <img
-                src={require("../../img/login.png")}
-                alt="Logo"
-                className="w-10"
-              />
-              <span className="label text-xl font-semibold text-slate-500">
-                {userInfo.name !== undefined ? (
-                  userInfo.name
-                ) : (
-                  <span> User </span>
-                )}
-              </span>
-            </div>
-          </Link>
-        ) : (
-        )} */}
         <Link to="login">
           <Button title="Авторизация" className="w-48" />
         </Link>
@@ -89,35 +74,22 @@ const Header = () => {
         >
           <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
           <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4">
-              <Dialog.Panel className="mx-auto w-150 rounded bg-white">
+            <div className="flex min-h-full items-center justify-center">
+              <Dialog.Panel className="mx-auto w-150 rounded bg-white px-4">
                 <Dialog.Title className="text-center py-2 font-semibold text-md">
                   Результаты поиска по запросу : {searchValue}
                 </Dialog.Title>
                 {postsSearchData && postsSearchData.length >= 1 ? (
-                  <>
+                  <div onClick={() =>closeModalHandler()}>
                     {postsSearchData.map((item: any) => (
-                      <Link
-                        to={`${item.title}`}
+                      <PartsPostsPreview
                         key={item.id}
-                        onClick={() => {
-                          closeModalHandler();
-                        }}
-                      >
-                        <section className="border-2 border-slate-500 hover:border-blue-500 rounded m-1 p-2">
-                          <div className="text-center font-semibold text-md">
-                            {item.title}
-                          </div>
-                          <div
-                            className="text-slate-500"
-                            dangerouslySetInnerHTML={{
-                              __html: `${item.text.substring(0, 200) + "..."}`,
-                            }}
-                          ></div>
-                        </section>
-                      </Link>
+                        data={item}
+                        route={`post/${item.title}`}
+
+                      />
                     ))}
-                  </>
+                  </div>
                 ) : (
                   <>
                     {postSearchStatus == "Loading" ? (

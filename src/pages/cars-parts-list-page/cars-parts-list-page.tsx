@@ -9,7 +9,7 @@ const CarsPartsList = () => {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
 
-  const carsData: any = useAppSelector((state) => state.data.data);
+  const carsData: any = useAppSelector((state:any) => state.data.data);
   const childCarArray: any = carsData
     .find((item: { name: string }) => item.name === String(name))
     ?.childCars.find(
@@ -25,7 +25,7 @@ const CarsPartsList = () => {
             {childCarArray?.partsGroup.map((item: any) => 
               <PartsListItem
                 data={item.part}
-                route={`/${name}/${childName}/${item.part.name}`}
+                route={`${item.part.name}`}
                 key={item.part.id}
               />
             )}

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { year } from "../../utils/handlerFunctions";
-
+// элемент автомобиля
 type TCarModelItem = {
   data: {
     imgUrl: string;
@@ -12,7 +12,7 @@ type TCarModelItem = {
   route: string;
 };
 
-const CarModelItem: FC<TCarModelItem> = ({ data, route }) => {
+const CarModelItem: FC<TCarModelItem> = ({ data, route }) => {  
   return (
     <section className="card grid shadow-md shadow-slate-200 hover:border-blue-500 border-2 rounded-xl bg-white max-w-xs">
       <Link key={data.id} to={route}>

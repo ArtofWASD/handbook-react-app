@@ -25,7 +25,7 @@ const ChildrenCarsList = () => {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
   const carsData: Array<TCarsArray> = useAppSelector(
-    (state) => state.data.data,
+    (state:any) => state.data.data,
   );
 
   const carsArr = carsData.find((item) => item.name === String(name));
@@ -50,7 +50,7 @@ const ChildrenCarsList = () => {
             }
           >
             {carsArr.childCars.map((item: any) =>
-              <CarModelItem key={item.id} data={item} route={`/${name}/${item.name}`}/>  
+              <CarModelItem key={item.id} data={item} route={`${item.name}`}/>  
             )}
           </div>
           <div className="nav grid lg:grid-cols-[10%_24%] md:grid-cols-[40%_40%] grid-cols-2 py-4 justify-end gap-2 px-2">
@@ -61,7 +61,7 @@ const ChildrenCarsList = () => {
           </div>
         </div>
       ) : (
-        <div>empty</div>
+        <div className="text-2xl text-center">Children Cars List Page</div>
       )}
     </>
   );
