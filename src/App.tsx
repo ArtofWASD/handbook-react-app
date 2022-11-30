@@ -32,13 +32,13 @@ export default function App() {
         <Route path="register" element={<RegisterPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="account" element={<AccountPage />} />
-        <Route path=":name" element={<ChildrenCarsList />}>
-          <Route path=":childName" element={<CarsPartsList />}>
-            <Route path=":partName" element={<PartPostList />}>
-              <Route path=":postId" element={<PartPostPage />}/>
-            </Route>
-          </Route>
-        </Route>
+        <Route path=":name" element={<ChildrenCarsList />} />
+        <Route path=":name/:childName" element={<CarsPartsList />} />
+        <Route path=":name/:childName/:partName" element={<PartPostList />} />
+        <Route
+          path=":name/:childName/:partName/:postId"
+          element={<PartPostPage />}
+        />
         <Route path="post/:postName" element={<PartPostPage />} />
       </Route>
     </Routes>
