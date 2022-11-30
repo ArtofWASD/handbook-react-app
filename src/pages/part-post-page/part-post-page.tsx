@@ -12,6 +12,7 @@ const PartPostPage = () => {
   const dispatch = useAppDispatch();
   const isUserLogin = useAppSelector((state) => state.user.isLogin);
   const post = useAppSelector((state: any) => state.data.currentPost);
+  const isPostLoad = useAppSelector((state: any) => state.data.isCurrentPostLoad)
 
   useEffect(() => {
     dispatch(getCurrentPost(postName));
@@ -19,7 +20,7 @@ const PartPostPage = () => {
 
   return (
     <>
-      {post !== null ? (
+      {post !== null && isPostLoad === "Success" ? (
         <>
           <div className="grid parts_post_page xl:px-72 lg:px-20 py-4 px-4">
             {isUserLogin ? (
@@ -56,7 +57,7 @@ const PartPostPage = () => {
           </div>
         </>
       ) : (
-        <></>
+        <div className="text-center my-auto text-4xl">Загружаем ваш пост</div>
       )}
     </>
   );

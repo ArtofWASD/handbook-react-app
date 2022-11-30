@@ -37,6 +37,7 @@ export const dataSlice: any = createSlice({
     data: [],
     posts: [],
     currentPost: null,
+    isCurrentPostLoad:"",
     postsFetchStatus: "",
   },
   reducers: {
@@ -72,6 +73,7 @@ export const dataSlice: any = createSlice({
         state.error = action.payload;
       })
       .addCase(getCurrentPost.fulfilled, (state: any, action) => {
+        state.isCurrentPostLoad = "Success"
         state.currentPost = action.payload;
       });
   },
