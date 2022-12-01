@@ -19,6 +19,7 @@ export default function App() {
   useEffect(() => {
     if (getData.current) {
       dispatch(fetchData());
+      
     }
     return () => {
       getData.current = false;
