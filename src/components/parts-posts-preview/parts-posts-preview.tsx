@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler } from "react";
+import { FC } from "react";
 import { Link } from "react-router-dom";
 
 type TPartsPostsPreview = {
@@ -13,7 +13,7 @@ type TPartsPostsPreview = {
 const PartsPostsPreview: FC<TPartsPostsPreview> = ({ data, route }) => {
   return (
     <Link key={data.id} to={route}>
-      <li className="post__item list-none border-2 rounded-xl hover:border-blue-500 p-2 m-2 bg-slate-100">
+      <li className="post__item list-none border-2 rounded-xl hover:border-blue-500 p-2 m-2 bg-slate-100 w-150">
         <div className="text-xl text-center font-semibold text-slate-500 py-2">
           {data.title}
         </div>

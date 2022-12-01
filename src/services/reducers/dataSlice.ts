@@ -22,11 +22,21 @@ export const fetchSearchPostQuery = createAsyncThunk(
 
 export const getCurrentPost = createAsyncThunk(
   "data/getCurrentPost",
-  async (postId: any) => {
+  async (postName: any) => {
     let { data: posts } = await supabase
       .from("posts")
       .select("*")
-      .eq("title", `${postId}`);
+      .eq("title", `${postName}`);
+    return posts;
+  },
+);
+export const getGroupPosts = createAsyncThunk(
+  "data/getGroupPosts",
+  async (query: any) => {    
+    let { data: posts, error } = await supabase
+      .from("posts")
+      .select("*")
+      .textSearch("parentPartsGroupIds", `${query}`, { type: "websearch" })
     return posts;
   },
 );
@@ -36,8 +46,10 @@ export const dataSlice: any = createSlice({
   initialState: {
     data: [],
     posts: [],
+    groupPosts:[],
     currentPost: null,
-    isCurrentPostLoad:"",
+    isCurrentPostLoad: "",
+    isGroupPostLoad:"",
     postsFetchStatus: "",
   },
   reducers: {
@@ -47,6 +59,9 @@ export const dataSlice: any = createSlice({
     clearCurrentPost(state) {
       state.currentPost = null;
     },
+    clearGroupPostsArray(state) {
+      state.groupPosts = []
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -75,8 +90,15 @@ export const dataSlice: any = createSlice({
       .addCase(getCurrentPost.fulfilled, (state: any, action) => {
         state.isCurrentPostLoad = "Success"
         state.currentPost = action.payload;
+      })
+      .addCase(getGroupPosts.pending, (state: any) => {
+        state.isGroupPostLoad = "Loading"
+      })
+      .addCase(getGroupPosts.fulfilled, (state: any, action) => {
+        state.isGroupPostLoad = 'Success'
+        state.groupPosts = action.payload;
       });
   },
 });
-export const { clearPostsArray, clearCurrentPost } = dataSlice.actions;
+export const { clearPostsArray, clearCurrentPost, clearGroupPostsArray } = dataSlice.actions;
 export default dataSlice.reducer;

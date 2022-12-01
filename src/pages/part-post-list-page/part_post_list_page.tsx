@@ -2,24 +2,37 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import Button from "../../ui/button/button";
 import PartsPostsPreview from "../../components/parts-posts-preview/parts-posts-preview";
 import PartPostsNotFound from "../../components/part-post-not-found/part-post-not-found";
-import { useAppSelector } from "../../utils/hooks";
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import { useEffect } from "react";
+import {
+  clearGroupPostsArray,
+  getGroupPosts,
+} from "../../services/reducers/dataSlice";
 
 // Список статей внутри группы запчастей
 const PartPostList = () => {
-  const { childId, id, partId } = useParams();
+  const { childName, partName, name } = useParams();
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
+  const dispatch = useAppDispatch();
   const isUserLogin = useAppSelector((state) => state.user.isLogin);
-  const carsData:any = useAppSelector((state) => state.data.data);
+  const postsGroupData: any = useAppSelector(
+    (state: any) => state.data.groupPosts,
+  );
+  const isPostsGroupLoad: string = useAppSelector(
+    (state: any) => state.data.isGroupPostLoad,
+  );
 
+  useEffect(() => {
+    if (childName && partName) {
+      const query = `${childName} ` + `${partName}`;
+      dispatch(clearGroupPostsArray());
+      dispatch(getGroupPosts(query));
+    }
+  }, [childName, partName]);
 
-  const postsList = carsData
-    .find((item: { id: string }) => item.id === String(id))
-    ?.childCars.find((item: { id: string }) => item.id === String(childId))
-    ?.parts.find((item: { id: string }) => item.id === String(partId));
-  
   return (
-    <div className="parts_posts_list_page grid grid-rows-[auto_auto_auto_auto] xl:px-72 lg:px-20">
+    <div className="parts_posts_list_page grid justify-center grid-rows-[auto_auto_auto_auto] xl:px-72 lg:px-20">
       <div className="part-posts__title">
         <p className="text-center text-4xl font-semibold text-slate-500 py-2">
           {/* {postsList.title} */}
@@ -33,17 +46,27 @@ const PartPostList = () => {
         <></>
       )}
       <div className="part-posts px-2">
-        <div className="part-posts__list border-2 rounded-xl col-start-1 col-end-4 row-start-3 overflow-auto overscroll-auto h-128">
-          {postsList !== undefined && postsList.posts.length >= 1 ? (
-            postsList.posts.map((item: any) => (
+        <div className="part-posts__list border-2 rounded-xl col-start-1 col-end-4 row-start-3 overflow-auto overscroll-auto">
+          {postsGroupData.length >= 1 ? (
+            postsGroupData.map((item: any) => (
               <PartsPostsPreview
                 data={item}
-                route={`/${id}/${childId}/${partId}/${item.id}`}
+                route={`/${name}/${childName}/${partName}/${item.title}`}
                 key={item.id}
               />
             ))
           ) : (
-            <PartPostsNotFound />
+            <>
+              {isPostsGroupLoad === "Loading" ? (
+                <div className="my-auto text-2xl font-semibold text-slate-500 text-center p-5">
+                  Ищем посты
+                </div>
+              ) : (
+                <div className="my-auto text-2xl font-semibold text-slate-500 text-center p-5">
+                  К сожалению постов в этом разделе нет.
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>
@@ -51,7 +74,11 @@ const PartPostList = () => {
         <Link to="../">
           <Button title="На главную" className="w-32 md:w-48" />
         </Link>
-        <Button title="Назад" onClickHandler={goBack} className="w-32 md:w-48" />
+        <Button
+          title="Назад"
+          onClickHandler={goBack}
+          className="w-32 md:w-48"
+        />
       </div>
     </div>
   );

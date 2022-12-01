@@ -67,6 +67,7 @@ const Header = () => {
         {location.pathname !== "/" && <Breadcrumb />}
       </div>
       <div>
+        
         <Dialog
           open={isOpen}
           onClose={() => closeModalHandler()}
@@ -75,7 +76,7 @@ const Header = () => {
           <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
           <div className="fixed inset-0 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center">
-              <Dialog.Panel className="mx-auto w-150 rounded bg-white px-4">
+              <Dialog.Panel className="mx-auto max-w-full rounded bg-white px-4">
                 <Dialog.Title className="text-center py-2 font-semibold text-md">
                   Результаты поиска по запросу : {searchValue}
                 </Dialog.Title>
@@ -91,17 +92,17 @@ const Header = () => {
                     ))}
                   </div>
                 ) : (
-                  <>
+                  <div className="">
                     {postSearchStatus == "Loading" ? (
                       <Dialog.Title className="text-center py-2 font-semibold text-md">
                         Загружаем посты по вашему запросу.
                       </Dialog.Title>
                     ) : (
                       <Dialog.Title className="text-center py-2 font-semibold text-md">
-                        Увы по вашему запросу, посты не найдены !
+                            Увы по вашему запросу: <span className="font-bold"> {searchValue}</span>, посты не найдены !
                       </Dialog.Title>
                     )}
-                  </>
+                  </div>
                 )}
               </Dialog.Panel>
             </div>
