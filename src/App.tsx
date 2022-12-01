@@ -36,7 +36,7 @@ export default function App() {
         <Route path=":name/:childName" element={<CarsPartsList />} />
         <Route path=":name/:childName/:partName" element={<PartPostList />} />
         <Route
-          path=":name/:childName/:partName/:postId"
+          path=":name/:childName/:partName/:postName"
           element={<PartPostPage />}
         />
         <Route path="post/:postName" element={<PartPostPage />} />

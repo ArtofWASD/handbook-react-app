@@ -14,6 +14,8 @@ const PartPostPage = () => {
   const post = useAppSelector((state: any) => state.data.currentPost);
   const isPostLoad = useAppSelector((state: any) => state.data.isCurrentPostLoad)
 
+  
+
   useEffect(() => {
     dispatch(getCurrentPost(postName));
   }, [postName]);
