@@ -47,7 +47,7 @@ const PartPostList = () => {
         <></>
       )}
       <div className="part-posts px-2">
-        <div className="part-posts__list border-2 rounded-xl col-start-1 col-end-4 row-start-3 overflow-auto overscroll-auto">
+        <div className="part-posts__list border-2 rounded-xl col-start-1 col-end-4 row-start-3">
           {postsGroupData.length >= 1 ? (
             postsGroupData.map((item: any) => (
               <PartsPostsPreview
@@ -59,22 +59,18 @@ const PartPostList = () => {
           ) : (
             <>
               {isPostsGroupLoad === "Loading" ? (
-                <div className="grid m-auto w-72 h-72">
-                  <motion.img
-                    src={"../../../public/loading_icon.png"}
-                      alt=""
-                      className="w-14 m-auto"
-                    animate={{
-                      scale: [1, 2, 2, 1, 1],
-                      rotate: 360,
-                      borderRadius: ["20%", "20%", "50%", "50%", "20%"],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                    }}
-                  />
-                </div>
+                <motion.div
+                  className="text-center p-20"
+                  animate={{
+                    scale: [1, 2, 2, 1, 1]
+                  }}
+                  transition={{
+                    duration: 1.2,
+                    repeat: Infinity,
+                  }}
+                >
+                  Загрузка
+                </motion.div>
               ) : (
                 <div className="my-auto text-2xl font-semibold text-slate-500 text-center p-5">
                   К сожалению постов в этом разделе нет.
