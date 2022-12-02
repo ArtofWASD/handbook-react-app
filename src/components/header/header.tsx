@@ -21,13 +21,12 @@ const Header = () => {
   const postSearchStatus: string = useAppSelector(
     (state: any) => state.data.postsFetchStatus,
   );
-  
 
   const submitFormHandler = (e: any) => {
     e.preventDefault();
     dispatch(fetchSearchPostQuery(searchValue));
     setIsOpen(true);
-    dispatch(clearCurrentPost())
+    dispatch(clearCurrentPost());
   };
 
   const closeModalHandler = () => {
@@ -48,7 +47,7 @@ const Header = () => {
           Справочник по самостоятельному ремонту и замене запчастей
         </p>
       </div>
-      <div className="header__search grid justify-self-center gap-2">
+      <div className="header__search grid justify-self-center">
         <form
           onSubmit={(e) => {
             submitFormHandler(e);
@@ -62,12 +61,11 @@ const Header = () => {
             onChangeHandler={(e) => setSearchValue(e.target.value)}
           />
         </form>
-      </div>
-      <div className="hidden md:flex md:pl-120">
-        {location.pathname !== "/" && <Breadcrumb />}
+        <div className="hidden md:flex justify-self-start">
+          {location.pathname !== "/" && <Breadcrumb />}
+        </div>
       </div>
       <div>
-        
         <Dialog
           open={isOpen}
           onClose={() => closeModalHandler()}
@@ -81,13 +79,12 @@ const Header = () => {
                   Результаты поиска по запросу : {searchValue}
                 </Dialog.Title>
                 {postsSearchData && postsSearchData.length >= 1 ? (
-                  <div onClick={() =>closeModalHandler()}>
+                  <div onClick={() => closeModalHandler()}>
                     {postsSearchData.map((item: any) => (
                       <PartsPostsPreview
                         key={item.id}
                         data={item}
                         route={`post/${item.title}`}
-
                       />
                     ))}
                   </div>
@@ -99,7 +96,9 @@ const Header = () => {
                       </Dialog.Title>
                     ) : (
                       <Dialog.Title className="text-center py-2 font-semibold text-md">
-                            Увы по вашему запросу: <span className="font-bold"> {searchValue}</span>, посты не найдены !
+                        Увы по вашему запросу:{" "}
+                        <span className="font-bold"> {searchValue}</span>, посты
+                        не найдены !
                       </Dialog.Title>
                     )}
                   </div>
