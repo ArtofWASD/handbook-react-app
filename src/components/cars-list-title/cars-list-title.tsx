@@ -15,7 +15,7 @@ const CarsListTitle: FC<TCarsListTitle> = ({ data }) => {
       <div className="cars__image grid justify-items-center lg:w-80 w-32 md:w-48 px-2 ">
         <img src={data.imgUrl} alt={data.name} />
       </div>
-      <div className="cars__description grid content-center px-4">
+      <div className="cars__description grid content-center">
         <div className="text-lg md:text-4xl text-center font-semibold py-0 lg:py-2 text-slate-500">
           {data.name}
         </div>
