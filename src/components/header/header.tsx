@@ -48,7 +48,7 @@ const Header = () => {
           Справочник по самостоятельному ремонту и замене запчастей
         </p>
       </div>
-      <div className="header__search grid justify-self-center pl-10 gap-2">
+      <div className="header__search grid justify-self-center gap-2">
         <form
           onSubmit={(e) => {
             submitFormHandler(e);
@@ -56,7 +56,7 @@ const Header = () => {
         >
           <Input
             type="text"
-            className="border border-blue-500 px-72 py-2 font-semibold"
+            className="border border-blue-500 px-14 sm:px-24 md:px-48 lg:px-72 py-2 font-semibold"
             placeholder="Поиск по постам"
             value={searchValue}
             onChangeHandler={(e) => setSearchValue(e.target.value)}

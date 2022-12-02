@@ -53,11 +53,11 @@ const ChildrenCarsList = () => {
               <CarModelItem key={item.id} data={item} route={`${item.name}`}/>  
             )}
           </div>
-          <div className="nav grid lg:grid-cols-[10%_24%] md:grid-cols-[40%_40%] grid-cols-2 py-4 justify-end gap-2 px-2">
+          <div className="nav grid lg:grid-cols-[10%_24%] md:grid-cols-[40%_40%] grid-cols-2 py-4 lg:justify-end justify-items-center lg:gap-2 px-2">
             <Link to="../">
-              <Button title="На главную" className="w-48" />
+              <Button title="На главную" className="w-36 md:w-48" />
             </Link>
-            <Button onClickHandler={goBack} title="Назад" className="w-48" />
+            <Button onClickHandler={goBack} title="Назад" className="w-36 md:w-48" />
           </div>
         </div>
       ) : (
