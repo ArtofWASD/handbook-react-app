@@ -8,6 +8,7 @@ import {
   clearGroupPostsArray,
   getGroupPosts,
 } from "../../services/reducers/dataSlice";
+import { motion } from "framer-motion";
 
 // Список статей внутри группы запчастей
 const PartPostList = () => {
@@ -58,8 +59,21 @@ const PartPostList = () => {
           ) : (
             <>
               {isPostsGroupLoad === "Loading" ? (
-                <div className="my-auto text-2xl font-semibold text-slate-500 text-center p-5">
-                  Ищем посты
+                <div className="grid m-auto w-72 h-72">
+                  <motion.img
+                    src={"../../../public/loading_icon.png"}
+                      alt=""
+                      className="w-14 m-auto"
+                    animate={{
+                      scale: [1, 2, 2, 1, 1],
+                      rotate: 360,
+                      borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                    }}
+                  />
                 </div>
               ) : (
                 <div className="my-auto text-2xl font-semibold text-slate-500 text-center p-5">

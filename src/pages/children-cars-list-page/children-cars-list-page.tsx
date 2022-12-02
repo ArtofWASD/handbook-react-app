@@ -67,24 +67,22 @@ const ChildrenCarsList = () => {
           </div>
         </div>
       ) : (
-        <>
-          <div className="w-20 grid m-auto">
-            <motion.img
-              src={"../../../public/loading_icon.png"}
-              alt=""
-              animate={{
-                scale: [1, 2, 2, 1, 1],
-                rotate: 360,
-                borderRadius: ["20%", "20%", "50%", "50%", "20%"],
-              }}
-              transition={{
-                duration: 1.5,
-                delay: 0.5,
-                repeat: Infinity,
-              }}
-            />
-          </div>
-        </>
+        <div className="grid m-auto w-72 h-72">
+        <motion.img
+          src={"../../../public/loading_icon.png"}
+            alt=""
+            className="w-14 m-auto"
+          animate={{
+            scale: [1, 2, 2, 1, 1],
+            rotate: 360,
+            borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+          }}
+        />
+      </div>
       )}
     </>
   );

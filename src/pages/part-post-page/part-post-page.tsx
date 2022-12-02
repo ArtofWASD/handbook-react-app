@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { getCurrentPost } from "../../services/reducers/dataSlice";
@@ -12,9 +13,9 @@ const PartPostPage = () => {
   const dispatch = useAppDispatch();
   const isUserLogin = useAppSelector((state) => state.user.isLogin);
   const post = useAppSelector((state: any) => state.data.currentPost);
-  const isPostLoad = useAppSelector((state: any) => state.data.isCurrentPostLoad)
-
-  
+  const isPostLoad = useAppSelector(
+    (state: any) => state.data.isCurrentPostLoad,
+  );
 
   useEffect(() => {
     dispatch(getCurrentPost(postName));
@@ -33,7 +34,10 @@ const PartPostPage = () => {
               <></>
             )}
             {post.map((item: any) => (
-              <div className="post__item border-2 rounded-xl py bg-slate-100" key={item.id}>
+              <div
+                className="post__item border-2 rounded-xl py bg-slate-100"
+                key={item.id}
+              >
                 <div className="post__title text-xl font-semibold text-slate-500 p-2">
                   {item.title}
                 </div>
@@ -59,7 +63,22 @@ const PartPostPage = () => {
           </div>
         </>
       ) : (
-        <div className="text-center my-auto text-4xl">Загружаем ваш пост</div>
+        <div className="grid m-auto w-72 h-72">
+          <motion.img
+            src={"../../../public/loading_icon.png"}
+            alt=""
+            className="w-14 m-auto"
+            animate={{
+              scale: [1, 2, 2, 1, 1],
+              rotate: 360,
+              borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+            }}
+          />
+        </div>
       )}
     </>
   );
