@@ -7,7 +7,7 @@
 - React-Router
 - Redux-Toolkit
 - Tailwind CSS
-- Firebase
+- Supabase
 
 Его можно найти в живую по адресу : https://handbook-react-app.vercel.app/
 
