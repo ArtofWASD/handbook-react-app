@@ -4,6 +4,7 @@ import { useAppSelector } from "../../utils/hooks";
 const Homepage = () => {
   const cars = useAppSelector((state:any) => state.data.data);
   return (
+    
     <div className="grid justify-center">
       <div className="cards__list grid justify-center my-auto ">
         <div className="cards__title self-center">
