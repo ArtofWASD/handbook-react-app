@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { year } from "../../utils/handlerFunctions";
@@ -13,9 +14,20 @@ type TCarModelItem = {
   route: string;
 };
 
-const CarModelItem: FC<TCarModelItem> = ({ data, route }) => {  
+const CarModelItem: FC<TCarModelItem> = ({ data, route }) => {
+  const onLoad = (data: any) => {
+    if (data !== undefined) {
+      return data;
+    }
+  };
   return (
-    <section className="card grid shadow-md shadow-slate-200 hover:border-blue-500 border-2 rounded-xl bg-white max-w-xs">
+    <motion.section
+      className="card grid shadow-md shadow-slate-200 hover:border-blue-500 border-2 rounded-xl bg-white max-w-xs"
+      onLoad={onLoad}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.7 }}
+    >
       <Link key={data.id} to={route}>
         <div className="card__img p-2">
           <img src={data.imgUrl} alt={data.name} />
@@ -31,7 +43,7 @@ const CarModelItem: FC<TCarModelItem> = ({ data, route }) => {
           </p>
         </div>
       </Link>
-    </section>
+    </motion.section>
   );
 };
 export default CarModelItem;

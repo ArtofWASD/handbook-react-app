@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { FC } from "react";
+import { motion } from "framer-motion";
+
 type TPartsListItem = {
   route: string;
   data: {
@@ -8,10 +10,20 @@ type TPartsListItem = {
     id: string;
   };
 };
-// группа запчастей плашка 
+// группа запчастей плашка
 const PartsListItem: FC<TPartsListItem> = ({ data, route }) => {
+  const onLoad = (data: any) => {
+    if (data !== undefined) {
+      return data;
+    }
+  };
   return (
-    <>
+    <motion.div
+      onLoad={onLoad}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.7 }}
+    >
       <Link key={data.id} to={route}>
         <div
           className="parts__item border-2 rounded-xl shadow-md shadow-slate-200 hover:border-blue-500 bg-white lg:w-48 mx-1 p-2"
@@ -25,7 +37,7 @@ const PartsListItem: FC<TPartsListItem> = ({ data, route }) => {
           </div>
         </div>
       </Link>
-    </>
+    </motion.div>
   );
 };
 export default PartsListItem;
