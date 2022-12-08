@@ -1,4 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { supabase } from "../../utils/supabase";
+
+export const createUser = createAsyncThunk("user/createUser", async (userData:any) => {
+    const { data, error } = await supabase.auth.admin.createUser({
+        email: `${userData.email}`,
+        password: `${userData.password}`,
+        user_metadata: { name: `${userData.name}` }
+      })
+    return data;
+  });
+
 
 export const userSlice = createSlice({
     name: "User",
@@ -23,6 +34,12 @@ export const userSlice = createSlice({
             state.id = null;
             state.isLogin = false;
         },
+    },
+    extraReducers: (builder) => {
+        builder
+        .addCase(createUser.fulfilled, (state: any, action) => {
+            
+        })
     },
 })
 
