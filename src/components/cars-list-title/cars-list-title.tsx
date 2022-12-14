@@ -32,7 +32,7 @@ const CarsListTitle: FC<TCarsListTitle> = ({ data }) => {
           {data.name}
         </div>
         <div className="text-lg md:text-4xl text-center font-semibold py-0 lg:py-2 text-slate-500">
-          {data?.year?.length > 4 ? data.year : `${data.year} - ${year}`}
+          {data?.year?.length > 4 ? data.year : `${data.year}-${year}`}
         </div>
       </div>
     </motion.div>

@@ -41,7 +41,7 @@ const CarModelItem: FC<TCarModelItem> = ({ data, route }) => {
         </div>
         <div className="card__year py-2">
           <p className="text-center font-semibold text-lg text-slate-400 p-0">
-            {data.year.length > 4 ? data.year : `${data.year} - ${year}`}
+            {data.year.length > 4 ? data.year : `${data.year}-${year}`}
           </p>
         </div>
       </Link>
