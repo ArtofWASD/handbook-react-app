@@ -7,7 +7,7 @@ import { year } from "../../utils/handlerFunctions";
 type TCarModelItem = {
   data: {
     imgUrl: string;
-    name?: string;
+    name: string;
     id: string;
     year: any;
   };

@@ -22,7 +22,7 @@ export const fetchSearchPostQuery = createAsyncThunk(
 
 export const getCurrentPost = createAsyncThunk(
   "data/getCurrentPost",
-  async (postName: any) => {
+  async (postName: string) => {
     let { data: posts } = await supabase
       .from("posts")
       .select("*")
@@ -32,8 +32,8 @@ export const getCurrentPost = createAsyncThunk(
 );
 export const getGroupPosts = createAsyncThunk(
   "data/getGroupPosts",
-  async (query: any) => {    
-    let { data: posts, error } = await supabase
+  async (query: string) => {    
+    let { data: posts } = await supabase
       .from("posts")
       .select("*")
       .textSearch("parentPartsGroupIds", `${query}`, { type: "websearch" })
@@ -41,12 +41,46 @@ export const getGroupPosts = createAsyncThunk(
   },
 );
 
+type TPartsGroup = {
+  part: {
+    id: string,
+    name: string,
+    imgUrl: string,
+    label: string,
+  }
+}
+
+type TchildCars = {
+  id: string,
+  name: string,
+  year: string,
+  imgUrl: string,
+  parent_id: string,
+  partsGroup :Array<TPartsGroup>
+  
+}
+
+type TData = {
+  id: string,
+  name: string,
+  year: string,
+  imgUrl: string| undefined,
+  childCars: Array<TchildCars>,
+}
+
+type TPostsData = {
+  id: string,
+  title: string,
+  text: string,
+  imgUrl: string,
+  parentPartsGroupIds: string
+}
 export const dataSlice: any = createSlice({
   name: "data",
   initialState: {
-    data: [],
-    posts: [],
-    groupPosts:[],
+    data: [] as Array<TData>,
+    posts: [] as Array<TPostsData>,
+    groupPosts:[] as Array<TPostsData>,
     currentPost: null,
     isCurrentPostLoad: "",
     isGroupPostLoad:"",
