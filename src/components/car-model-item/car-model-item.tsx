@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FC } from "react";
+import { FC, SyntheticEvent } from "react";
 import { Link } from "react-router-dom";
 import { year } from "../../utils/handlerFunctions";
 
@@ -9,17 +9,19 @@ type TCarModelItem = {
     imgUrl: string;
     name: string;
     id: string;
-    year: any;
+    year: string;
   };
   route: string;
 };
 
 const CarModelItem: FC<TCarModelItem> = ({ data, route }) => {
-  const onLoad = (data: any) => {
+
+  const onLoad = (data: SyntheticEvent<HTMLElement, Event>) => {
     if (data !== undefined) {
       return data;
     }
   };
+
   return (
     <motion.section
       className="card grid shadow-md shadow-slate-200 hover:border-blue-500 border-2 rounded-xl bg-white max-w-xs"

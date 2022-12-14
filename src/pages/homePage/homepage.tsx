@@ -2,7 +2,7 @@ import CarModelItem from "../../components/car-model-item/car-model-item";
 import { useAppSelector } from "../../utils/hooks";
 
 const Homepage = () => {
-  const cars = useAppSelector((state:any) => state.data.data);
+  const cars = useAppSelector((state) => state.data.data);
   return (
     
     <div className="grid justify-center">
@@ -14,8 +14,8 @@ const Homepage = () => {
         </div>
       </div>
       <div className="grid lg:grid-cols-3 gap-4 justify-items-center items-baseline sm:grid-cols-1 px-8 my-auto">
-        {cars !== undefined &&
-          cars.map((item:any) => (
+        {cars !== undefined && cars !== null &&
+          cars.map((item) => (
             <CarModelItem data={item} key={item.id} route={`/${item.name}`} />
           ))}
       </div>

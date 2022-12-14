@@ -32,58 +32,59 @@ export const getCurrentPost = createAsyncThunk(
 );
 export const getGroupPosts = createAsyncThunk(
   "data/getGroupPosts",
-  async (query: string) => {    
+  async (query: string) => {
     let { data: posts } = await supabase
       .from("posts")
       .select("*")
-      .textSearch("parentPartsGroupIds", `${query}`, { type: "websearch" })
+      .textSearch("parentPartsGroupIds", `${query}`, { type: "websearch" });
     return posts;
   },
 );
 
 type TPartsGroup = {
   part: {
-    id: string,
-    name: string,
-    imgUrl: string,
-    label: string,
-  }
-}
+    id: string;
+    name: string;
+    imgUrl: string;
+    label: string;
+  };
+};
 
 type TchildCars = {
-  id: string,
-  name: string,
-  year: string,
-  imgUrl: string,
-  parent_id: string,
-  partsGroup :Array<TPartsGroup>
-  
-}
+  id: string;
+  name: string;
+  year: string;
+  imgUrl: string;
+  parent_id: string;
+  partsGroup: Array<TPartsGroup>;
+};
 
 type TData = {
-  id: string,
-  name: string,
-  year: string,
-  imgUrl: string| undefined,
-  childCars: Array<TchildCars>,
-}
+  id: string;
+  name: string;
+  year: string;
+  imgUrl: string;
+  childCars: Array<TchildCars>;
+};
 
 type TPostsData = {
-  id: string,
-  title: string,
-  text: string,
-  imgUrl: string,
-  parentPartsGroupIds: string
-}
-export const dataSlice: any = createSlice({
+  id: string;
+  title: string;
+  text: string;
+  imgUrl: string;
+  parentPartsGroupIds: string;
+};
+
+export const dataSlice = createSlice({
   name: "data",
   initialState: {
-    data: [] as Array<TData>,
-    posts: [] as Array<TPostsData>,
-    groupPosts:[] as Array<TPostsData>,
-    currentPost: null,
+    data: [] as Array<TData> | null,
+    posts: [] as Array<TPostsData> | null,
+    groupPosts: [] as Array<TPostsData> | null,
+    currentPost: [] as Array<TPostsData> | null,
+    fetchDataStatus: "",
     isCurrentPostLoad: "",
-    isGroupPostLoad:"",
+    isGroupPostLoad: "",
     postsFetchStatus: "",
   },
   reducers: {
@@ -94,45 +95,44 @@ export const dataSlice: any = createSlice({
       state.currentPost = null;
     },
     clearGroupPostsArray(state) {
-      state.groupPosts = []
-    }
+      state.groupPosts = [];
+    },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchData.pending, (state: any) => {
-        state.status = "Loading";
+      .addCase(fetchData.pending, (state) => {
+        state.fetchDataStatus = "Loading";
       })
-      .addCase(fetchData.fulfilled, (state: any, action) => {
-        state.status = "Resolved";
+      .addCase(fetchData.fulfilled, (state, action) => {
+        state.fetchDataStatus = "Resolved";
         state.data = action.payload;
       })
-      .addCase(fetchData.rejected, (state: any, action) => {
-        state.status = "Error";
-        state.error = action.payload;
+      .addCase(fetchData.rejected, (state) => {
+        state.fetchDataStatus = "Error";
       })
-      .addCase(fetchSearchPostQuery.pending, (state: any) => {
+      .addCase(fetchSearchPostQuery.pending, (state) => {
         state.postsFetchStatus = "Loading";
       })
-      .addCase(fetchSearchPostQuery.fulfilled, (state: any, action) => {
+      .addCase(fetchSearchPostQuery.fulfilled, (state, action) => {
         state.postsFetchStatus = "Resolved";
         state.posts = action.payload;
       })
-      .addCase(fetchSearchPostQuery.rejected, (state: any, action) => {
+      .addCase(fetchSearchPostQuery.rejected, (state) => {
         state.postsFetchStatus = "Error";
-        state.error = action.payload;
       })
-      .addCase(getCurrentPost.fulfilled, (state: any, action) => {
-        state.isCurrentPostLoad = "Success"
+      .addCase(getCurrentPost.fulfilled, (state, action) => {
+        state.isCurrentPostLoad = "Success";
         state.currentPost = action.payload;
       })
-      .addCase(getGroupPosts.pending, (state: any) => {
-        state.isGroupPostLoad = "Loading"
+      .addCase(getGroupPosts.pending, (state) => {
+        state.isGroupPostLoad = "Loading";
       })
-      .addCase(getGroupPosts.fulfilled, (state: any, action) => {
-        state.isGroupPostLoad = 'Success'
+      .addCase(getGroupPosts.fulfilled, (state, action) => {
+        state.isGroupPostLoad = "Success";
         state.groupPosts = action.payload;
       });
   },
 });
-export const { clearPostsArray, clearCurrentPost, clearGroupPostsArray } = dataSlice.actions;
+export const { clearPostsArray, clearCurrentPost, clearGroupPostsArray } =
+  dataSlice.actions;
 export default dataSlice.reducer;
