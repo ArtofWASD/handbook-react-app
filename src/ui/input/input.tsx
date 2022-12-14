@@ -1,9 +1,10 @@
-import { FC } from "react";
+import { AnyAction } from "@reduxjs/toolkit";
+import {FC} from "react";
 type TInput = {
   type: string;
   value: string;
   placeholder: string;
-  onChangeHandler: (e: any) => void;
+  onChangeHandler: (e: AnyAction) => void;
   className: string;
 };
 const Input: FC<TInput> = ({

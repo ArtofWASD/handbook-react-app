@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { supabase } from "../../utils/supabase";
 
-export const createUser = createAsyncThunk("user/createUser", async (userData:any) => {
-    const { data, error } = await supabase.auth.admin.createUser({
+export const createUser = createAsyncThunk("user/createUser", async (userData:{email:string, password:string, name:string}) => {
+    const { data } = await supabase.auth.admin.createUser({
         email: `${userData.email}`,
         password: `${userData.password}`,
         user_metadata: { name: `${userData.name}` }
@@ -37,7 +37,7 @@ export const userSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-        .addCase(createUser.fulfilled, (state: any, action) => {
+        .addCase(createUser.fulfilled, (state, action) => {
             
         })
     },

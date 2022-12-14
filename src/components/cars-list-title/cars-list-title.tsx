@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FC } from "react";
+import { FC, SyntheticEvent } from "react";
 import { year } from "../../utils/handlerFunctions";
 
 type TCarsListTitle = {
@@ -11,7 +11,7 @@ type TCarsListTitle = {
 };
 // Заголовок в старницах с машинами
 const CarsListTitle: FC<TCarsListTitle> = ({ data }) => {
-  const onLoad = (data: any) => {
+  const onLoad = (data: SyntheticEvent<HTMLElement, Event>) => {
     if (data !== undefined) {
       return data;
     }

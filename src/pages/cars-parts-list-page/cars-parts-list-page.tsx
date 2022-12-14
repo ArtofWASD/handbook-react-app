@@ -10,9 +10,9 @@ const CarsPartsList = () => {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
 
-  const carsData: any = useAppSelector((state: any) => state.data.data);
-  const childCarArray: any = carsData
-    .find((item: { name: string }) => item.name === String(name))
+  const carsData = useAppSelector((state) => state.data.data);
+  const childCarArray = carsData
+    ?.find((item: { name: string }) => item.name === String(name))
     ?.childCars.find(
       (item: { name: string }) => item.name === String(childName),
     );
@@ -23,7 +23,7 @@ const CarsPartsList = () => {
         <div className="cars_parts_list_page grid justify-center">
           {childCarArray && <СarsListTitle data={childCarArray} />}
           <div className="parts__group-list grid lg:grid-cols-4 sm:grid-cols-2 gap-4 py-4 px-1">
-            {childCarArray?.partsGroup.map((item: any) => (
+            {childCarArray?.partsGroup.map((item) => (
               <PartsListItem
                 data={item.part}
                 route={`${item.part.name}`}

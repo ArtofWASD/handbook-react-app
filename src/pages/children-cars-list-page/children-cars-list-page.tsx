@@ -13,23 +13,15 @@ type TChildCarsArray = {
   parent_id: string;
 };
 
-type TCarsArray = {
-  imgUrl: string | undefined;
-  name: string;
-  year: string;
-  id: string;
-  childCars: Array<TChildCarsArray> | any;
-};
-
 const ChildrenCarsList = () => {
   const { name } = useParams();
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
-  const carsData: Array<TCarsArray> = useAppSelector(
-    (state: any) => state.data.data,
+  const carsData = useAppSelector(
+    (state) => state.data.data,
   );
 
-  const carsArr = carsData.find((item) => item.name === String(name));
+  const carsArr = carsData?.find(item => item.name === String(name));
   const carTitle = { imgUrl: "", name: "", year: "" };
 
   Object.assign(carTitle, {
@@ -50,7 +42,7 @@ const ChildrenCarsList = () => {
                 : `child-cars grid lg:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 justify-self-center gap-4 px-2`
             }
           >
-            {carsArr.childCars.map((item: any) => (
+            {carsArr.childCars.map(item => (
               <CarModelItem key={item.id} data={item} route={`${item.name}`} />
             ))}
           </div>

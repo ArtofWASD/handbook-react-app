@@ -1,7 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Button from "../../ui/button/button";
 import PartsPostsPreview from "../../components/parts-posts-preview/parts-posts-preview";
-import PartPostsNotFound from "../../components/part-post-not-found/part-post-not-found";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { useEffect } from "react";
 import {
@@ -17,11 +16,11 @@ const PartPostList = () => {
   const goBack = () => navigate(-1);
   const dispatch = useAppDispatch();
   const isUserLogin = useAppSelector((state) => state.user.isLogin);
-  const postsGroupData: any = useAppSelector(
-    (state: any) => state.data.groupPosts,
+  const postsGroupData = useAppSelector(
+    (state) => state.data.groupPosts,
   );
-  const isPostsGroupLoad: string = useAppSelector(
-    (state: any) => state.data.isGroupPostLoad,
+  const isPostsGroupLoad = useAppSelector(
+    (state) => state.data.isGroupPostLoad,
   );
 
   useEffect(() => {
@@ -34,11 +33,6 @@ const PartPostList = () => {
 
   return (
     <div className="parts_posts_list_page grid justify-center grid-rows-[auto_auto_auto_auto] xl:px-72 lg:px-20">
-      <div className="part-posts__title">
-        <p className="text-center text-4xl font-semibold text-slate-500 py-2">
-          {/* {postsList.title} */}
-        </p>
-      </div>
       {isUserLogin ? (
         <div className="flex justify-self-end py-4">
           <Button title="Редактировать" className="w-40" />
@@ -48,8 +42,8 @@ const PartPostList = () => {
       )}
       <div className="part-posts px-2">
         <div className="part-posts__list border-2 rounded-xl col-start-1 col-end-4 row-start-3">
-          {postsGroupData.length >= 1 ? (
-            postsGroupData.map((item: any) => (
+          {postsGroupData !== null && postsGroupData.length >= 1 ? (
+            postsGroupData?.map((item) => (
               <PartsPostsPreview
                 data={item}
                 route={`/${name}/${childName}/${partName}/${item.title}`}

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FC } from "react";
+import { FC, SyntheticEvent } from "react";
 import { motion } from "framer-motion";
 
 type TPartsListItem = {
@@ -12,7 +12,7 @@ type TPartsListItem = {
 };
 // группа запчастей плашка
 const PartsListItem: FC<TPartsListItem> = ({ data, route }) => {
-  const onLoad = (data: any) => {
+  const onLoad = (data: SyntheticEvent<HTMLElement, Event>) => {
     if (data !== undefined) {
       return data;
     }

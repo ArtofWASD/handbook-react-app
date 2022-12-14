@@ -3,7 +3,7 @@ import Breadcrumb from "../breadcrumbs/breadcrumbs";
 import { Link, useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import Input from "../../ui/input/input";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import {
   clearCurrentPost,
   clearPostsArray,
@@ -15,14 +15,14 @@ import PartsPostsPreview from "../parts-posts-preview/parts-posts-preview";
 const Header = () => {
   const dispatch = useAppDispatch();
   const [searchValue, setSearchValue] = useState("");
-  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  const postsSearchData: any = useAppSelector((state: any) => state.data.posts);
-  const postSearchStatus: string = useAppSelector(
-    (state: any) => state.data.postsFetchStatus,
+  const location = useLocation();
+  const postsSearchData = useAppSelector((state) => state.data.posts);
+  const postSearchStatus = useAppSelector(
+    (state) => state.data.postsFetchStatus,
   );
 
-  const submitFormHandler = (e: any) => {
+  const submitFormHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(fetchSearchPostQuery(searchValue));
     setIsOpen(true);
@@ -80,7 +80,7 @@ const Header = () => {
                 </Dialog.Title>
                 {postsSearchData && postsSearchData.length >= 1 ? (
                   <div onClick={() => closeModalHandler()}>
-                    {postsSearchData.map((item: any) => (
+                    {postsSearchData.map((item) => (
                       <PartsPostsPreview
                         key={item.id}
                         data={item}
