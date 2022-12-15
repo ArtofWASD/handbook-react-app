@@ -1,5 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { supabase } from "../../utils/supabase";
+import { createClient } from '@supabase/supabase-js'
+import { supabaseService_role_key, supabaseUrl } from "../../utils/supabase";
+
+const supabase = createClient(supabaseUrl, supabaseService_role_key)
 
 export const createUser = createAsyncThunk("user/createUser", async (userData:{email:string, password:string, name:string}) => {
     const { data } = await supabase.auth.admin.createUser({
@@ -10,39 +13,32 @@ export const createUser = createAsyncThunk("user/createUser", async (userData:{e
     return data;
   });
 
+export const sighInUser = createAsyncThunk('user/signInUser', async (signInData:{email:string, password:string}) => {
+    const { data } = await supabase.auth.signInWithPassword({
+        email: `${signInData.email}`,
+        password: `${signInData.password}`
+    })
+    return data
+})
 
 export const userSlice = createSlice({
     name: "User",
     initialState: {
-        name: null,
-        email: null,
-        token: null,
-        id: null,
+        data:null,
         isLogin: false
     },
     reducers: {
-        setUser(state, action) {
-            state.email = action.payload.email;
-            state.token = action.payload.token;
-            state.id = action.payload.id;
-            state.name = action.payload.name;
-            state.isLogin = true;
-        },
-        removeUser(state) {
-            state.email = null;
-            state.token = null;
-            state.id = null;
-            state.isLogin = false;
-        },
+
     },
     extraReducers: (builder) => {
         builder
-        .addCase(createUser.fulfilled, (state, action) => {
-            
+            .addCase(sighInUser.fulfilled, (state:any, action) => {
+                state.data = action.payload;
+                state.isLogin = true;
         })
     },
 })
 
-export const { setUser, removeUser } = userSlice.actions;
+// export const { setUser, removeUser } = userSlice.actions;
 
 export default userSlice.reducer;

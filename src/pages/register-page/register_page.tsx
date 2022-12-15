@@ -1,45 +1,57 @@
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../../ui/input/input";
 import Button from "../../ui/button/button";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useAppDispatch } from "../../utils/hooks";
+import { createUser } from "../../services/reducers/userSlice";
 
 const Register = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+
+  const userData = { 
+    name: userName,
+    password: userPassword,
+    email: userEmail
+  }
+
+  const registerUserHandler = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    dispatch(createUser(userData))
+    alert('Спасибо за регистрацию')
+  }
 
   return (
     <>
       <form
         action="submit"
         onSubmit={(e) => {
-          e.preventDefault();
-          navigate("/");
+          registerUserHandler(e)
         }}
         className=" flex flex-col items-center"
       >
         <Input
           type="name"
           placeholder="Ваше имя"
-          value={name}
-          onChangeHandler={(e) => setName(e.target.value)}
+          value={userName}
+          onChangeHandler={(e) => setUserName(e.target.value)}
           className=" w-80 my-2"
         />
         <Input
           type="email"
           placeholder="Почта"
-          value={email}
-          onChangeHandler={(e) => setEmail(e.target.value)}
+          value={userEmail}
+          onChangeHandler={(e) => setUserEmail(e.target.value)}
           className=" w-80 my-2"
         />
         <Input
           type="password"
           placeholder="Пароль"
-          value={password}
-          onChangeHandler={(e) => setPassword(e.target.value)}
+          value={userPassword}
+          onChangeHandler={(e) => setUserPassword(e.target.value)}
           className=" w-80 my-2"
         />
         <Button

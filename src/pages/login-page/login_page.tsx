@@ -1,47 +1,50 @@
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { setUser } from "../../services/reducers/userSlice";
+import {sighInUser } from "../../services/reducers/userSlice";
 import Input from "../../ui/input/input";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import Button from "../../ui/button/button";
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
 
-  const loginHandler = (email: string, password: string) => {
-  };
+  const userLoginData = {
+    email: userEmail,
+    password: userPassword
+  }
 
+  const userLoginHandler = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    dispatch(sighInUser(userLoginData))
+  }
   return (
     <>
       <form
         action="submit"
         onSubmit={(e) => {
-          e.preventDefault();
-          loginHandler(email, password);
-          navigate("/");
+          userLoginHandler(e)
         }}
         className=" flex flex-col items-center"
       >
         <Input
           type="email"
           placeholder="Почта"
-          value={email}
-          onChangeHandler={(e) => setEmail(e.target.value)}
+          value={userEmail}
+          onChangeHandler={(e) => setUserEmail(e.target.value)}
           className=" w-80 my-2"
         />
         <Input
           type="password"
           placeholder="Пароль"
-          value={password}
-          onChangeHandler={(e) => setPassword(e.target.value)}
+          value={userPassword}
+          onChangeHandler={(e) => setUserPassword(e.target.value)}
           className=" w-80 my-2"
         />
         <Button
           title="Войти"
-          onClickHandler={() => loginHandler(email, password)}
           className="w-36 my-2"
         ></Button>
       </form>

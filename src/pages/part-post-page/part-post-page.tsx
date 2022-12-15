@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+import { SyntheticEvent, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { getCurrentPost } from "../../services/reducers/dataSlice";
 import Button from "../../ui/button/button";
