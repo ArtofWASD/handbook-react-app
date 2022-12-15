@@ -40,17 +40,17 @@ const CarsPartsList = () => {
         </div>
       ) : (
         <motion.div
-        className="text-center p-20"
-        animate={{
-          scale: [1, 2, 2, 1, 1]
-        }}
-        transition={{
-          duration: 1.2,
-          repeat: Infinity,
-        }}
-      >
-        Загрузка
-      </motion.div>
+          className="text-center p-20"
+          animate={{
+            scale: [1, 2, 2, 1, 1],
+          }}
+          transition={{
+            duration: 1.2,
+            repeat: Infinity,
+          }}
+        >
+          Загрузка
+        </motion.div>
       )}
     </>
   );

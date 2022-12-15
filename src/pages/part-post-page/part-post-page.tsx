@@ -11,9 +11,9 @@ const PartPostPage = () => {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
   const dispatch = useAppDispatch();
-  const isUserLogin = useAppSelector((state) => state.user.isLogin);
-  const post = useAppSelector((state) => state.data.currentPost);
-  const isPostLoad = useAppSelector((state) => state.data.isCurrentPostLoad);
+  const isUserLogin = useAppSelector(state => state.user.isLogin);
+  const post = useAppSelector(state => state.data.currentPost);
+  const isPostLoad = useAppSelector(state => state.data.isCurrentPostLoad);
 
   useEffect(() => {
     if (postName !== undefined) {

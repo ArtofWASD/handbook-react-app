@@ -5,21 +5,11 @@ import CarModelItem from "../../components/car-model-item/car-model-item";
 import { useAppSelector } from "../../utils/hooks";
 import { motion } from "framer-motion";
 
-type TChildCarsArray = {
-  id: string;
-  name: string;
-  year: string;
-  imgUrl: string;
-  parent_id: string;
-};
-
 const ChildrenCarsList = () => {
   const { name } = useParams();
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
-  const carsData = useAppSelector(
-    (state) => state.data.data,
-  );
+  const carsData = useAppSelector(state => state.data.data);
 
   const carsArr = carsData?.find(item => item.name === String(name));
   const carTitle = { imgUrl: "", name: "", year: "" };

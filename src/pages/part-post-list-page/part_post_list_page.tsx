@@ -15,13 +15,9 @@ const PartPostList = () => {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
   const dispatch = useAppDispatch();
-  const isUserLogin = useAppSelector((state) => state.user.isLogin);
-  const postsGroupData = useAppSelector(
-    (state) => state.data.groupPosts,
-  );
-  const isPostsGroupLoad = useAppSelector(
-    (state) => state.data.isGroupPostLoad,
-  );
+  const isUserLogin = useAppSelector(state => state.user.isLogin);
+  const postsGroupData = useAppSelector(state => state.data.groupPosts);
+  const isPostsGroupLoad = useAppSelector(state => state.data.isGroupPostLoad);
 
   useEffect(() => {
     if (childName && partName) {

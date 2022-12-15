@@ -17,10 +17,8 @@ const Header = () => {
   const [searchValue, setSearchValue] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const postsSearchData = useAppSelector((state) => state.data.posts);
-  const postSearchStatus = useAppSelector(
-    (state) => state.data.postsFetchStatus,
-  );
+  const postsSearchData = useAppSelector(state => state.data.posts);
+  const postSearchStatus = useAppSelector(state => state.data.postsFetchStatus);
 
   const submitFormHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
