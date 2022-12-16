@@ -11,11 +11,12 @@ import {
 } from "../../services/reducers/dataSlice";
 import PartsPostsPreview from "../parts-posts-preview/parts-posts-preview";
 import { Dialog } from "@headlessui/react";
+import Modal from "../modal/Modal";
 
 const Header = () => {
   const dispatch = useAppDispatch();
-  const [searchValue, setSearchValue] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState<string>("");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const location = useLocation();
   const postsSearchData = useAppSelector((state) => state.data.posts);
   const postSearchStatus = useAppSelector(
@@ -66,47 +67,41 @@ const Header = () => {
         </div>
       </div>
       <div>
-        <Dialog
-          open={isOpen}
-          onClose={() => closeModalHandler()}
-          className="relative z-50"
+        <Modal
+          isOpen={isOpen}
+          isModalOpenHandler={() => {
+            setIsOpen(false);
+          }}
         >
-          <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
-          <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center">
-              <Dialog.Panel className="mx-auto max-w-full rounded bg-white px-4">
-                <Dialog.Title className="text-center py-2 font-semibold text-md">
-                  Результаты поиска по запросу : {searchValue}
-                </Dialog.Title>
-                {postsSearchData && postsSearchData.length >= 1 ? (
-                  <div onClick={() => closeModalHandler()}>
-                    {postsSearchData.map((item) => (
-                      <PartsPostsPreview
-                        key={item.id}
-                        data={item}
-                        route={`post/${item.title}`}
-                      />
-                    ))}
-                  </div>
-                ) : (
-                  <div className="">
-                    {postSearchStatus == "Loading" ? (
-                      <Dialog.Title className="text-center py-2 font-semibold text-md">
-                        Загружаем посты по вашему запросу.
-                      </Dialog.Title>
-                    ) : (
-                      <Dialog.Title className="text-center py-2 font-semibold text-md">
-                        Увы по вашему запросу:{" "}
-                        <span className="font-bold"> {searchValue}</span>, посты
-                        не найдены !
-                      </Dialog.Title>
-                    )}
-                  </div>
-                )}
-              </Dialog.Panel>
+          {postsSearchData && postsSearchData.length >= 1 ? (
+            <div onClick={() => closeModalHandler()}>
+              <Dialog.Title className="text-center py-2 font-semibold text-md">
+                Результаты поиска по запросу : {searchValue}
+              </Dialog.Title>
+              {postsSearchData.map((item) => (
+                <PartsPostsPreview
+                  key={item.id}
+                  data={item}
+                  route={`post/${item.title}`}
+                />
+              ))}
             </div>
-          </div>
-        </Dialog>
+          ) : (
+            <div>
+              {postSearchStatus == "Loading" ? (
+                <div className="text-center py-2 font-semibold text-md">
+                  Загружаем посты по вашему запросу.
+                </div>
+              ) : (
+                <div className="text-center py-2 font-semibold text-md">
+                  Увы по вашему запросу:
+                  <span className="font-bold"> {searchValue}</span>, посты не
+                  найдены !
+                </div>
+              )}
+            </div>
+          )}
+        </Modal>
       </div>
     </header>
   );

@@ -1,18 +1,16 @@
-import React from "react";
-import { Dialog } from "@headlessui/react";
 
-const Modal = (isOpen: any, isOpenHandler: any, children: any) => {
+import { Dialog } from "@headlessui/react";
+const Modal = ({ isOpen, children, isModalOpenHandler }: any) => {
   return (
     <Dialog
       open={isOpen}
-      onClose={() => isOpenHandler(false)}
+      onClose={() => {isModalOpenHandler()}}
       className="relative z-50"
     >
       <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
       <div className="fixed inset-0 overflow-y-auto">
         <div className="flex min-h-full items-center justify-center p-4">
-          <Dialog.Panel className="mx-auto max-w-sm rounded bg-white">
-            <Dialog.Title>Complete your order</Dialog.Title>
+          <Dialog.Panel className="mx-auto max-w-full rounded bg-white px-4">
             {children}
           </Dialog.Panel>
         </div>
