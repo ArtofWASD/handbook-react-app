@@ -28,7 +28,8 @@ const PartPostList = () => {
   }, [childName, partName]);
 
   return (
-    <div className="parts_posts_list_page grid justify-center grid-rows-[auto_auto_auto_auto] xl:px-72 lg:px-20">
+    <div className="parts_posts_list_page grid justify-center grid-rows-[auto_auto_auto_auto] xl:px-72 lg:px-20 ">
+      <p className="text-center py-4 text-3xl text-bold text-slate-500">Список статей раздела {partName} для микроавтобуса {childName}</p>
       {isUserLogin ? (
         <div className="flex justify-self-end py-4">
           <Button title="Редактировать" className="w-40" />
@@ -37,7 +38,7 @@ const PartPostList = () => {
         <></>
       )}
       <div className="part-posts px-2">
-        <div className="part-posts__list border-2 rounded-xl col-start-1 col-end-4 row-start-3">
+        <div className="part-posts__list border-2 rounded-xl col-start-1 col-end-4 row-start-3 ">
           {postsGroupData !== null && postsGroupData.length >= 1 ? (
             postsGroupData?.map((item) => (
               <PartsPostsPreview

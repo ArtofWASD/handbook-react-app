@@ -8,6 +8,7 @@ import RegisterPage from "../src/pages/register-page/register_page";
 import LoginPage from "../src/pages/login-page/login_page";
 import AccountPage from "../src/pages/account-page/account-page";
 import PartPostPage from "./pages/part-post-page/part-post-page";
+import AdminPage from "./pages/admin-page/admin-page"
 import { useAppDispatch } from "../src/utils/hooks";
 import { useEffect, useRef } from "react";
 import { fetchData } from "./services/reducers/dataSlice";
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="register" element={<RegisterPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="account" element={<AccountPage />} />
+        <Route path="admin" element={<AdminPage />} />
         <Route path=":name" element={<ChildrenCarsList />} />
         <Route path=":name/:childName" element={<CarsPartsList />} />
         <Route path=":name/:childName/:partName" element={<PartPostList />} />
