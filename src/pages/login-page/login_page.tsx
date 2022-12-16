@@ -18,7 +18,7 @@ const Login = () => {
 
   const userLoginHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(sighInUser(userLoginData))
+    // dispatch(sighInUser(userLoginData))
   }
   return (
     <>
