@@ -10,7 +10,6 @@ import MyInput from "../../ui/input/input";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import Modal from "../modal/Modal";
 import PartsPostsPreview from "../parts-posts-preview/parts-posts-preview";
-import Breadcrumb from "../breadcrumbs/breadcrumbs";
 
 const PostSearch = () => {
   const dispatch = useAppDispatch();
@@ -38,7 +37,7 @@ const PostSearch = () => {
   
   return (
     <>
-      <div className="search_bar grid justify-self-center">
+      <div className="search_bar grid justify-self-center py-10">
         <form
           onSubmit={(e) => {
             submitFormHandler(e);
@@ -53,9 +52,6 @@ const PostSearch = () => {
             onChangeHandler={(e) => setSearchValue(e.target.value)}
           />
         </form>
-        <div className="hidden md:flex justify-self-start">
-          {location.pathname !== "/" && <Breadcrumb />}
-        </div>
       </div>
       <div>
         <Modal

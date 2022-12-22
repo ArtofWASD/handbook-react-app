@@ -24,7 +24,7 @@ const CarsListTitle: FC<TCarsListTitle> = ({ data }) => {
       animate={{ opacity: 1 }}
       transition={{ delay: 0.7 }}
     >
-      <div className="cars__image grid justify-items-center lg:w-56 w-32 md:w-48 px-2 ">
+      <div className="cars__image grid justify-items-center lg:w-52 w-32 md:w-48 px-2 ">
         <img src={data.imgUrl} alt={data.name} />
       </div>
       <div className="cars__description grid content-center">
