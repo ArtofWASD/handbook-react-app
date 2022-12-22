@@ -18,13 +18,13 @@ const CarsListTitle: FC<TCarsListTitle> = ({ data }) => {
   };
   return (
     <motion.div
-      className="cars_list_title border-2 rounded-xl grid grid-cols-2 justify-self-center my-2 px-7 bg-white"
+      className="cars_list_title border-2 rounded-xl grid grid-cols-2 justify-self-center my-2 px-20 bg-white"
       onLoad={onLoad}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.7 }}
     >
-      <div className="cars__image grid justify-items-center lg:w-80 w-32 md:w-48 px-2 ">
+      <div className="cars__image grid justify-items-center lg:w-56 w-32 md:w-48 px-2 ">
         <img src={data.imgUrl} alt={data.name} />
       </div>
       <div className="cars__description grid content-center">

@@ -31,15 +31,15 @@ const CarModelItem: FC<TCarModelItem> = ({ data, route }) => {
       transition={{ delay: 0.7 }}
     >
       <Link key={data.id} to={route}>
-        <div className="card__img p-2">
+        <div className="card__img p-4">
           <img src={data.imgUrl} alt={data.name} />
         </div>
-        <div className="card__title py-2">
+        <div className="card__title">
           <p className="text-center font-semibold text-2xl text-slate-400">
             {data.name}
           </p>
         </div>
-        <div className="card__year py-2">
+        <div className="card__year pb-2">
           <p className="text-center font-semibold text-lg text-slate-400 p-0">
             {data.year.length > 4 ? data.year : `${data.year}-${year}`}
           </p>
