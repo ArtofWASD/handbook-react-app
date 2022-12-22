@@ -7,7 +7,7 @@ type TInput = {
   placeholder: string;
   onChangeHandler: (e: AnyAction) => void;
   className: string;
-  ref:any
+  ref?:any
 };
 const MyInput: FC<TInput> = forwardRef(function MyInput(props, ref: any) {  
   return (

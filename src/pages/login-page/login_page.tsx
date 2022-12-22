@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import {sighInUser } from "../../services/reducers/userSlice";
-import Input from "../../ui/input/input";
+import MyInput from "../../ui/input/input";
 import { FormEvent, useState } from "react";
 import Button from "../../ui/button/button";
 
@@ -29,14 +29,14 @@ const Login = () => {
         }}
         className=" flex flex-col items-center"
       >
-        <Input
+        <MyInput
           type="email"
           placeholder="Почта"
           value={userEmail}
           onChangeHandler={(e) => setUserEmail(e.target.value)}
           className=" w-80 my-2"
         />
-        <Input
+        <MyInput
           type="password"
           placeholder="Пароль"
           value={userPassword}

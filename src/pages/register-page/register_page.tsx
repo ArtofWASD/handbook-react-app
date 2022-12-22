@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import Input from "../../ui/input/input";
+import MyInput from "../../ui/input/input";
 import Button from "../../ui/button/button";
 import { FormEvent, useState } from "react";
 import { useAppDispatch } from "../../utils/hooks";
@@ -33,21 +33,21 @@ const Register = () => {
         }}
         className=" flex flex-col items-center"
       >
-        <Input
+        <MyInput
           type="name"
           placeholder="Ваше имя"
           value={userName}
           onChangeHandler={(e) => setUserName(e.target.value)}
           className=" w-80 my-2"
         />
-        <Input
+        <MyInput
           type="email"
           placeholder="Почта"
           value={userEmail}
           onChangeHandler={(e) => setUserEmail(e.target.value)}
           className=" w-80 my-2"
         />
-        <Input
+        <MyInput
           type="password"
           placeholder="Пароль"
           value={userPassword}

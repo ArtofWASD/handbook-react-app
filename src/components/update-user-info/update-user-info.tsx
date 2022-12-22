@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import Input from "../../ui/input/input";
+import MyInput from "../../ui/input/input";
 import { useAppDispatch } from "../../utils/hooks";
 
 const UpdateUserInfo = () => {
@@ -16,7 +16,7 @@ const UpdateUserInfo = () => {
           e.preventDefault();
         }}
       >
-        <Input
+        <MyInput
           type="text"
           placeholder="Ваше имя"
           value={userName}

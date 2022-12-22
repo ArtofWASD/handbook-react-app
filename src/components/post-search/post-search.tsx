@@ -35,6 +35,7 @@ const PostSearch = () => {
     dispatch(clearPostsArray());
     setSearchValue("");
   };
+  
   return (
     <>
       <div className="search_bar grid justify-self-center">
