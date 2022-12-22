@@ -11,7 +11,7 @@ const Header = () => {
       </div>
       <div className="header__title grid justify-self-center py-2">
         <p className="text-center text-xl md:text-2xl font-semibold text-slate-500 leading-tight">
-          Справочник
+          Справочник для самостоятельного обучения сотрудников компании.
         </p>
       </div>
       <div className="hidden md:flex justify-self-center">
