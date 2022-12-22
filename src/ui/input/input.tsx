@@ -1,28 +1,25 @@
 import { AnyAction } from "@reduxjs/toolkit";
-import {FC} from "react";
+import { FC, forwardRef } from "react";
+
 type TInput = {
   type: string;
   value: string;
   placeholder: string;
   onChangeHandler: (e: AnyAction) => void;
   className: string;
+  ref:any
 };
-const Input: FC<TInput> = ({
-  type,
-  value,
-  placeholder,
-  onChangeHandler,
-  className,
-}) => {
+const MyInput: FC<TInput> = forwardRef(function MyInput(props, ref: any) {  
   return (
     <input
-      type={type}
-      value={value}
-      placeholder={placeholder}
-      onChange={onChangeHandler}
-      className={`border-2 rounded-xl h-10 p2 text-center ` + className}
+      ref={ref}
+      type={props.type}
+      value={props.value}
+      placeholder={props.placeholder}
+      onChange={props.onChangeHandler}
+      className={`border-2 rounded-xl h-10 p2 text-center ` + props.className}
     />
   );
-};
+})
 
-export default Input;
+export default MyInput;
