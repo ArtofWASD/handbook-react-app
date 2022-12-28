@@ -8,15 +8,15 @@ import RegisterPage from "../src/pages/register-page/register_page";
 import LoginPage from "../src/pages/login-page/login_page";
 import AccountPage from "../src/pages/account-page/account-page";
 import PartPostPage from "./pages/part-post-page/part-post-page";
-import AdminPage from "./pages/admin-page/admin-page"
+import AdminPage from "./pages/admin-page/admin-page";
 import { useAppDispatch } from "../src/utils/hooks";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fetchData } from "./services/reducers/dataSlice";
 
 export default function App() {
   const dispatch = useAppDispatch();
   const getData = useRef(true);
-
+  // Получаем массив с машинами, ref для того что бы не получать ререндер фетча.
   useEffect(() => {
     if (getData.current) {
       dispatch(fetchData());
@@ -31,7 +31,10 @@ export default function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Homepage />} />
         <Route path="register" element={<RegisterPage />} />
-        <Route path="login" element={<LoginPage />} />
+        <Route
+          path="login"
+          element={<LoginPage />}
+        />
         <Route path="account" element={<AccountPage />} />
         <Route path="admin" element={<AdminPage />} />
         <Route path=":name" element={<ChildrenCarsList />} />
