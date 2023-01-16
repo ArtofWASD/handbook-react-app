@@ -37,7 +37,7 @@ const PartPostPage = () => {
               className="post__item border-2 rounded-xl py bg-slate-100"
               key={item.id}
             >
-              <div className="post__title text-xl font-semibold text-slate-500 p-2">
+              <div className="post__title text-xl font-semibold text-slate-500 p-2 text-center">
                 {item.title}
               </div>
               <div className="post__img flex justify-center">

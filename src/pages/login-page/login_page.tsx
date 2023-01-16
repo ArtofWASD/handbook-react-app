@@ -27,7 +27,7 @@ const Login = () => {
         onSubmit={(e) => {
           userLoginHandler(e);
         }}
-        className=" flex flex-col items-center"
+        className="flex flex-col items-center"
       >
         <MyInput
           type="email"
