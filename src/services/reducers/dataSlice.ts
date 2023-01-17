@@ -4,7 +4,7 @@ import { supabase } from "../../utils/supabase";
 export const fetchData = createAsyncThunk("data/fetchData", async () => {
   const { data: cars } = await supabase
     .from("cars")
-    .select("*, childCars(*, carInfo(engineInfo(*)), partsGroup(part(*)))")
+    .select("*, childCars(*, carInfo(engineInfo(*, infoId(*))), partsGroup(part(*)))")
     .order("name", { foreignTable: "childCars" });
   return cars;
 });
@@ -41,6 +41,15 @@ export const getGroupPosts = createAsyncThunk(
   },
 );
 
+type TCarInfo = {
+  engineInfo:{
+    id:string,
+    infoId:string,
+    name:string,
+    type:string
+  }
+}
+
 type TPartsGroup = {
   part: {
     id: string;
@@ -57,6 +66,7 @@ type TchildCars = {
   imgUrl: string;
   parent_id: string;
   partsGroup: Array<TPartsGroup>;
+  carInfo:Array<TCarInfo>
 };
 
 type TData = {
