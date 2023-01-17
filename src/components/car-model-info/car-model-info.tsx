@@ -16,7 +16,7 @@ const carModelInfo = (data:any) => {
             </p>
             <ul className="">
               {data.data.map((item:any)=>(
-                <div key={item.engineInfo.id} className='font-semibold text-slate-500'>{item.engineInfo.type} {item.engineInfo.name}</div>
+                <li key={item.engineInfo.id} className='font-semibold text-slate-500'>{item.engineInfo.type} {item.engineInfo.name}</li>
               ))}
             </ul>
           </div>

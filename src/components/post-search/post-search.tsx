@@ -1,4 +1,3 @@
-import { Dialog } from "@headlessui/react";
 import { FormEvent, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import {
@@ -62,9 +61,9 @@ const PostSearch = () => {
         >
           {postsSearchData && postsSearchData.length >= 1 ? (
             <div onClick={() => closeModalHandler()}>
-              <Dialog.Title className="text-center py-2 font-semibold text-md">
+              <div className="text-center py-2 font-semibold text-md">
                 Результаты поиска по запросу : {searchValue}
-              </Dialog.Title>
+              </div>
               {postsSearchData.map((item) => (
                 <PartsPostsPreview
                   key={item.id}
@@ -82,7 +81,7 @@ const PostSearch = () => {
               ) : (
                 <div className="text-center py-2 font-semibold text-md">
                   Увы по вашему запросу:
-                  <span className="font-bold"> {searchValue}</span>, посты не
+                  <span className="font-bold">{searchValue}</span>, посты не
                   найдены !
                 </div>
               )}
