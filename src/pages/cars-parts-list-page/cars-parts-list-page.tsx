@@ -33,7 +33,7 @@ const CarsPartsList = () => {
               />
             ))}
           </div>
-          <div className="nav grid lg:grid-cols-[20%_20%] md:grid-cols-[40%_40%] grid-cols-2 py-4 justify-end gap-2 px-2">
+          <div className="nav grid lg:grid-cols-[20%_20%] grid-cols-2 py-4 lg:justify-end justify-items-center gap-2 px-2">
             <Link to="../">
               <Button title="На главную" className="w-36" />
             </Link>
