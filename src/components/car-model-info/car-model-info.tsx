@@ -9,7 +9,7 @@ const carModelInfo = (data:any) => {
         Характеристки автомобиля
       </Popover.Button>
       <Popover.Panel>
-        <div className="flex gap-10">
+        <div className="lg:flex flex-col gap-10">
           <div className="">
             <p className="font-semibold text-slate-500 underline underline-offset-4 decoration-2 pb-2">
               Двигатель
