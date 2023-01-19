@@ -4,7 +4,7 @@ import { supabase } from "../../utils/supabase";
 export const fetchData = createAsyncThunk("data/fetchData", async () => {
   const { data: cars } = await supabase
     .from("cars")
-    .select("*, childCars(*, engines(*, engine(*)), gearboxes(*), partsGroup(part(*)))")
+    .select("*, childCars(*, engines(*, engine(*)), gearboxes(*, gearbox(*)), partsGroup(part(*)))")
     .order("name", { foreignTable: "childCars" });
   return cars;
 });

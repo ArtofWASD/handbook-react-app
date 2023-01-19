@@ -9,7 +9,6 @@ type TCarModelInfo = {
 // Поповер отображающий характеристики выбранного автомобиля
 const carModelInfo = (data: any) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  console.log(data.data);
   
   return (
     <>
@@ -28,7 +27,7 @@ const carModelInfo = (data: any) => {
                   {data?.data.engines.map((item: any) => (
                     <li
                       key={item.engine.id}
-                      className="font-semibold text-slate-500 hover:cursor-pointer hover:underline underline-offset-4 decoration-blue-500 py-1"
+                      className="font-semibold text-slate-500 hover:cursor-pointer hover:underline underline-offset-4 decoration-blue-500"
                       onClick={() => {
                         setIsModalOpen(true);
                         close();
@@ -46,14 +45,14 @@ const carModelInfo = (data: any) => {
                 <ul className="">
                 {data?.data.gearboxes.map((item: any) => (
                     <li
-                      key={item.id}
-                      className="font-semibold text-slate-500 hover:cursor-pointer hover:underline underline-offset-4 decoration-blue-500 py-1"
+                      key={item.gearbox.id}
+                      className="font-semibold text-slate-500 hover:cursor-pointer hover:underline underline-offset-4 decoration-blue-500"
                       onClick={() => {
                         setIsModalOpen(true);
                         close();
                       }}
                     >
-                      {item.name} ({item.type})
+                      {item.gearbox.name} ({item.gearbox.type})
                     </li>
                   ))}
                 </ul>
