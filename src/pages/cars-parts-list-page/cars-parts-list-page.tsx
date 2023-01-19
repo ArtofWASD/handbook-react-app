@@ -23,7 +23,7 @@ const CarsPartsList = () => {
       {childCarArray !== undefined ? (
         <div className="cars_parts_list_page grid justify-center">
           {childCarArray && <СarsListTitle data={childCarArray} />}
-          <CarModelInfo data={childCarArray.carInfo}/>
+          <CarModelInfo data={childCarArray}/>
           <div className="parts__group-list grid lg:grid-cols-4 sm:grid-cols-2 gap-4 py-4 px-1">
             {childCarArray?.partsGroup.map((item) => (
               <PartsListItem
