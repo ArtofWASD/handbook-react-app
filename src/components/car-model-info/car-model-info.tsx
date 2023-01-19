@@ -9,6 +9,8 @@ type TCarModelInfo = {
 // Поповер отображающий характеристики выбранного автомобиля
 const carModelInfo = (data: any) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  console.log(data);
+  
   return (
     <>
       <Popover className="grid">
@@ -25,11 +27,14 @@ const carModelInfo = (data: any) => {
                 <ul className="">
                   {data.data.map((item: any) => (
                     <li
-                      key={item.engineInfo.id}
+                      key={item.engine.id}
                       className="font-semibold text-slate-500 hover:cursor-pointer hover:underline underline-offset-4 decoration-blue-500 py-1"
-                      onClick={() => { setIsModalOpen(true);  close()}}
+                      onClick={() => {
+                        setIsModalOpen(true);
+                        close();
+                      }}
                     >
-                      {item.engineInfo.type} {item.engineInfo.name}
+                      {item.engine.type} {item.engine.name}
                     </li>
                   ))}
                 </ul>
@@ -68,7 +73,7 @@ const carModelInfo = (data: any) => {
           setIsModalOpen(false);
         }}
       >
-        <CarModelInfoDetails/>
+        <CarModelInfoDetails />
       </Modal>
     </>
   );
