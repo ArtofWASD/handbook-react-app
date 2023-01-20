@@ -7,21 +7,34 @@ const CarModelInfoDetails = () => {
     <>
       {data !== undefined && data !== null ? (
         <div className="py-3 px-2">
-          <div className="text-center text-xl font-semibold text-slate-500">
-            Подробная информация:
-          </div>
           {data.map((item: any) => (
-            <div key={item.id} className="flex-col gap-2">
-              <div className=" text-slate-500">- Cпецификация масла: {item.engineOilSpecification}</div>
-              <div className=" text-slate-500">- Объём масла: {item.engineOilAmount}</div>
-              <div className=" text-slate-500">- Масляные фильтры: {item.oilFilters}</div>
-              <div className=" text-slate-500">- Воздушные фильтры: {item.airFilters}</div>
+            <div key={item.id}>
+              <div className="text-center text-xl font-semibold text-slate-500">
+                Подробная информация: {item.engineType }
+              </div>
+              <div  className="flex-col gap-2">
+                <div className=" text-slate-500">
+                  - Cпецификация масла: {item.engineOilSpecification}
+                </div>
+                <div className=" text-slate-500">
+                  - Объём масла: {item.engineOilAmount}
+                </div>
+                <div className=" text-slate-500">
+                  - Масляные фильтры: {item.oilFilters}
+                </div>
+                <div className=" text-slate-500">
+                  - Воздушные фильтры: {item.airFilters}
+                </div>
+                <div className=" text-slate-500">
+                  - Топливные фильтры: {item.fuelFilters}
+                </div>
+              </div>
             </div>
           ))}
         </div>
       ) : (
         <div className="py-5 px-2">
-          К сожелнию по данному узлу информации нет в данный момент
+          К сожалению по данному узлу информации нет в данный момент
         </div>
       )}
     </>

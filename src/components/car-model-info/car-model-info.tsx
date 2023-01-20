@@ -13,7 +13,8 @@ const carModelInfo = (data: any) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [engineInfoId, setEngineInfoId] = useState<string>("");
   const dispatch = useAppDispatch();
-
+  console.log(engineInfoId);
+  
   const getEngineInfoHandler = (id: string) => {
     setIsModalOpen(true);
     setEngineInfoId(id);
