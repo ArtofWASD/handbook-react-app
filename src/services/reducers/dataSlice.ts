@@ -4,7 +4,9 @@ import { supabase } from "../../utils/supabase";
 export const fetchData = createAsyncThunk("data/fetchData", async () => {
   const { data: cars } = await supabase
     .from("cars")
-    .select("*, childCars(*, engines(*, engine(*)), gearboxes(*, gearbox(*)), partsGroup(part(*)))")
+    .select(
+      "*, childCars(*, engines(*, engine(*)), gearboxes(*, gearbox(*)), partsGroup(part(*)))",
+    )
     .order("name", { foreignTable: "childCars" });
   return cars;
 });
@@ -30,6 +32,7 @@ export const getCurrentPost = createAsyncThunk(
     return posts;
   },
 );
+
 export const getGroupPosts = createAsyncThunk(
   "data/getGroupPosts",
   async (query: string) => {
@@ -41,14 +44,27 @@ export const getGroupPosts = createAsyncThunk(
   },
 );
 
+export const getEngineInfo = createAsyncThunk(
+  "data/getEngineInfo",
+  async (engineInfo: string) => {
+    if (engineInfo !== null) {
+      let { data: engineInformation } = await supabase
+        .from("engineInformation")
+        .select("*")
+        .eq("id", `${engineInfo}`);
+      return engineInformation;
+    }
+  },
+);
+
 type TCarInfo = {
-  engineInfo:{
-    id:string,
-    infoId:string,
-    name:string,
-    type:string
-  }
-}
+  engineInfo: {
+    id: string;
+    infoId: string;
+    name: string;
+    type: string;
+  };
+};
 
 type TPartsGroup = {
   part: {
@@ -66,7 +82,7 @@ type TchildCars = {
   imgUrl: string;
   parent_id: string;
   partsGroup: Array<TPartsGroup>;
-  carInfo:Array<TCarInfo>
+  carInfo: Array<TCarInfo>;
 };
 
 type TData = {
@@ -92,10 +108,12 @@ export const dataSlice = createSlice({
     posts: [] as Array<TPostsData> | null,
     groupPosts: [] as Array<TPostsData> | null,
     currentPost: [] as Array<TPostsData> | null,
+    engineInfo: [] as Array<any> | null |undefined,
     fetchDataStatus: "",
     isCurrentPostLoad: "",
     isGroupPostLoad: "",
     postsFetchStatus: "",
+    getEngineInfoStatus: "",
   },
   reducers: {
     clearPostsArray(state) {
@@ -106,6 +124,9 @@ export const dataSlice = createSlice({
     },
     clearGroupPostsArray(state) {
       state.groupPosts = [];
+    },
+    clearEngineInfo(state) {
+      state.engineInfo = [];
     },
   },
   extraReducers: (builder) => {
@@ -140,9 +161,20 @@ export const dataSlice = createSlice({
       .addCase(getGroupPosts.fulfilled, (state, action) => {
         state.isGroupPostLoad = "Success";
         state.groupPosts = action.payload;
+      })
+      .addCase(getEngineInfo.pending, (state) => {
+        state.getEngineInfoStatus = "Loading";
+      })
+      .addCase(getEngineInfo.fulfilled, (state, action) => {
+        state.getEngineInfoStatus = "Success";
+        state.engineInfo = action.payload;
       });
   },
 });
-export const { clearPostsArray, clearCurrentPost, clearGroupPostsArray } =
-  dataSlice.actions;
+export const {
+  clearPostsArray,
+  clearCurrentPost,
+  clearGroupPostsArray,
+  clearEngineInfo,
+} = dataSlice.actions;
 export default dataSlice.reducer;

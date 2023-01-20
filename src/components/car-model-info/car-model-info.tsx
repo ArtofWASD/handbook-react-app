@@ -1,5 +1,7 @@
 import { Popover, Transition } from "@headlessui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { clearEngineInfo, getEngineInfo } from "../../services/reducers/dataSlice";
+import { useAppDispatch } from "../../utils/hooks";
 import CarModelInfoDetails from "../car-model-info-details/car-model-info-details";
 import Modal from "../modal/Modal";
 
@@ -9,7 +11,19 @@ type TCarModelInfo = {
 // Поповер отображающий характеристики выбранного автомобиля
 const carModelInfo = (data: any) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [engineInfoId, setEngineInfoId] = useState<string>("");
+  const dispatch = useAppDispatch();
 
+  const getEngineInfoHandler = (id: string) => {
+    setIsModalOpen(true);
+    setEngineInfoId(id);
+  };
+
+  useEffect(() => {
+    if (engineInfoId !== "") {
+      dispatch(getEngineInfo(engineInfoId));
+    }
+  }, [engineInfoId, isModalOpen]); 
   return (
     <>
       <Popover className="grid">
@@ -37,7 +51,7 @@ const carModelInfo = (data: any) => {
                         key={item.engine.id}
                         className="font-semibold text-slate-500 hover:cursor-pointer hover:underline underline-offset-4 decoration-blue-500"
                         onClick={() => {
-                          setIsModalOpen(true);
+                          getEngineInfoHandler(item.engine.engineInfo);
                           close();
                         }}
                       >
@@ -91,6 +105,7 @@ const carModelInfo = (data: any) => {
         isOpen={isModalOpen}
         isModalOpenHandler={() => {
           setIsModalOpen(false);
+          dispatch(clearEngineInfo())
         }}
       >
         <CarModelInfoDetails />
