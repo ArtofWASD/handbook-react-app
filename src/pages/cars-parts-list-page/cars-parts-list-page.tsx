@@ -17,7 +17,7 @@ const CarsPartsList = () => {
     ?.childCars.find(
       (item: { name: string }) => item.name === String(childName),
     );
-      
+    
   return (
     <>
       {childCarArray !== undefined ? (

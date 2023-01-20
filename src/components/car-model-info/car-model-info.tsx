@@ -56,7 +56,6 @@ const carModelInfo = (data: any) => {
                         key={item.gearbox.id}
                         className="font-semibold text-slate-500 hover:cursor-pointer hover:underline underline-offset-4 decoration-blue-500"
                         onClick={() => {
-                          setIsModalOpen(true);
                           close();
                         }}
                       >
