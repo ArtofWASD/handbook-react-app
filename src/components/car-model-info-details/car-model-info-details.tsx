@@ -17,7 +17,7 @@ const CarModelInfoDetails = () => {
                   - Cпецификация масла: {item.engineOilSpecification}
                 </div>
                 <div className=" text-slate-500">
-                  - Объём масла: {item.engineOilAmount}
+                  - Объём масла для полной замены: {item.engineOilAmount}
                 </div>
                 <div className=" text-slate-500">
                   - Масляные фильтры: {item.oilFilters}

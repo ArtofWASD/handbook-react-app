@@ -81,19 +81,13 @@ const carModelInfo = (data: any) => {
                 </div>
                 <div className="">
                   <p className="font-semibold text-slate-500 underline underline-offset-4 decoration-2 pb-2">
-                    Мост
-                  </p>
-                  <ul className=""></ul>
-                </div>
-                <div className="">
-                  <p className="font-semibold text-slate-500 underline underline-offset-4 decoration-2 pb-2">
-                    Технические жидкости
-                  </p>
-                  <ul className=""></ul>
-                </div>
-                <div className="">
-                  <p className="font-semibold text-slate-500 underline underline-offset-4 decoration-2 pb-2">
                     Серии
+                  </p>
+                  <ul className=""></ul>
+                </div>
+                <div className="">
+                  <p className="font-semibold text-slate-500 underline underline-offset-4 decoration-2 pb-2">
+                    Мост
                   </p>
                   <ul className=""></ul>
                 </div>
