@@ -1,6 +1,9 @@
 import { Popover, Transition } from "@headlessui/react";
 import { useEffect, useState } from "react";
-import { clearEngineInfo, getEngineInfo } from "../../services/reducers/dataSlice";
+import {
+  clearEngineInfo,
+  getEngineInfo,
+} from "../../services/reducers/dataSlice";
 import { useAppDispatch } from "../../utils/hooks";
 import CarModelInfoDetails from "../car-model-info-details/car-model-info-details";
 import Modal from "../modal/Modal";
@@ -14,7 +17,7 @@ const carModelInfo = (data: any) => {
   const [engineInfoId, setEngineInfoId] = useState<string>("");
   const dispatch = useAppDispatch();
   console.log(engineInfoId);
-  
+
   const getEngineInfoHandler = (id: string) => {
     setIsModalOpen(true);
     setEngineInfoId(id);
@@ -24,7 +27,7 @@ const carModelInfo = (data: any) => {
     if (engineInfoId !== "") {
       dispatch(getEngineInfo(engineInfoId));
     }
-  }, [engineInfoId, isModalOpen]); 
+  }, [engineInfoId, isModalOpen]);
   return (
     <>
       <Popover className="grid">
@@ -69,7 +72,7 @@ const carModelInfo = (data: any) => {
                     {data?.data.gearboxes.map((item: any) => (
                       <li
                         key={item.gearbox.id}
-                        className="font-semibold text-slate-500 hover:cursor-pointer hover:underline underline-offset-4 decoration-blue-500"
+                        className="font-semibold text-slate-500 decoration-blue-500"
                         onClick={() => {
                           close();
                         }}
@@ -81,9 +84,47 @@ const carModelInfo = (data: any) => {
                 </div>
                 <div className="">
                   <p className="font-semibold text-slate-500 underline underline-offset-4 decoration-2 pb-2">
-                    Серии
+                    Колёсная база и серии
                   </p>
-                  <ul className=""></ul>
+                  <ul className="">
+                    {data.data.series.map((item: any) => (
+                      <>
+                        <li key={item.shortWeelbase.id}>
+                          <p className="font-semibold text-slate-500">
+                            Короткая база: {item.shortWeelbase.weelbase}
+                          </p>
+                          <div className="font-semibold text-blue-500 flex">
+                            Серии:
+                            <div className="font-semibold text-slate-500 ml-1">
+                              {item.shortWeelbase.series}
+                            </div>
+                          </div>
+                        </li>
+                        <li key={item?.mediumWeelbase.id}>
+                          <p className="font-semibold text-slate-500">
+                            Средняя база: {item?.mediumWeelbase.weelbase}
+                          </p>
+                          <div className="font-semibold text-blue-500 flex">
+                            Серии:
+                            <div className="font-semibold text-slate-500 ml-1">
+                              {item?.mediumWeelbase.series}
+                            </div>
+                          </div>
+                        </li>
+                        <li key={item?.longWeelbase.id}>
+                          <p className="font-semibold text-slate-500">
+                            Длинная база: {item?.longWeelbase.weelbase}
+                          </p>
+                          <div className="font-semibold text-blue-500 flex">
+                            Серии:
+                            <div className="font-semibold text-slate-500 ml-1">
+                              {item?.longWeelbase.series}
+                            </div>
+                          </div>
+                        </li>
+                      </>
+                    ))}
+                  </ul>
                 </div>
                 <div className="">
                   <p className="font-semibold text-slate-500 underline underline-offset-4 decoration-2 pb-2">
@@ -100,7 +141,7 @@ const carModelInfo = (data: any) => {
         isOpen={isModalOpen}
         isModalOpenHandler={() => {
           setIsModalOpen(false);
-          dispatch(clearEngineInfo())
+          dispatch(clearEngineInfo());
         }}
       >
         <CarModelInfoDetails />
