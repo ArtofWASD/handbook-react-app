@@ -10,13 +10,15 @@ type TPartsListItem = {
     id: string;
   };
 };
-// группа запчастей плашка
+// Компонент отрисовывающий палшу с названием и иконкой группы запчастей
 const PartsListItem: FC<TPartsListItem> = ({ data, route }) => {
+  // Функция ожидания загрузки компонента
   const onLoad = (data: SyntheticEvent<HTMLElement, Event>) => {
     if (data !== undefined) {
       return data;
     }
   };
+  
   return (
     <motion.div
       onLoad={onLoad}

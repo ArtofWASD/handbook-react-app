@@ -3,7 +3,7 @@ import { FC, SyntheticEvent } from "react";
 import { Link } from "react-router-dom";
 import { year } from "../../utils/handlerFunctions";
 
-// элемент автомобиля
+// Компонет отрисовки плашки автомобиля с названием и годом
 type TCarModelItem = {
   data: {
     imgUrl: string;
@@ -15,7 +15,7 @@ type TCarModelItem = {
 };
 
 const CarModelItem: FC<TCarModelItem> = ({ data, route }) => {
-
+  // Функция ожидания загрузки контента
   const onLoad = (data: SyntheticEvent<HTMLElement, Event>) => {
     if (data !== undefined) {
       return data;

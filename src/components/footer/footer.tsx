@@ -1,5 +1,5 @@
 import { year } from "../../utils/handlerFunctions";
-
+// Подвал
 const Footer = () => {
   return (
     <footer className="footer grid bg-blue-600 h-20 items-center row-start-4">

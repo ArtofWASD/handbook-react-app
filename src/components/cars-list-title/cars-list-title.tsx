@@ -11,11 +11,13 @@ type TCarsListTitle = {
 };
 // Заголовок в старницах с машинами
 const CarsListTitle: FC<TCarsListTitle> = ({ data }) => {
+  // Функция ожидания загрузки контента
   const onLoad = (data: SyntheticEvent<HTMLElement, Event>) => {
     if (data !== undefined) {
       return data;
     }
   };
+
   return (
     <motion.div
       className="cars_list_title border-2 rounded-xl grid grid-cols-2 justify-self-center my-2 px-20 bg-white"

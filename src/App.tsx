@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Layout from "./components/layout/layout";
+import Layout from "./components/layout/Layout";
 import Homepage from "./pages/home-page/home-page";
 import ChildrenCarsList from "../src/pages/children-cars-list-page/children-cars-list-page";
 import CarsPartsList from "../src/pages/cars-parts-list-page/cars-parts-list-page";
@@ -10,7 +10,7 @@ import AccountPage from "../src/pages/account-page/account-page";
 import PartPostPage from "./pages/part-post-page/part-post-page";
 import AdminPage from "./pages/admin-page/admin-page";
 import { useAppDispatch } from "../src/utils/hooks";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { fetchData } from "./services/reducers/dataSlice";
 
 export default function App() {

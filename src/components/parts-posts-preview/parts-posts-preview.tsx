@@ -9,7 +9,7 @@ type TPartsPostsPreview = {
     id: string;
   };
 };
-
+// Компонент отрисовывающий список постов в модальном окне в виде превью
 const PartsPostsPreview: FC<TPartsPostsPreview> = ({ data, route }) => {
   return (
     <Link key={data.id} to={route}>

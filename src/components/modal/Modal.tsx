@@ -1,5 +1,6 @@
 
 import { Dialog } from "@headlessui/react";
+// Модальное окно
 const Modal = ({ isOpen, children, isModalOpenHandler }: any) => {
   return (
     <Dialog

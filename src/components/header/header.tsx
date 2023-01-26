@@ -1,6 +1,7 @@
 import Button from "../../ui/button/button";
 import { Link } from "react-router-dom";
 import Breadcrumb from "../breadcrumbs/breadcrumbs";
+// Шапка
 const Header = () => {
   return (
     <header className="header grid">

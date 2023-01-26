@@ -6,7 +6,7 @@ import {
 } from "../../services/reducers/dataSlice";
 import { useAppDispatch } from "../../utils/hooks";
 import CarModelInfoDetails from "../car-model-info-details/car-model-info-details";
-import Modal from "../modal/modal";
+import Modal from "../modal/Modal";
 
 type TCarModelInfo = {
   data: {};

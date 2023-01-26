@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-
+// Хлебные крошки, старый вариант под работу роутера до 6.4 версии
 const Breadcrumbs = () => {
   const { pathname } = useLocation();
   const pathnames = pathname.split("/").filter(Boolean);
