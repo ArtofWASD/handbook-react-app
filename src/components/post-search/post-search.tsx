@@ -7,7 +7,7 @@ import {
 } from "../../services/reducers/dataSlice";
 import MyInput from "../../ui/input/input";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
-import Modal from "../modal/Modal";
+import Modal from "../modal/modal";
 import PartsPostsPreview from "../parts-posts-preview/parts-posts-preview";
 
 const PostSearch = () => {

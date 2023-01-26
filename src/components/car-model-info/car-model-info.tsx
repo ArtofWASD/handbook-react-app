@@ -6,7 +6,7 @@ import {
 } from "../../services/reducers/dataSlice";
 import { useAppDispatch } from "../../utils/hooks";
 import CarModelInfoDetails from "../car-model-info-details/car-model-info-details";
-import Modal from "../modal/Modal";
+import Modal from "../modal/modal";
 
 type TCarModelInfo = {
   data: {};
@@ -16,18 +16,18 @@ const carModelInfo = (data: any) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [engineInfoId, setEngineInfoId] = useState<string>("");
   const dispatch = useAppDispatch();
-  console.log(engineInfoId);
-
+  // Получение информации о двигателе через Id двигателя
   const getEngineInfoHandler = (id: string) => {
     setIsModalOpen(true);
     setEngineInfoId(id);
   };
-
+  // Отслеживаем изменение Id двигателя и перевызываеф функцию получения информации
   useEffect(() => {
     if (engineInfoId !== "") {
       dispatch(getEngineInfo(engineInfoId));
     }
   }, [engineInfoId, isModalOpen]);
+
   return (
     <>
       <Popover className="grid">
@@ -45,11 +45,11 @@ const carModelInfo = (data: any) => {
           <Popover.Panel>
             {({ close }) => (
               <div className="lg:grid grid-flow-col lg:px-0 mx-4 ">
-                <div className="">
+                <div>
                   <p className="font-semibold text-slate-500 underline underline-offset-4 decoration-2 pb-2">
                     Двигатель
                   </p>
-                  <ul className="">
+                  <ul>
                     {data?.data.engines.map((item: any) => (
                       <li
                         key={item.engine.id}
@@ -64,11 +64,11 @@ const carModelInfo = (data: any) => {
                     ))}
                   </ul>
                 </div>
-                <div className="">
+                <div>
                   <p className="font-semibold text-slate-500 underline underline-offset-4 decoration-2 pb-2">
                     Коробка передач
                   </p>
-                  <ul className="">
+                  <ul>
                     {data?.data.gearboxes.map((item: any) => (
                       <li
                         key={item.gearbox.id}
@@ -82,55 +82,55 @@ const carModelInfo = (data: any) => {
                     ))}
                   </ul>
                 </div>
-                <div className="">
+                <div>
                   <p className="font-semibold text-slate-500 underline underline-offset-4 decoration-2 pb-2">
                     Колёсная база и серии
                   </p>
-                  <ul className="">
-                    {data.data.series.map((item: any) => (
-                      <>
-                        <li key={item.shortWeelbase.id}>
-                          <p className="font-semibold text-slate-500">
-                            Короткая база: {item.shortWeelbase.weelbase}
-                          </p>
-                          <div className="font-semibold text-blue-500 flex">
-                            Серии:
-                            <div className="font-semibold text-slate-500 ml-1">
-                              {item.shortWeelbase.series}
+                  <ul>
+                    {data?.data?.series.map((item: any) => (
+                      <div key={item.id}>
+                        {item.shortWeelbase && (
+                          <li key={item.shortWeelbase.id}>
+                            <p className="font-semibold text-slate-500">
+                              Короткая база: {item.shortWeelbase.weelbase}
+                            </p>
+                            <div className="font-semibold text-blue-500 flex">
+                              Серии:
+                              <div className="font-semibold text-slate-500 ml-1">
+                                {item.shortWeelbase.series}
+                              </div>
                             </div>
-                          </div>
-                        </li>
-                        <li key={item?.mediumWeelbase.id}>
-                          <p className="font-semibold text-slate-500">
-                            Средняя база: {item?.mediumWeelbase.weelbase}
-                          </p>
-                          <div className="font-semibold text-blue-500 flex">
-                            Серии:
-                            <div className="font-semibold text-slate-500 ml-1">
-                              {item?.mediumWeelbase.series}
+                          </li>
+                        )}
+                        {item.mediumWeelbase && (
+                          <li key={item.mediumWeelbase.id}>
+                            <p className="font-semibold text-slate-500">
+                              Средняя база: {item?.mediumWeelbase.weelbase}
+                            </p>
+                            <div className="font-semibold text-blue-500 flex">
+                              Серии:
+                              <div className="font-semibold text-slate-500 ml-1">
+                                {item?.mediumWeelbase.series}
+                              </div>
                             </div>
-                          </div>
-                        </li>
-                        <li key={item?.longWeelbase.id}>
-                          <p className="font-semibold text-slate-500">
-                            Длинная база: {item?.longWeelbase.weelbase}
-                          </p>
-                          <div className="font-semibold text-blue-500 flex">
-                            Серии:
-                            <div className="font-semibold text-slate-500 ml-1">
-                              {item?.longWeelbase.series}
+                          </li>
+                        )}
+                        {item.longWeelbase && (
+                          <li key={item.longWeelbase.id}>
+                            <p className="font-semibold text-slate-500">
+                              Длинная база: {item?.longWeelbase.weelbase}
+                            </p>
+                            <div className="font-semibold text-blue-500 flex">
+                              Серии:
+                              <div className="font-semibold text-slate-500 ml-1">
+                                {item?.longWeelbase.series}
+                              </div>
                             </div>
-                          </div>
-                        </li>
-                      </>
+                          </li>
+                        )}
+                      </div>
                     ))}
                   </ul>
-                </div>
-                <div className="">
-                  <p className="font-semibold text-slate-500 underline underline-offset-4 decoration-2 pb-2">
-                    Мост
-                  </p>
-                  <ul className=""></ul>
                 </div>
               </div>
             )}

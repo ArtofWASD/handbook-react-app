@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import Layout from "../src/components/layout/Layout";
-import Homepage from "../src/pages/homePage/homepage";
+import Layout from "./components/layout/layout";
+import Homepage from "./pages/home-page/home-page";
 import ChildrenCarsList from "../src/pages/children-cars-list-page/children-cars-list-page";
 import CarsPartsList from "../src/pages/cars-parts-list-page/cars-parts-list-page";
-import PartPostList from "../src/pages/part-post-list-page/part_post_list_page";
-import RegisterPage from "../src/pages/register-page/register_page";
-import LoginPage from "../src/pages/login-page/login_page";
+import PartPostList from "./pages/part-post-list-page/part-post-list-page";
+import RegisterPage from "./pages/register-page/register-page";
+import LoginPage from "./pages/login-page/login-page";
 import AccountPage from "../src/pages/account-page/account-page";
 import PartPostPage from "./pages/part-post-page/part-post-page";
 import AdminPage from "./pages/admin-page/admin-page";
