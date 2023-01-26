@@ -94,6 +94,14 @@ const carModelInfo = (data: any) => {
                             <p className="font-semibold text-slate-500">
                               Короткая база: {item.shortWeelbase.weelbase}
                             </p>
+                            {/* <div className="font-semibold text-slate-500 flex">
+                              <p className="text-blue-500 pr-1">Колёсный диск:</p>
+                              {item.shortWeelbase.weelRadius},
+                              <p className="text-blue-500 px-1">
+                                Количество шпилек:
+                              </p>
+                              {item.shortWeelbase.amountWeelStuds}
+                            </div> */}
                             <div className="font-semibold text-blue-500 flex">
                               Серии:
                               <div className="font-semibold text-slate-500 ml-1">
@@ -107,6 +115,14 @@ const carModelInfo = (data: any) => {
                             <p className="font-semibold text-slate-500">
                               Средняя база: {item?.mediumWeelbase.weelbase}
                             </p>
+                            {/* <div className="font-semibold text-slate-500 flex">
+                              <p className="text-blue-500 pr-1">Колёсный диск:</p>
+                              {item.mediumWeelbase.weelRadius},
+                              <p className="text-blue-500 px-1">
+                                Количество шпилек:
+                              </p>
+                              {item.mediumWeelbase.amountWeelStuds}
+                            </div> */}
                             <div className="font-semibold text-blue-500 flex">
                               Серии:
                               <div className="font-semibold text-slate-500 ml-1">
@@ -120,6 +136,14 @@ const carModelInfo = (data: any) => {
                             <p className="font-semibold text-slate-500">
                               Длинная база: {item?.longWeelbase.weelbase}
                             </p>
+                            {/* <div className="font-semibold text-slate-500 flex">
+                              <p className="text-blue-500 pr-1">Колёсный диск:</p>
+                              {item.longWeelbase.weelRadius},
+                              <p className="text-blue-500 px-1">
+                                Количество шпилек:
+                              </p>
+                              {item.longWeelbase.amountWeelStuds}
+                            </div> */}
                             <div className="font-semibold text-blue-500 flex">
                               Серии:
                               <div className="font-semibold text-slate-500 ml-1">
