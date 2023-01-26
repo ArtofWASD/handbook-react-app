@@ -1,5 +1,4 @@
 import { FormEvent, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
 import {
   fetchSearchPostQuery,
   clearCurrentPost,
@@ -7,14 +6,13 @@ import {
 } from "../../services/reducers/dataSlice";
 import MyInput from "../../ui/input/input";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
-import Modal from "../modal/modal";
+import Modal from "../modal/Modal";
 import PartsPostsPreview from "../parts-posts-preview/parts-posts-preview";
-
+// Компонент 
 const PostSearch = () => {
   const dispatch = useAppDispatch();
   const [searchValue, setSearchValue] = useState<string>("");
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const location = useLocation();
   const postsSearchData = useAppSelector((state) => state.data.posts);
   const postSearchStatus = useAppSelector(
     (state) => state.data.postsFetchStatus,
