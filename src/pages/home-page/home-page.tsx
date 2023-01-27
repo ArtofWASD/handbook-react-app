@@ -7,7 +7,7 @@ const Homepage = () => {
   return (
     <div className="grid justify-center ">
       <p className="text-center text-xl md:text-2xl font-semibold text-slate-500 py-2 px-2">
-        Выберите модельный ряд интересующего вас автомобиля, или воспользуйтесь поиском.
+        Выберите модельный ряд интересующего вас автомобиля или воспользуйтесь поиском.
       </p>
       <PostSearch />
       <div className="grid lg:grid-cols-3 gap-4 justify-items-center sm:grid-cols-1 mt-10">
