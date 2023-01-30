@@ -14,19 +14,22 @@ const CarModelInfoDetails = () => {
               </div>
               <div  className="flex-col gap-2">
                 <div className=" text-slate-500 flex gap-1">
-                  - Cпецификация масла: {item.engineOilSpecification !== null ? (<>{item.engineOilSpecification}</>):(<div className="text-red-500">информации нет</div>)}
+                  - Cпецификация масла: {item.engineOilSpecification !== null ? (<div className="text-blue-500">{item.engineOilSpecification}</div>):(<div className="text-red-500">информации нет</div>)}
                 </div>
                 <div className=" text-slate-500 flex gap-1">
-                  - Объём масла для полной замены: {item.engineOilAmount !== null ? (<>{item.engineOilAmount}</>):(<div className="text-red-500">информации нет</div>)}
+                  - Объём масла для полной замены: {item.engineOilAmount !== null ? (<div className="text-blue-500">{item.engineOilAmount}</div>):(<div className="text-red-500">информации нет</div>)}
                 </div>
                 <div className=" text-slate-500 flex gap-1">
-                  - Масляные фильтры: {item.oilFilters !== null ? (<>{item.oilFilters}</>):(<div className="text-red-500">информации нет</div>)}
+                  - Масляные фильтры: {item.oilFilters !== null ? (<div className="text-blue-500">{item.oilFilters}</div>):(<div className="text-red-500">информации нет</div>)}
                 </div>
                 <div className=" text-slate-500 flex gap-1">
-                  - Воздушные фильтры: {item.airFilters !== null ? (<>{item.airFilters}</>):(<div className="text-red-500">информации нет</div>)}
+                  - Воздушные фильтры: {item.airFilters !== null ? (<div className="text-blue-500">{item.airFilters}</div>):(<div className="text-red-500">информации нет</div>)}
                 </div>
                 <div className=" text-slate-500 flex gap-1">
-                  - Топливные фильтры: {item.fuelFilters !== null ? (<>{item.fuelFilters}</>):(<div className="text-red-500">информации нет</div>)}
+                  - Топливные фильтры: {item.fuelFilters !== null ? (<div className="text-blue-500">{item.fuelFilters}</div>):(<div className="text-red-500">информации нет</div>)}
+                </div>
+                <div className=" text-slate-500 flex gap-1">
+                  - Салонные фильтры: {item.saloonFilter !== null ? (<div className="text-blue-500">{item.saloonFilter}</div>):(<div className="text-red-500">информации нет</div>)}
                 </div>
                 <div className=" text-slate-500 flex gap-1">
                   - Объём охлаждающей жидкости для полной замены: {item.amountCoolant !== null ? (<>{item.amountCoolant}</>):(<div className="text-red-500">информации нет</div>)}
