@@ -13,20 +13,23 @@ const CarModelInfoDetails = () => {
                 Подробная информация: {item.engineType }
               </div>
               <div  className="flex-col gap-2">
-                <div className=" text-slate-500">
-                  - Cпецификация масла: {item.engineOilSpecification}
+                <div className=" text-slate-500 flex gap-1">
+                  - Cпецификация масла: {item.engineOilSpecification !== null ? (<>{item.engineOilSpecification}</>):(<div className="text-red-500">информации нет</div>)}
                 </div>
-                <div className=" text-slate-500">
-                  - Объём масла для полной замены: {item.engineOilAmount}
+                <div className=" text-slate-500 flex gap-1">
+                  - Объём масла для полной замены: {item.engineOilAmount !== null ? (<>{item.engineOilAmount}</>):(<div className="text-red-500">информации нет</div>)}
                 </div>
-                <div className=" text-slate-500">
-                  - Масляные фильтры: {item.oilFilters}
+                <div className=" text-slate-500 flex gap-1">
+                  - Масляные фильтры: {item.oilFilters !== null ? (<>{item.oilFilters}</>):(<div className="text-red-500">информации нет</div>)}
                 </div>
-                <div className=" text-slate-500">
-                  - Воздушные фильтры: {item.airFilters}
+                <div className=" text-slate-500 flex gap-1">
+                  - Воздушные фильтры: {item.airFilters !== null ? (<>{item.airFilters}</>):(<div className="text-red-500">информации нет</div>)}
                 </div>
-                <div className=" text-slate-500">
-                  - Топливные фильтры: {item.fuelFilters}
+                <div className=" text-slate-500 flex gap-1">
+                  - Топливные фильтры: {item.fuelFilters !== null ? (<>{item.fuelFilters}</>):(<div className="text-red-500">информации нет</div>)}
+                </div>
+                <div className=" text-slate-500 flex gap-1">
+                  - Объём охлаждающей жидкости для полной замены: {item.amountCoolant !== null ? (<>{item.amountCoolant}</>):(<div className="text-red-500">информации нет</div>)}
                 </div>
               </div>
             </div>
