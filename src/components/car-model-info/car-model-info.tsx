@@ -31,7 +31,7 @@ const carModelInfo = (data: any) => {
   return (
     <>
       <Popover className="grid">
-        <Popover.Button className="text-xl font-semibold text-slate-500 py-4">
+        <Popover.Button className="text-xl font-semibold text-slate-500 py-4 hover:underline underline-offset-4 decoration-blue-500">
           Характеристки автомобиля
         </Popover.Button>
         <Transition
