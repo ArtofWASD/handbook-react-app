@@ -1,8 +1,8 @@
-import React from 'react'
+import TextEditor from '../../components/text-editor/text-editor'
 
 const Admin = () => {
   return (
-    <div>admin-page</div>
+    <div className='flex justify-center'><TextEditor/></div>
   )
 }
 
