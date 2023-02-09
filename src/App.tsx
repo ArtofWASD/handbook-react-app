@@ -11,7 +11,7 @@ import PartPostPage from "./pages/part-post-page/part-post-page";
 import AdminPage from "./pages/admin-page/admin-page";
 import { useAppDispatch } from "../src/utils/hooks";
 import { useEffect, useRef } from "react";
-import { fetchData } from "./services/reducers/dataSlice";
+import { fetchData, fetchTreeData } from "./services/reducers/dataSlice";
 
 export default function App() {
   const dispatch = useAppDispatch();
@@ -20,6 +20,7 @@ export default function App() {
   useEffect(() => {
     if (getData.current) {
       dispatch(fetchData());
+      dispatch(fetchTreeData());
     }
     return () => {
       getData.current = false;
@@ -31,10 +32,7 @@ export default function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Homepage />} />
         <Route path="register" element={<RegisterPage />} />
-        <Route
-          path="login"
-          element={<LoginPage />}
-        />
+        <Route path="login" element={<LoginPage />} />
         <Route path="account" element={<AccountPage />} />
         <Route path="admin" element={<AdminPage />} />
         <Route path=":name" element={<ChildrenCarsList />} />

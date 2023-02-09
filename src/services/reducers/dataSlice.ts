@@ -11,6 +11,16 @@ export const fetchData = createAsyncThunk("data/fetchData", async () => {
   return cars;
 });
 
+export const fetchTreeData = createAsyncThunk(
+  "data/fetchTreeData",
+  async () => {
+    const { data: cars } = await supabase
+      .from("cars")
+      .select("id, name, childCars(id, name, partsGroup(id, part(id, name)))");
+    return cars;
+  },
+);
+
 export const fetchSearchPostQuery = createAsyncThunk(
   "data/fetchSearchPostQuery",
   async (query: string) => {
@@ -101,6 +111,8 @@ type TPostsData = {
   parentPartsGroupIds: string;
 };
 
+type TTreeData = any;
+
 export const dataSlice = createSlice({
   name: "data",
   initialState: {
@@ -108,7 +120,8 @@ export const dataSlice = createSlice({
     posts: [] as Array<TPostsData> | null,
     groupPosts: [] as Array<TPostsData> | null,
     currentPost: [] as Array<TPostsData> | null,
-    engineInfo: [] as Array<any> | null |undefined,
+    engineInfo: [] as Array<any> | null | undefined,
+    treeData: [] as any,
     fetchDataStatus: "",
     isCurrentPostLoad: "",
     isGroupPostLoad: "",
@@ -168,6 +181,9 @@ export const dataSlice = createSlice({
       .addCase(getEngineInfo.fulfilled, (state, action) => {
         state.getEngineInfoStatus = "Success";
         state.engineInfo = action.payload;
+      })
+      .addCase(fetchTreeData.fulfilled, (state, action) => {
+        state.treeData = action.payload;
       });
   },
 });

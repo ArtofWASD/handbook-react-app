@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 const TextEditor = () => {
   const [value, setValue] = useState("");
-  console.log(value);
 
   const modules = {
     toolbar: [
