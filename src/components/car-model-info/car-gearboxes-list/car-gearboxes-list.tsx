@@ -21,7 +21,7 @@ const CarGearboxesList:FC<TCarGearboxes> = ({data, close}) => {
                 close();
               }}
             >
-              {item.gearbox.name} ({item.gearbox.type})
+              {item.gearbox.name} ({item.gearbox.type}) {item.gearbox.detailedInfo}
             </li>
           ))}
         </ul>
