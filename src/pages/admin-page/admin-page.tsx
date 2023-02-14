@@ -14,7 +14,7 @@ const Admin = () => {
     
   }
   return (
-    <div className="flex justify-center items-center gap-4">
+    <div className="flex justify-center items-start gap-4">
       <div>
         <Tree
           ref={treeRef}

@@ -18,3 +18,8 @@ body {
 .footer {
   grid-row-start: 3;
 }
+.ql-editor {
+  min-height: 18em;
+  overflow-y: scroll;
+  resize: vertical;
+}

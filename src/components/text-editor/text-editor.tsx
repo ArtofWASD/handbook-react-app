@@ -1,9 +1,11 @@
 import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import MyInput from "../../ui/input/input";
 
 const TextEditor = () => {
-  const [value, setValue] = useState("");
+  const [quillValue, setQuillValue] = useState<string>("");
+  const [titleValue, setTitleValue] = useState<string>("");
 
   const modules = {
     toolbar: [
@@ -30,13 +32,26 @@ const TextEditor = () => {
     ],
   };
   return (
-    <div className="bg-white mt-10">
-      <ReactQuill
-        theme="snow"
-        value={value}
-        onChange={setValue}
-        modules={modules}
-      />
+    <div className="bg-white grid grid-flow-cols justify-items-center">
+      <div className="pb-2">
+        <MyInput
+          type="text"
+          value={titleValue}
+          placeholder="Заголовок статьи"
+          onChangeHandler={(e) => {
+            setTitleValue(e.target.value);
+          }}
+          className="px-64"
+        />
+      </div>
+      <div className="pt-2">
+        <ReactQuill
+          theme="snow"
+          value={quillValue}
+          onChange={setQuillValue}
+          modules={modules}
+        />
+      </div>
     </div>
   );
 };
