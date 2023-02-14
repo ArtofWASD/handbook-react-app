@@ -22,4 +22,16 @@ body {
   min-height: 18em;
   overflow-y: scroll;
   resize: vertical;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+}
+.ql-bubble{
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+}
+.ql-snow.ql-toolbar {
+  display: block;
+  background: #eaecec;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
 }
