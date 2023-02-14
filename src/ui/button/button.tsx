@@ -3,7 +3,7 @@ import { FC } from "react";
 type TButton = {
   title: string;
   onClickHandler?: () => void;
-  className: string;
+  className?: string;
 };
 
 const Button: FC<TButton> = ({ title, onClickHandler, className }) => {
